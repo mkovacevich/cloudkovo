@@ -1,0 +1,38 @@
+!SESSION 2015-12-20 18:25:59.058 -----------------------------------------------
+eclipse.buildId=4.3.0.I20130605-2000
+java.version=1.8.0_45
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.standard.product -product org.eclipse.epp.package.standard.product -keyring /Users/mkovacevich/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.standard.product -data /Users/mkovacevich/cloudkovo -product org.eclipse.epp.package.standard.product -keyring /Users/mkovacevich/.eclipse_keyring -showlocation
+
+!ENTRY com.salesforce.ide.core 2 0 2015-12-20 18:26:22.908
+!MESSAGE  WARN [2015-12-20 18:26:22,900] (ConnectionFactory.java:clearCache:217) - No cached connections
+
+
+!ENTRY com.salesforce.ide.core 2 0 2015-12-20 18:26:22.909
+!MESSAGE  WARN [2015-12-20 18:26:22,909] (DescribeObjectRegistry.java:clearCache:661) - No cached describes
+
+
+!ENTRY com.salesforce.ide.core 2 0 2015-12-20 18:26:22.917
+!MESSAGE  WARN [2015-12-20 18:26:22,916] (MetadataFactory.java:clearCache:126) - No cached metadata stubs
+
+!SESSION 2015-12-20 18:26:26.818 -----------------------------------------------
+eclipse.buildId=4.3.0.I20130605-2000
+java.version=1.8.0_45
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.standard.product -keyring /Users/mkovacevich/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.standard.product -keyring /Users/mkovacevich/.eclipse_keyring -showlocation
+
+!ENTRY com.salesforce.ide.core 2 0 2015-12-20 18:26:47.907
+!MESSAGE  WARN [2015-12-20 18:26:47,900] (ConnectionFactory.java:clearCache:217) - No cached connections
+
+
+!ENTRY com.salesforce.ide.core 2 0 2015-12-20 18:26:47.908
+!MESSAGE  WARN [2015-12-20 18:26:47,908] (DescribeObjectRegistry.java:clearCache:661) - No cached describes
+
+
+!ENTRY com.salesforce.ide.core 2 0 2015-12-20 18:26:47.916
+!MESSAGE  WARN [2015-12-20 18:26:47,916] (MetadataFactory.java:clearCache:126) - No cached metadata stubs
+
