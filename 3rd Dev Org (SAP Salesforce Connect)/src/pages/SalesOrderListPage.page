@@ -1,0 +1,30 @@
+<apex:page controller="SalesOrderController" >
+<apex:pageBlock title="SAP Sales Order Listing" >
+    <apex:PageBlockTable value="{!Summaries}" var="SlsOrderSum">
+        <apex:column >
+             <apex:facet name="header">Customer Name</apex:facet>
+             <apex:outputText value="{!SlsOrderSum.customerName__c}"/>
+        </apex:column>
+        <apex:column > 
+             <apex:facet name="header">Sales Order ID</apex:facet>
+             <apex:outputLink value="/{!SlsOrderSum.ID}">{!SlsOrderSum.ExternalID}</apex:outputLink>
+        </apex:column>
+        <apex:column > 
+             <apex:facet name="header">Total Amount</apex:facet>
+             <apex:outputText value="${0, number, ###,###,###.00}">
+                <apex:param value="{!SlsOrderSum.totalSum__c}" />
+             </apex:outputText>
+        </apex:column>
+        <apex:column > 
+             <apex:facet name="header">Net Amount</apex:facet>
+             <apex:outputText value="${0, number, ###,###,###.00}">
+                <apex:param value="{!SlsOrderSum.netSum__c}"/> 
+             </apex:outputText>
+        </apex:column>
+        <apex:column > 
+             <apex:facet name="header">Notes</apex:facet>
+             <apex:outputText value="{!SlsOrderSum.note__c}"/>
+        </apex:column>
+    </apex:PageBlockTable>
+</apex:pageBlock>
+</apex:page>

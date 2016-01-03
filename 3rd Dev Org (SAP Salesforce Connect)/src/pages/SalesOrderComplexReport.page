@@ -1,0 +1,77 @@
+<apex:page controller="SalesOrderReportController" >
+<!-- Use two Pageblocks, one for the Charts, one for the report details -->
+
+<apex:pageBlock title="SAP Sales Order Report" >
+   <apex:pageBlockSection columns="2">
+       <apex:pageBlockSectionItem >             
+           <apex:chart height="250" width="450" data="{!TotalSales}">
+               <apex:axis type="Numeric" position="bottom" fields="Value" title="Total Sales"/>   
+               <apex:axis type="Category" position="left" fields="Name" title="Customer"/>           
+               <apex:barSeries orientation="horizontal" axis="left" xField="Value" yField="Name"/>
+           </apex:chart>
+       </apex:pageBlockSectionItem>
+       <apex:pageBlockSectionItem > 
+           <apex:chart height="250" width="450" data="{!TotalOrderCount}">
+               <apex:axis type="Numeric" position="bottom" fields="Value" title="Count of Orders"/>   
+               <apex:axis type="Category" position="left" fields="Name" title="Customer"/>           
+               <apex:barSeries orientation="horizontal" axis="left" xField="Value" yField="Name"/>
+           </apex:chart>            
+       </apex:pageBlockSectionItem>
+   </apex:pageBlockSection>    
+</apex:pageBlock>
+     
+<apex:pageBlock title="Report Detail" >
+    <apex:repeat value="{!SlsOrdMap}" var="clist" >
+        <!--- Iterate by Customer --> 
+        <apex:PageBlockTable value="{!SlsOrdMap[clist]}" var="SlsOrder" rendered="true" >
+        <!-- Iterate over Sales Orders by Customer -->
+            <apex:column >
+                <apex:facet name="header">Customer Name</apex:facet>
+                 <apex:outputText value="{!SlsOrder.customerName__c}"/> 
+            </apex:column>
+            <apex:column rendered="true" > 
+                <apex:facet name="header">Sales Order ID</apex:facet>
+                <apex:outputLink value="/{!SlsOrder.ID}">{!SlsOrder.ExternalID}</apex:outputLink>
+                <!-- Footer for this Column --> 
+                <apex:facet name="footer"> 
+                    <apex:outputText value="{0, Number}">
+                        Count: 
+                        <apex:param value="{!TotalCount [clist]}"/> 
+                    </apex:outputText>    
+                </apex:facet> 
+            </apex:column>
+            <apex:column > 
+                 <apex:facet name="header">Total Amount</apex:facet>
+                <apex:outputText value="{0, Number, Currency}">
+                      <apex:param value="{!SlsOrder.totalSum__c}" />
+                </apex:outputText> 
+                <!-- Footer for this Column --> 
+                <apex:facet name="footer">     
+                    <apex:outputText value="{0, Number, Currency}">
+                        Total Sales: 
+                        <apex:param value="{!TotalSum [clist]}"/> 
+                    </apex:outputText>
+                </apex:facet> 
+            </apex:column>
+            <apex:column > 
+                 <apex:facet name="header">Net Amount
+                </apex:facet>
+                <apex:outputText value="{0, Number, Currency}">
+                    <apex:param value="{!SlsOrder.netSum__c}"/> 
+                </apex:outputText>            
+                <!-- Footer for this Column --> 
+                <apex:facet name="footer">     
+                <apex:outputText value="{0, Number, Currency}">
+                    Total Net: 
+                    <apex:param value="{!TotalNetSum [clist]}"/> 
+                </apex:outputText>
+                </apex:facet> 
+            </apex:column>
+            <apex:column > 
+                <apex:facet name="header">Notes</apex:facet>
+                <apex:outputText value="{!SlsOrder.note__c}"/>
+            </apex:column>
+        </apex:PageBlockTable>  
+    </apex:repeat>
+</apex:pageBlock>
+</apex:page>
