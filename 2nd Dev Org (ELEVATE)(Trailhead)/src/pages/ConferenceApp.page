@@ -1,0 +1,21 @@
+<apex:page sidebar="false" showHeader="false" docType="html" applyBodyTag="false"> 
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/> <link href="{!URLFOR($Resource.ConferenceApp,'css/ratchet.css')}" rel="stylesheet"/> <link href="{!URLFOR($Resource.ConferenceApp,'css/pageslider.css')}" rel="stylesheet"/> <link href="{!URLFOR($Resource.ConferenceApp,'css/styles.css')}" rel="stylesheet"/>
+</head>
+    
+<body>
+    <script src="{!URLFOR($Resource.ConferenceApp,'lib/jquery.js')}"></script> 
+    <script src="{!URLFOR($Resource.ConferenceApp,'lib/router.js')}"></script> 
+    <script src="{!URLFOR($Resource.ConferenceApp,'lib/pageslider.js')}"></script> 
+    <script src="{!URLFOR($Resource.ConferenceApp,'lib/force.js')}"></script> 
+    <script src="{!URLFOR($Resource.ConferenceApp,'js/app.js')}"></script> 
+    <script>
+		// Initialize forcejs here
+        force.init({accessToken: '{!$Api.Session_ID}'}); 
+    	router.start();
+	</script>
+</body> 
+</html> 
+</apex:page>
