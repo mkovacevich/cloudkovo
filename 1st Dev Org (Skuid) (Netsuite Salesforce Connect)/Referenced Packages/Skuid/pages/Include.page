@@ -1,0 +1,13 @@
+<apex:page controller="skuid.Ui" sidebar="false" showHeader="false" readonly="true" standardstylesheets="false" doctype="html-5.0">
+        <!-- Load in external CSS files using link tags -->
+        <apex:outputText value="{!cssLoads}" escape="false" />
+        <!-- Load local/page/inline CSS -->
+        <style>{!css}</style>
+        <!-- Build the HTML DOM of our page -->
+        <apex:outputText value="{!html}" escape="false" />
+        <!-- Load in custom labels -->
+    	<script>;skuid.label && skuid.label.add({<apex:dynamicComponent componentValue="{!labels}"/>'':''});</script>
+        <!-- Load in external JS files using script tags with src attribute -->
+	    <apex:outputText value="{!jsLoads}" escape="false" />
+        <script class="nx-include-scripts"><apex:outputText value="{!js}"/></script>
+</apex:page>

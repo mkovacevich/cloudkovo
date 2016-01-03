@@ -1,0 +1,8 @@
+<design:component label="Skuid Page">
+	<design:attribute name="page" label="Page Name" description="Name of the Skuid Page you want to use" />
+	<design:attribute name="type" label="Page Type" description="The Type of page, Desktop or Mobile"
+                      datasource="Desktop,Mobile" />
+    <design:attribute name="id" label="Id" description="A shortcut to the commonly used id property."/>
+    <design:attribute name="parameters" label="Page Parameters" description="A JSON string containing additional parameters to send to the Skuid page."/>
+    <design:attribute name="useURLParameters" label="Add URL Parameters to Page Parameters?" description="If true, then any URL Query String parameters will be accessible to Skuid's page parameter processing logic."/>
+</design:component>

@@ -1,0 +1,3 @@
+<apex:page standardController="Warehouse__c" 
+action="{!redirect}&actiontype=View&objecttype=Warehouse__c" extensions="skuid.Redirects">
+</apex:page>

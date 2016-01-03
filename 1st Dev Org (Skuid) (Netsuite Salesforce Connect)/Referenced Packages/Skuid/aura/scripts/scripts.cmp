@@ -1,0 +1,14 @@
+<aura:component >
+    <!-- PROD Scripts-->
+    <aura:attribute name="type" type="String" required="false" description="(Either Desktop or Mobile) lets Skuid know which resources to preload"/>
+    <aura:attribute name="afterScriptsLoaded" type="String" required="true" description="The action to take when all scripts are loaded"/>    
+    
+	<!-- Desktop Scripts -->
+    <aura:if isTrue="{!v.type != 'Mobile'}">
+        <ltng:require afterScriptsLoaded="{!v.afterScriptsLoaded}" scripts="/resource/skuid__JQuery,/resource/skuid__SkuidJS,/resource/skuid__WebFontLoaderJS"/>
+    </aura:if>
+    <!-- Mobile Scripts -->
+    <aura:if isTrue="{!v.type == 'Mobile'}">
+        <ltng:require afterScriptsLoaded="{!v.afterScriptsLoaded}" scripts="/resource/skuid__JQuery,/resource/skuid__SkuidMobileJS,/resource/skuid__WebFontLoaderJS"/>
+    </aura:if>
+</aura:component>

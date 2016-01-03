@@ -1,0 +1,5 @@
+<apex:page showHeader="false" sidebar="false" showChat="false">
+    <apex:includeScript value="{!$Resource.skuid__JQuery}"/>
+    <apex:includeScript value="{!$Resource.skuid__OAuthClientJS}"/>
+    You have been successfully authenticated! This window should close momentarily...
+</apex:page>

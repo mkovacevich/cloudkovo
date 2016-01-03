@@ -1,0 +1,3 @@
+<apex:page standardController="Opportunity" recordSetVar="c" 
+extensions="skuid.Redirects" action="{!redirect}?actionType=Tab&objecttype=Opportunity">
+</apex:page>

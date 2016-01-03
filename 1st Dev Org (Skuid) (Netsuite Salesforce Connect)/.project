@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>1st Dev Org (Skuid) (Netsuite Salesforce Connect)</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.salesforce.ide.builder.default</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.salesforce.ide.builder.upgrade</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.salesforce.ide.nature.default</nature>
+		<nature>com.salesforce.ide.nature.upgrade</nature>
+		<nature>com.salesforce.ide.nature.inactive</nature>
+	</natures>
+</projectDescription>

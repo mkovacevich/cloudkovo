@@ -1,0 +1,18 @@
+<apex:page standardController="Account" recordSetVar="accounts">
+  <apex:form >
+   <apex:pageblock >  
+     <apex:pageblockSection title="Account Standard Controller Output">
+         <apex:outputField value="{!account.name}"/>
+         <apex:outputField value="{!account.Annualrevenue}"/>
+         <apex:outputField value="{!account.AccountNumber}"/>
+         <apex:outputField value="{!account.Type}"/>
+         <apex:outputField value="{!account.AccountSource}"/>
+         <apex:outputField value="{!account.NumberOfEmployees}"/>
+         <apex:outputField value="{!account.Description}"/>
+         <apex:outputField value="{!account.Industry}"/>
+         <apex:outputField value="{!account.Website}"/>
+         <apex:outputField value="{!account.Rating}"/>
+     </apex:pageblockSection>
+   </apex:pageblock>
+  </apex:form>
+</apex:page>

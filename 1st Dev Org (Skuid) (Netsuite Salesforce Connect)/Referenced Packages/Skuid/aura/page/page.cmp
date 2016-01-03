@@ -1,0 +1,23 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="SkuidLightningController" access="global">
+	<aura:attribute name="page" type="String" required="false" access="global" description="A Shortcut Property for the Name of the Skuid Page to be Used"/>
+    <aura:attribute name="type" type="String" required="false" access="global" description="(Either Desktop or Mobile) lets Skuid know which resources to preload"/>
+    <aura:attribute name="id" type="String" required="false" access="global" description="A shortcut to the commonly used id property."/>
+    <aura:attribute name="parameters" type="String" required="false" access="global" description="A JSON string containing additional parameters to send to the Skuid page."/>
+    <aura:attribute name="useURLParameters" type="Boolean" required="false" default="false" access="global" description="If true, then any URL Query String parameters will be accessible to Skuid's page parameter processing logic."/>
+    
+    <!-- ZDM: We need more dependencies than this. What about 3rd-party ISV components? -->
+
+    <!-- We may want to dynamically add <aura:dependency /> tags for each needed component, -->
+    <!-- as that may be more performant. Otherwise if we try to instantiate a component in JavaScript -->
+    <!-- and the dependencies aren't loaded, a server trip is required and that's lots slower -->
+    <!-- than if we already had it to begin with -->
+    <aura:dependency resource="markup://ui:*"/>
+    <aura:dependency resource="markup://force:*"/>
+    <!-- ZDM: tried doing this, but it forces us to include all local Skuid Lightning Components -->
+	<!-- in our package! e.g. scripts_DEV, scripts_PROD become forced to be in our package if we use this! -->
+    <!--<aura:dependency resource="markup://c:*"/>-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+	<c:scripts type="{!v.type}" afterScriptsLoaded="{!c.loadedScripts}"/>
+    
+</aura:component>

@@ -1,0 +1,93 @@
+<aura:component isTemplate="true" access="GLOBAL" extends="aura:template">
+<aura:set attribute="title" value="Skuid"/>
+<aura:set attribute="loadingText" value=""/>
+<aura:set attribute="normalizeCss" value="false"/>
+<aura:set attribute="auraResetCss" value=""/>
+<style>
+    body {
+        background-color: white;
+		margin-top: -1px;
+		padding-top: 1px;
+    }
+    
+    @-webkit-keyframes pulse {
+      0% {background-color: #EEE;}
+      25% {background-color: #DDD;}
+      50% {background-color: #CCC;}
+      75% {background-color: #BBB;}
+      100% {background-color: #AAA;}
+    }
+    
+    @keyframes pulse {
+      0% {background-color: #EEE;}
+      25% {background-color: #DDD;}
+      50% {background-color: #CCC;}
+      75% {background-color: #BBB;}
+      100% {background-color: #AAA;}
+    }
+    
+    @-webkit-keyframes pulse2 {
+      0% {background-color: #AAA;}
+      25% {background-color: #BBB;}
+      50% {background-color: #CCC;}
+      75% {background-color: #DDD;}
+      100% {background-color: #EEE;}
+    }
+    
+    @keyframes pulse2 {
+      0% {background-color: #AAA;}
+      25% {background-color: #BBB;}
+      50% {background-color: #CCC;}
+      75% {background-color: #DDD;}
+      100% {background-color: #EEE;}
+    }
+
+    .auraLoadingBox {
+        background-color: #EEE;
+        border: none;
+        box-shadow: none;
+    	font-family: arial;
+    	font-size: 8pt;
+    	width: 37px;
+    	position: relative;
+    	margin: 100px auto 100px;
+    }
+
+    .auraLoadingBox .logo {
+
+    }
+
+    .auraLoadingBox h2 {
+        color: #444;
+    }
+    
+    .auraLoadingBox .spinner:before {
+    	content: "";
+        width: 14px;
+        height: 14px;
+        background-color: EEE;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin: 3px;
+        border-radius: 3px;
+	    animation: pulse 1s linear 0s infinite alternate;
+    	-webkit-animation: pulse 1s linear 0s infinite alternate;
+    	
+    }
+    
+    .auraLoadingBox .spinner:after {
+    	content: "";
+        width: 14px;
+        height: 14px;
+        background-color: AAA;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 3px;
+        border-radius: 3px;
+	    animation: pulse2 1s linear 0s infinite alternate;
+    	-webkit-animation: pulse2 1s linear 0s infinite alternate;
+    }
+</style>
+</aura:component>

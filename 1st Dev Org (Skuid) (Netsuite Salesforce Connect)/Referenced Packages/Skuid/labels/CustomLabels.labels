@@ -1,0 +1,1694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AM_PM_Markers</fullName>
+        <categories>date,time,i18n,am,pm,markers</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AM PM Markers</shortDescription>
+        <value>am,pm</value>
+    </labels>
+    <labels>
+        <fullName>Action</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Action</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>Actions</fullName>
+        <categories>actions</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Actions</shortDescription>
+        <value>Actions</value>
+    </labels>
+    <labels>
+        <fullName>Add_A_New</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add a New</shortDescription>
+        <value>Add a New {0}</value>
+    </labels>
+    <labels>
+        <fullName>Add_All_Visible_Objects</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add All Visible Objects</shortDescription>
+        <value>Add All Visible {0}</value>
+    </labels>
+    <labels>
+        <fullName>Add_Drilldown</fullName>
+        <categories>Chart</categories>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Drilldown</shortDescription>
+        <value>Add Drilldown</value>
+    </labels>
+    <labels>
+        <fullName>Add_New</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add New</shortDescription>
+        <value>Add New {0}</value>
+    </labels>
+    <labels>
+        <fullName>Add_This</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add This</shortDescription>
+        <value>Add This {0}</value>
+    </labels>
+    <labels>
+        <fullName>After_This</fullName>
+        <categories>date,range,filter</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>After This</shortDescription>
+        <value>After {0}</value>
+    </labels>
+    <labels>
+        <fullName>All_Time</fullName>
+        <categories>date,range,filter</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All Time</shortDescription>
+        <value>All Time</value>
+    </labels>
+    <labels>
+        <fullName>All_X</fullName>
+        <categories>record type,selectoption,picklist,condition</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All_X</shortDescription>
+        <value>All {0}</value>
+    </labels>
+    <labels>
+        <fullName>All_records_exported_to_CSV</fullName>
+        <categories>export</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All records exported to CSV</shortDescription>
+        <value>All {0} records exported to CSV!</value>
+    </labels>
+    <labels>
+        <fullName>Allow_external_emails</fullName>
+        <categories>trigger,external,email,notification,case,comment</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Allow external emails</shortDescription>
+        <value>Send notifications to emails outside this organization</value>
+    </labels>
+    <labels>
+        <fullName>Any_X</fullName>
+        <categories>condition,autopopulate,picklist</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Any_X</shortDescription>
+        <value>Any {0}</value>
+    </labels>
+    <labels>
+        <fullName>Apply</fullName>
+        <categories>mass, update, action</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Apply</shortDescription>
+        <value>Apply</value>
+    </labels>
+    <labels>
+        <fullName>Applying_Filter</fullName>
+        <categories>skuid,ui,table,list,filter</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Applying Filter</shortDescription>
+        <value>Applying Filter...</value>
+    </labels>
+    <labels>
+        <fullName>Assign_using_active_assignment_rule</fullName>
+        <categories>assignment,rule</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Assign using active assignment rule</shortDescription>
+        <value>Assign using active assignment rule</value>
+    </labels>
+    <labels>
+        <fullName>Batches_Processed</fullName>
+        <categories>import,  wizard, batch, processed</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Batches Processed</shortDescription>
+        <value>Batches Processed: {0} of {1}</value>
+    </labels>
+    <labels>
+        <fullName>Before_This</fullName>
+        <categories>date,range,filter</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Before This</shortDescription>
+        <value>Before {0}</value>
+    </labels>
+    <labels>
+        <fullName>Boolean_Off</fullName>
+        <categories>ui,boolean,renderer</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Boolean - Off</shortDescription>
+        <value>Off</value>
+    </labels>
+    <labels>
+        <fullName>Boolean_On</fullName>
+        <categories>ui,boolean,renderer</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Boolean - On</shortDescription>
+        <value>On</value>
+    </labels>
+    <labels>
+        <fullName>Building_Page</fullName>
+        <categories>builder,page</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Building Page</shortDescription>
+        <value>Composing</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>Cannot_Find_Object_Question</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cannot Find Object Question</shortDescription>
+        <value>Can&apos;t find the {0} you&apos;re looking for?</value>
+    </labels>
+    <labels>
+        <fullName>Check_All</fullName>
+        <categories>multiselect,picklist,ui</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Check All</shortDescription>
+        <value>Check all</value>
+    </labels>
+    <labels>
+        <fullName>Click_Here_to_Return_to_Where_You_Started</fullName>
+        <categories>import,wizard,click,return</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Click Here to Return to Where You Started</shortDescription>
+        <value>Click here to return to the page you came from</value>
+    </labels>
+    <labels>
+        <fullName>Click_To_Go_To_Object_Tab</fullName>
+        <categories>import, wizard, click, tab, link</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Click To Go To {0} Tab</shortDescription>
+        <value>Click here to go to the {0} tab</value>
+    </labels>
+    <labels>
+        <fullName>Clone</fullName>
+        <categories>pagetitle, action</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Clone</shortDescription>
+        <value>Clone</value>
+    </labels>
+    <labels>
+        <fullName>Components</fullName>
+        <categories>page,builder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Components</shortDescription>
+        <value>Components</value>
+    </labels>
+    <labels>
+        <fullName>Confirm_Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Confirm Delete</shortDescription>
+        <value>Are you sure you want to Delete this {0}, {1}?</value>
+    </labels>
+    <labels>
+        <fullName>Created_By</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Created By</shortDescription>
+        <value>Created By</value>
+    </labels>
+    <labels>
+        <fullName>Custom_Action</fullName>
+        <categories>table</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Action</shortDescription>
+        <value>Custom Action</value>
+    </labels>
+    <labels>
+        <fullName>Date_Completed</fullName>
+        <categories>date, completed</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date Completed</shortDescription>
+        <value>Date Completed</value>
+    </labels>
+    <labels>
+        <fullName>Date_Submitted</fullName>
+        <categories>date, submitted</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date Submitted</shortDescription>
+        <value>Date Submitted</value>
+    </labels>
+    <labels>
+        <fullName>Datepicker_CloseText</fullName>
+        <categories>datepicker,close,text</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Datepicker_CloseText</shortDescription>
+        <value>Done</value>
+    </labels>
+    <labels>
+        <fullName>Datepicker_CurrentText</fullName>
+        <categories>datepicker,current,text,today</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Datepicker_CurrentText</shortDescription>
+        <value>Today</value>
+    </labels>
+    <labels>
+        <fullName>Datepicker_NextText</fullName>
+        <categories>datepicker,next,text</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Datepicker_NextText</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>Datepicker_PrevText</fullName>
+        <categories>datepicker,prev,text</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Datepicker_PrevText</shortDescription>
+        <value>Prev</value>
+    </labels>
+    <labels>
+        <fullName>Datepicker_WeekHeader</fullName>
+        <categories>datepicker,week,header</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Datepicker_WeekHeader</shortDescription>
+        <value>Wk</value>
+    </labels>
+    <labels>
+        <fullName>Day_Names_Long</fullName>
+        <categories>day,names,datepicker,long,date,time</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Day Names Long</shortDescription>
+        <value>Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday</value>
+    </labels>
+    <labels>
+        <fullName>Day_Names_Min</fullName>
+        <categories>day,names,datepicker,min,date,time</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Day Names Min</shortDescription>
+        <value>Su,Mo,Tu,We,Th,Fr,Sa</value>
+    </labels>
+    <labels>
+        <fullName>Day_Names_Short</fullName>
+        <categories>day,names,datepicker,short,date,time</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Day Names Short</shortDescription>
+        <value>Sun,Mon,Tue,Wed,Thu,Fri,Sat</value>
+    </labels>
+    <labels>
+        <fullName>Day_Scheduling_View</fullName>
+        <categories>calendar</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Day Scheduling View</shortDescription>
+        <value>Day Scheduling View</value>
+    </labels>
+    <labels>
+        <fullName>Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>Deleting</fullName>
+        <categories>page,title,action,delete</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Deleting</shortDescription>
+        <value>Deleting</value>
+    </labels>
+    <labels>
+        <fullName>Done</fullName>
+        <categories>done,template,popup</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Done</shortDescription>
+        <value>Done</value>
+    </labels>
+    <labels>
+        <fullName>Download_Sample_File</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Download Sample File</shortDescription>
+        <value>Download a sample file</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_All_Columns_Must_Be_Mapped_Before_Import</fullName>
+        <categories>column, file, import</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_All_Columns_Must_Be_Mapped_Before_Import</shortDescription>
+        <value>All columns in the provided file must be mapped before the file can be imported.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_At_Least_One_Import_Job_Required</fullName>
+        <categories>mass, import, process, job</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_At_Least_One_Import_Job_Required</shortDescription>
+        <value>Each Mass Import Process must have at least one associated Import Job.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Content_Type_Not_Supported</fullName>
+        <categories>import, file, content, type</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Content_Type_Not_Supported</shortDescription>
+        <value>Content type {0} is not currently supported.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Could_Not_Find_Skuid_Page</fullName>
+        <categories>error,page,id,inaccessible</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Could_Not_Find_Skuid_Page</shortDescription>
+        <value>We were unable to find a Skuid Page named &lt;strong&gt;{0}&lt;/strong&gt;. The Page is either inaccessible or does not exist. If you believe you should be able to view this Skuid Page, ask your System Administrator to check the Sharing Model for the Page object to ensure that you have access to this Skuid Page.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Could_Not_Process_Page_Include_Merge</fullName>
+        <categories>error,page,include,merge</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Could_Not_Process_Page_Include_Merge</shortDescription>
+        <value>A PageInclude component of type {0} attempted to load a page with fully-qualified name {1}. However, the Query String for this request contained an invalid Mustache merge: {2}. {3}</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Could_Not_Retrieve_File_From_URL</fullName>
+        <categories>import, file, url</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Could_Not_Retrieve_File_From_URL</shortDescription>
+        <value>No file could be retrieved from the specified URL.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_DML_Operation_On_Model_X_Failed_Due_To_Error</fullName>
+        <categories>error,dml,operation,utils,save</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_DML_Operation_On_Model_X_Failed_Due_To_Error</shortDescription>
+        <value>The requested DML Operation on Model \&apos;{0}\&apos; could not be completed on account of the following error: {1}.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Duplicate_Value_for_Unique_Field</fullName>
+        <categories>error,duplicate,value,unique,field</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR Duplicate Value for Unique Field</shortDescription>
+        <value>Duplicate value on record: &lt;a href=&quot;javascript:skuid.utils.redirect(&apos;{&apos;url:&apos;&apos;/{0}&apos;&apos;, window: &apos;&apos;blank&apos;&apos;&apos;}&apos;);&quot;&gt;{1}&lt;/a&gt; (Related field: {2})</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Empty_Column_Header_Found</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Empty_Column_Header_Found</shortDescription>
+        <value>An empty column header was found. Please make sure that each of the columns in Row 1 of your file correspond with a valid field name.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Empty_File</fullName>
+        <categories>empty, file, import</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Empty_File</shortDescription>
+        <value>The selected file is empty. Please examine the file, and resave it.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_File_Contains_Invalid_Characters</fullName>
+        <categories>import, process, file, invalid, characters</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_File_Contains_Invalid_Characters</shortDescription>
+        <value>This file contains invalid characters (for geeks: the file is not UTF-8 compliant). Possible solutions:
+
+1. If you&apos;re importing a file you exported from another system, make sure your Dates are properly formatted (i.e. 6/13/2004 for June 13, 2004), or that any non-essential columns have been removed (i.e. CreatedDate, LastModifiedDate, SystemModStamp, etc.)
+
+2. Look through your file for any strange characters (i.e. anything that&apos;s not A-Z, 0-9, or standard punctuation), and remove them. Free text editors such as Text Wrangler will be helpful here --- use them to remove all non-ASCII characters, and save the file with UTF-8 encoding.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_File_Has_No_Columns</fullName>
+        <categories>file, import, columns</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_File_Has_No_Columns</shortDescription>
+        <value>The selected file has no columns. Please add columns and try again.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_File_Only_Has_Header_Row</fullName>
+        <categories>file, import, header</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_File_Only_Has_Header_Row</shortDescription>
+        <value>The file provided only has a row of column headers, but has no data rows. Please add data rows.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Import_Process_Required</fullName>
+        <categories>import, process</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Import_Process_Required</shortDescription>
+        <value>You must provide a valid ImportProcess.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Insufficient_Privileges_To_Create_Field</fullName>
+        <categories>error, insufficient, privileges, database, create, save, skoodbtools, field</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Insufficient_Privileges_To_Create_Field</shortDescription>
+        <value>You do not have permission to populate this field when creating a new record: {0}</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Insufficient_Privileges_To_Delete_Record</fullName>
+        <categories>error, insufficient, privileges, database, delete, save, skoodbtools</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Insufficient_Privileges_To_Delete_Record</shortDescription>
+        <value>You do not have permission to delete this record.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Insufficient_Privileges_To_Insert_Record</fullName>
+        <categories>error, insufficient, privileges, database, insert, save, skoodbtools</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Insufficient_Privileges_To_Insert_Record</shortDescription>
+        <value>You do not have permission to insert this record.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Insufficient_Privileges_To_Update_Field</fullName>
+        <categories>error, insufficient, privileges, database, update, save, skoodbtools, field</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Insufficient_Privileges_To_Update_Field</shortDescription>
+        <value>You do not have permission to update the value of this field: {0}</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Insufficient_Privileges_To_Update_Record</fullName>
+        <categories>error, insufficient, privileges, database, update, save, skoodbtools</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Insufficient_Privileges_To_Update_Record</shortDescription>
+        <value>You do not have permission to update this record.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Invalid_Batch_Job_Id</fullName>
+        <categories>error, invalid, batch, job, id, import</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Invalid_Batch_Job_Id</shortDescription>
+        <value>Please provide a valid Batch Job Id.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Invalid_Field_Mappings_Still_Exist</fullName>
+        <categories>file,import</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Invalid_Field_Mappings_Still_Exist</shortDescription>
+        <value>One or more column-to-field mappings is invalid. Please either remove or map all columns to a valid field.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Invalid_SObjectType_For_Model</fullName>
+        <categories>error,builder,sobject,type,model,object</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Invalid_SObjectType_For_Model</shortDescription>
+        <value>This page has a Skuid Model, {0}, which is associated with an invalid SObject Type, {1}. This Custom Object may have been deleted, renamed, or is not available in this org. Remove this Model, save your Page, and refresh the Page Builder.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Invalid_SObject_No_Metadata_Retrieved</fullName>
+        <categories>error,sobject,metadata,builder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Invalid_SObject_No_Metadata_Retrieved</shortDescription>
+        <value>Invalid SObject name {0}. No metadata could be retrieved.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Invalid_SObject_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Invalid_SObject_Type</shortDescription>
+        <value>Invalid SObject type.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Missing_Field_on_Field_from_Another_Model_Condition</fullName>
+        <categories>error,models,builder,page,field,condition</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Missing Field on Field from Another Model Condition</shortDescription>
+        <value>A Skuid Model, {0}, has a &apos;Field from another model&apos; Condition referencing a field, {1}, that is not found in the source model, {2}. Please add the field to the source model, change the condition to reference another field that is in the source model, or remove this condition.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_No_Permission_To_Author_Arbitrary_JavaScript</fullName>
+        <categories>error,page,edit,apex,javascript,author,permission</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_No_Permission_To_Author_Arbitrary_JavaScript</shortDescription>
+        <value>You do not have permission to create or modify Pages that contain JavaScript Resources. This capability requires the &quot;Author Apex&quot; permission on your user Profile.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Page_or_Tab_Required</fullName>
+        <categories>error,page assignment,page,name,id,required</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Page_Name_or_Id_Required</shortDescription>
+        <value>Either the Name or Id of a Skuid Page must be provided in order for Skuid to run.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Page_with_Id_Could_Not_Be_Retrieved</fullName>
+        <categories>error,page,id,inaccessible</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Page_with_Id_Could_Not_Be_Retrieved</shortDescription>
+        <value>Skuid determined that you should be sent to the Page with Id {0}, but this Page was not accessible to you when Skuid requested it. The Page may have been deleted, or Sharing Rules may have changed.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Protected_Module</fullName>
+        <categories>error, protected, module</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Protected_Module</shortDescription>
+        <value>You do not have permission to remove, add new, or modify existing Pages in the {0} module.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Unable_To_Redirect_To_Standard_Pages</fullName>
+        <categories>error,page,assignment</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Unable_To_Redirect_To_Standard_Pages</shortDescription>
+        <value>Skuid was unable to redirect the user to standard Salesforce Page Layouts, and no Skuid Page could be used instead.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Valid_DataTable_Required</fullName>
+        <categories>error, import, job</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ERROR_Valid_DataTable_Required</shortDescription>
+        <value>A valid DataTable is required to create an ImportJob.</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Page</fullName>
+        <categories>pagetitle, action</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit Page</shortDescription>
+        <value>Edit Page</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Row</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit Row</shortDescription>
+        <value>Edit Row</value>
+    </labels>
+    <labels>
+        <fullName>Edit_Rows_Action</fullName>
+        <categories>page builder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit Rows Action</shortDescription>
+        <value>Edit Rows Action</value>
+    </labels>
+    <labels>
+        <fullName>End_Date</fullName>
+        <categories>date,range,filter</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>End Date</shortDescription>
+        <value>End Date</value>
+    </labels>
+    <labels>
+        <fullName>Enter_keywords</fullName>
+        <categories>ui,multiselect,picklist</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Enter keywords</shortDescription>
+        <value>Enter keywords</value>
+    </labels>
+    <labels>
+        <fullName>Error</fullName>
+        <categories>error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>Error_Performing_Requested_Search</fullName>
+        <categories>search,ui,list,table,error</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error Performing Requested Search</shortDescription>
+        <value>There was an error performing the requested search.</value>
+    </labels>
+    <labels>
+        <fullName>Error_While_Loading_Visualforce_Page_Include</fullName>
+        <categories>page,include,error,visualforce</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Error_While_Loading_Visualforce_Page_Include</shortDescription>
+        <value>An error occurred while trying to load the Visualforce Page at URL {0}: {1}</value>
+    </labels>
+    <labels>
+        <fullName>Example_Of_What_File_Should_Look_Like</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Example_Of_What_File_Should_Look_Like</shortDescription>
+        <value>An example of what your File should look like</value>
+    </labels>
+    <labels>
+        <fullName>Export_Data</fullName>
+        <categories>export, table, data</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Export Data</shortDescription>
+        <value>Export table data</value>
+    </labels>
+    <labels>
+        <fullName>Field</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field</shortDescription>
+        <value>Field</value>
+    </labels>
+    <labels>
+        <fullName>Field_X_Does_Not_Exist_On_Object</fullName>
+        <categories>dml, error, exception, field, exist</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Field_X_Does_Not_Exist_On_Object</shortDescription>
+        <value>There is no Field with relationship name {0} accessible from the SObject {1}. Please check to see that this Field relationship name corresponds to valid Fields on your Salesforce objects.</value>
+    </labels>
+    <labels>
+        <fullName>Fields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fields</shortDescription>
+        <value>Fields</value>
+    </labels>
+    <labels>
+        <fullName>File_Column_Header</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>File Column Header</shortDescription>
+        <value>File Column Header</value>
+    </labels>
+    <labels>
+        <fullName>Filter</fullName>
+        <categories>ui,multiselect,picklist</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter</shortDescription>
+        <value>Filter</value>
+    </labels>
+    <labels>
+        <fullName>Filter_could_not_be_applied</fullName>
+        <categories>skuid,ui,table,list,filter</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Filter could not be applied</shortDescription>
+        <value>Filter could not be applied.</value>
+    </labels>
+    <labels>
+        <fullName>First</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>First</shortDescription>
+        <value>First</value>
+    </labels>
+    <labels>
+        <fullName>Flag_For_Deletion</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Flag For Deletion</shortDescription>
+        <value>Flag For Deletion</value>
+    </labels>
+    <labels>
+        <fullName>Flag_for_Delete_Action</fullName>
+        <categories>page builder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Flag for Delete Action</shortDescription>
+        <value>Flag for Delete Action</value>
+    </labels>
+    <labels>
+        <fullName>Home</fullName>
+        <categories>pagetitle,template</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home</shortDescription>
+        <value>Home</value>
+    </labels>
+    <labels>
+        <fullName>How_to_Format_Your_File</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>How to Format Your File</shortDescription>
+        <value>How to Format Your File</value>
+    </labels>
+    <labels>
+        <fullName>Import</fullName>
+        <categories>import</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Import</shortDescription>
+        <value>Import</value>
+    </labels>
+    <labels>
+        <fullName>ImportWizardStep1ReturnWarning</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ImportWizardStep1ReturnWarning</shortDescription>
+        <value>Warning: if you return to Step 1, you will lose all of your column mappings and other edits. Are you sure you want to proceed?</value>
+    </labels>
+    <labels>
+        <fullName>ImportWizard_OnceFinishedWithEditsSelectSaveAs</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ImportWizard_OnceFinishedWithEditsSelectSaveAs</shortDescription>
+        <value>Once you&apos;re finished with your edits, be sure to select &apos;Save As...&apos; and choose a supported import file format such as &apos;Comma Separated Values (.CSV)&apos;.</value>
+    </labels>
+    <labels>
+        <fullName>Import_Complete</fullName>
+        <categories>import, wizard, mass, batch, process</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Import Complete</shortDescription>
+        <value>Import Complete</value>
+    </labels>
+    <labels>
+        <fullName>Import_Email_On_The_Way</fullName>
+        <categories>import, wizard, email</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Import Email On The Way</shortDescription>
+        <value>You should receive an email in a few minutes with the results of the Import operation.</value>
+    </labels>
+    <labels>
+        <fullName>Import_In_Progress</fullName>
+        <categories>import, wizard, progress</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Import In Progress</shortDescription>
+        <value>Import in Progress</value>
+    </labels>
+    <labels>
+        <fullName>Import_Processing_In_Background</fullName>
+        <categories>import, wizard, processing, background</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Import Processing In Background</shortDescription>
+        <value>Your Import is being processed in the background, so feel free to leave this page.</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_Field_On_Object_Requested_by_Model</fullName>
+        <categories>invalid,field,model</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid Field On Object Requested by Model</shortDescription>
+        <value>A Skuid Model, {0}, requested a Field with relationship name {1}, on the {2} Object, but Skuid could not find a valid Field accessible through this relationship name. Please check that this Field actually exists on this Object (or on any related Objects). If it does not exist, remove it from this Model.</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_Field_on_Object_Requested_by_Model_Condition</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid Field on Object Requested by Model Condition</shortDescription>
+        <value>A Skuid Model, {0}, has a Condition on a Field with relationship name {1}, on the {2} Object, but this Field appears to be invalid. Please check that this Field actually exists on this Object, (or on related Objects), and if it does not, change any Conditions on this Model that reference this Field.</value>
+    </labels>
+    <labels>
+        <fullName>Invalid_Number_Format</fullName>
+        <categories>database,error,utils,number,save</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invalid Number Format</shortDescription>
+        <value>Invalid Number Format</value>
+    </labels>
+    <labels>
+        <fullName>Job_Details</fullName>
+        <categories>import, wizard, batch, job</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Job Details</shortDescription>
+        <value>Job Details</value>
+    </labels>
+    <labels>
+        <fullName>Last</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last</shortDescription>
+        <value>Last</value>
+    </labels>
+    <labels>
+        <fullName>Last_Modified_By</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Modified By</shortDescription>
+        <value>Last Modified By</value>
+    </labels>
+    <labels>
+        <fullName>List_View</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>List View</shortDescription>
+        <value>List</value>
+    </labels>
+    <labels>
+        <fullName>Load_More</fullName>
+        <categories>list, model, data, load, more</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Load More</shortDescription>
+        <value>Load More</value>
+    </labels>
+    <labels>
+        <fullName>Loading</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Loading</shortDescription>
+        <value>Loading...</value>
+    </labels>
+    <labels>
+        <fullName>Loading_Calendar_Events</fullName>
+        <categories>skuid,calendar,events,loading</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Loading Calendar Events</shortDescription>
+        <value>Loading Calendar Events...</value>
+    </labels>
+    <labels>
+        <fullName>Map_Column_Headers_To_Fields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Map Column Headers To Fields</shortDescription>
+        <value>Map Column Headers To Fields</value>
+    </labels>
+    <labels>
+        <fullName>Mapping_Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mapping Status</shortDescription>
+        <value>Mapping Status</value>
+    </labels>
+    <labels>
+        <fullName>Mass_Update_Selected_Rows</fullName>
+        <categories>action, table, mass, update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Mass Update Selected Rows</shortDescription>
+        <value>Mass Update Selected Rows</value>
+    </labels>
+    <labels>
+        <fullName>Model_Id_Not_Provided</fullName>
+        <categories>apex,utils,dbtools,dml,model</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Model_Id_Not_Provided</shortDescription>
+        <value>No Model Id provided.</value>
+    </labels>
+    <labels>
+        <fullName>Models</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Models</shortDescription>
+        <value>Models</value>
+    </labels>
+    <labels>
+        <fullName>Module</fullName>
+        <categories>page,builder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Module</shortDescription>
+        <value>Module</value>
+    </labels>
+    <labels>
+        <fullName>Month_Names_Long</fullName>
+        <categories>month,month names,datepicker,calendar</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Month Names Long</shortDescription>
+        <value>January,February,March,April,May,June,July,August,September,October,November,December</value>
+    </labels>
+    <labels>
+        <fullName>Month_Names_Short</fullName>
+        <categories>month,month names,datepicker,calendar</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Month Names Short</shortDescription>
+        <value>Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec</value>
+    </labels>
+    <labels>
+        <fullName>Month_View</fullName>
+        <categories>calendar</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Month View</shortDescription>
+        <value>Month View</value>
+    </labels>
+    <labels>
+        <fullName>New_Event</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Event</shortDescription>
+        <value>New Event</value>
+    </labels>
+    <labels>
+        <fullName>Next</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Next</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>No</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No</shortDescription>
+        <value>No</value>
+    </labels>
+    <labels>
+        <fullName>No_But_I_Would_Like_To_Delete</fullName>
+        <categories>page,title,action,delete</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No but I would like to Delete</shortDescription>
+        <value>No, but I would like to delete {0} {1} that I flagged for deletion.</value>
+    </labels>
+    <labels>
+        <fullName>No_Dont_Delete_Anything</fullName>
+        <categories>page,title,action,delete</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Dont Delete Anything</shortDescription>
+        <value>No, do not Delete anything.</value>
+    </labels>
+    <labels>
+        <fullName>No_Module</fullName>
+        <categories>builder,page,module</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Module</shortDescription>
+        <value>No Module</value>
+    </labels>
+    <labels>
+        <fullName>No_Objects_to_Display</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Objects to Display</shortDescription>
+        <value>No {0} to Display</value>
+    </labels>
+    <labels>
+        <fullName>No_Page_Name_Provided_For_Visualforce_Page_Include</fullName>
+        <categories>page,include,visualforce,page,name</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Page Name Provided For Visualforce Page Include</shortDescription>
+        <value>No Page Name was provided for a Visualforce Page Include on this Skuid Page. A valid Visualforce Page name is required.</value>
+    </labels>
+    <labels>
+        <fullName>None_Option_Text</fullName>
+        <categories>none</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>None_Option_Text</shortDescription>
+        <value>--None--</value>
+    </labels>
+    <labels>
+        <fullName>None_Selected</fullName>
+        <categories>field,multipicklist,ui</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>None Selected</shortDescription>
+        <value>None selected</value>
+    </labels>
+    <labels>
+        <fullName>Number_Selected</fullName>
+        <categories>multiselect,picklist,ui</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Number Selected</shortDescription>
+        <value># selected</value>
+    </labels>
+    <labels>
+        <fullName>Number_of_Items_Successfully_Created</fullName>
+        <categories>import, wizard, email</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Number of Items Successfully Created</shortDescription>
+        <value>Number of {0} successfully created: {1}</value>
+    </labels>
+    <labels>
+        <fullName>Number_of_Items_That_Failed</fullName>
+        <categories>import, wizard, email</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Number of Items That Failed</shortDescription>
+        <value>Number of {0} that failed: {1}</value>
+    </labels>
+    <labels>
+        <fullName>Object_X_Does_Not_Exist</fullName>
+        <categories>object,type,apex,utils,exist</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Object_X_Does_Not_Exist</shortDescription>
+        <value>Object \&apos;{0}\&apos; either does not exist or is not accesible.</value>
+    </labels>
+    <labels>
+        <fullName>Objects_Per_Page</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Objects Per Page</shortDescription>
+        <value>{0} Per Page</value>
+    </labels>
+    <labels>
+        <fullName>Organization_Default</fullName>
+        <categories>page assignment,context,organization,default</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Organization Default</shortDescription>
+        <value>Organization Default</value>
+    </labels>
+    <labels>
+        <fullName>Owner</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Owner</shortDescription>
+        <value>Owner</value>
+    </labels>
+    <labels>
+        <fullName>Page_Error_Header</fullName>
+        <categories>error,page,header,generic,title</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Page_Error_Header</shortDescription>
+        <value>You&apos;ve been INKED! (Something went wrong)</value>
+    </labels>
+    <labels>
+        <fullName>Page_Regions</fullName>
+        <categories>page,builder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Page Regions</shortDescription>
+        <value>Regions</value>
+    </labels>
+    <labels>
+        <fullName>Pagination_Limit_Reached</fullName>
+        <categories>ui,pagination,offset,limit</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Pagination Limit Reached</shortDescription>
+        <value>Pagination limit reached</value>
+    </labels>
+    <labels>
+        <fullName>Picture_View</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Picture View</shortDescription>
+        <value>Picture</value>
+    </labels>
+    <labels>
+        <fullName>Please_Check_Requested_Model_Merge_Field</fullName>
+        <categories>page,include,error,model,merge</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please_Check_Requested_Model_Merge_Field</shortDescription>
+        <value>Please check that you have the correct Model Id and correct Field Id.</value>
+    </labels>
+    <labels>
+        <fullName>Please_Check_Requested_URL_Parameter</fullName>
+        <categories>page,include,error,url,parameter</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please Check Requested URL Parameter</shortDescription>
+        <value>Please check that the requested URL Parameter is correct.</value>
+    </labels>
+    <labels>
+        <fullName>Preview</fullName>
+        <categories>builder,pagetitle</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Preview</shortDescription>
+        <value>Preview</value>
+    </labels>
+    <labels>
+        <fullName>Previous</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Previous</shortDescription>
+        <value>Previous</value>
+    </labels>
+    <labels>
+        <fullName>Profile_Object_Label</fullName>
+        <categories>profile,sobject,object,label</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Profile Object Label</shortDescription>
+        <value>Profile</value>
+    </labels>
+    <labels>
+        <fullName>Properties</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Properties</shortDescription>
+        <value>Properties</value>
+    </labels>
+    <labels>
+        <fullName>Records_Successfully_Created</fullName>
+        <categories>import, file, email</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Records Successfully Created</shortDescription>
+        <value>{0}_Successfully_Created</value>
+    </labels>
+    <labels>
+        <fullName>Records_Successfully_Created_Or_Updated</fullName>
+        <categories>import,wizard,mass,file,email</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Records_Successfully_Created_Or_Updated</shortDescription>
+        <value>{0}_Successfully_Created_Or_Updated</value>
+    </labels>
+    <labels>
+        <fullName>Records_That_Failed</fullName>
+        <categories>import, file, email</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Records That Failed</shortDescription>
+        <value>{0}_That_Failed</value>
+    </labels>
+    <labels>
+        <fullName>Remove</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove</shortDescription>
+        <value>Remove</value>
+    </labels>
+    <labels>
+        <fullName>Remove_this_Column</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Remove this Column</shortDescription>
+        <value>Remove this Column</value>
+    </labels>
+    <labels>
+        <fullName>Required_Fields_have_no_Value</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Required Fields have no Value</shortDescription>
+        <value>Required Fields have no Value</value>
+    </labels>
+    <labels>
+        <fullName>Resources</fullName>
+        <categories>page,builder</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Resources</shortDescription>
+        <value>Resources</value>
+    </labels>
+    <labels>
+        <fullName>Result</fullName>
+        <categories>list</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Result</shortDescription>
+        <value>Result</value>
+    </labels>
+    <labels>
+        <fullName>Results</fullName>
+        <categories>list</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Results</shortDescription>
+        <value>Results</value>
+    </labels>
+    <labels>
+        <fullName>Retrieving_data_for_export</fullName>
+        <categories>export</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retrieving data for export</shortDescription>
+        <value>Retrieving data for export...</value>
+    </labels>
+    <labels>
+        <fullName>Retrieving_records_a_to_b</fullName>
+        <categories>export</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retrieving records a to b</shortDescription>
+        <value>Retrieving records {0}-{1}...</value>
+    </labels>
+    <labels>
+        <fullName>Row_Selected</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Row Selected</shortDescription>
+        <value>{0} Row Selected</value>
+    </labels>
+    <labels>
+        <fullName>Rows_Selected</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rows Selected</shortDescription>
+        <value>{0} Rows Selected</value>
+    </labels>
+    <labels>
+        <fullName>Save</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>Saved</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Saved</shortDescription>
+        <value>Saved</value>
+    </labels>
+    <labels>
+        <fullName>Saving</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Saving</shortDescription>
+        <value>Saving...</value>
+    </labels>
+    <labels>
+        <fullName>Search</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>Searching</fullName>
+        <categories>search,ui,list,table</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Searching</shortDescription>
+        <value>Searching...</value>
+    </labels>
+    <labels>
+        <fullName>Select</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>Select_A_File</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select A File</shortDescription>
+        <value>Select a File</value>
+    </labels>
+    <labels>
+        <fullName>Select_Event_Type_to_Create</fullName>
+        <categories>calendar,event,source</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Event Type to Create</shortDescription>
+        <value>Select Event Type to Create</value>
+    </labels>
+    <labels>
+        <fullName>Select_Option_None</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select Option None</shortDescription>
+        <value>--None--</value>
+    </labels>
+    <labels>
+        <fullName>Send_notification_email</fullName>
+        <categories>send,notification,email,user</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send notification email</shortDescription>
+        <value>Send notification email to user</value>
+    </labels>
+    <labels>
+        <fullName>Send_notification_email_to</fullName>
+        <categories>dml,option,trigger,email,notification</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Send notification email to</shortDescription>
+        <value>Send notification email to {0}</value>
+    </labels>
+    <labels>
+        <fullName>Share</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Share</shortDescription>
+        <value>Share</value>
+    </labels>
+    <labels>
+        <fullName>Show</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Show</shortDescription>
+        <value>Show</value>
+    </labels>
+    <labels>
+        <fullName>Showing_Rows</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Showing Rows</shortDescription>
+        <value>Showing Rows {0}-{1} of {2}</value>
+    </labels>
+    <labels>
+        <fullName>Skoodat_Batch_Processing</fullName>
+        <categories>batch, processing</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Skuid Batch Processing</shortDescription>
+        <value>Skuid Batch Processing</value>
+    </labels>
+    <labels>
+        <fullName>Skuid_Page_Problems</fullName>
+        <categories>skuid,page,problems</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Skuid Page Problems</shortDescription>
+        <value>There were {0} problems with this Skuid Page. Click to display...</value>
+    </labels>
+    <labels>
+        <fullName>Specific_Record_Type</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Specific Record Type</shortDescription>
+        <value>Specific Record Type</value>
+    </labels>
+    <labels>
+        <fullName>Start_Date</fullName>
+        <categories>date,range,filter</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Start Date</shortDescription>
+        <value>Start Date</value>
+    </labels>
+    <labels>
+        <fullName>Status_of_Import_Operation</fullName>
+        <categories>import, wizard, email</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Status of Import Operation</shortDescription>
+        <value>Status of Import Operation: {0}</value>
+    </labels>
+    <labels>
+        <fullName>Submitted_By</fullName>
+        <categories>submitted, batch, job</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Submitted By</shortDescription>
+        <value>Submitted By</value>
+    </labels>
+    <labels>
+        <fullName>To_See_Imported_Records</fullName>
+        <categories>import, wizard</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To_See_Imported_Records</shortDescription>
+        <value>to see your imported records.</value>
+    </labels>
+    <labels>
+        <fullName>Toggle_Edit_Mode_on_Selected_Rows</fullName>
+        <categories>table, toggle, edit, mode</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Toggle Edit Mode on Selected Rows</shortDescription>
+        <value>Toggle Edit Mode on selected rows</value>
+    </labels>
+    <labels>
+        <fullName>Toggle_Selected_Rows_for_Deletion</fullName>
+        <categories>mass, action, toggle, delete, rows</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Flag Selected Rows for Deletion</shortDescription>
+        <value>Flag Selected Rows for Deletion</value>
+    </labels>
+    <labels>
+        <fullName>Total_Items_Requested_For_Import</fullName>
+        <categories>import, wizard, email</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Total Items Requested For Import</shortDescription>
+        <value>Total Items Requested For Import: {0}</value>
+    </labels>
+    <labels>
+        <fullName>Uncheck_All</fullName>
+        <categories>multiselect,picklist,ui</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Uncheck All</shortDescription>
+        <value>Uncheck all</value>
+    </labels>
+    <labels>
+        <fullName>Unsaved_Changes_Warning</fullName>
+        <categories>page,changes,warning</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unsaved Changes Warning</shortDescription>
+        <value>This page has unsaved changes, which will be lost.</value>
+    </labels>
+    <labels>
+        <fullName>Unsupported_Page_Include_Merge_Type</fullName>
+        <categories>page,include,merge,unsupported,type</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unsupported_Page_Include_Merge_Type</shortDescription>
+        <value>The requested merge syntax is not supported.</value>
+    </labels>
+    <labels>
+        <fullName>Upload</fullName>
+        <categories>file,image,upload</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Upload</shortDescription>
+        <value>Upload</value>
+    </labels>
+    <labels>
+        <fullName>Upload_Successful</fullName>
+        <categories>file,image,upload</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Upload Successful</shortDescription>
+        <value>Upload successful!</value>
+    </labels>
+    <labels>
+        <fullName>Uploading</fullName>
+        <categories>file,image,upload</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Uploading</shortDescription>
+        <value>Uploading {0} ...</value>
+    </labels>
+    <labels>
+        <fullName>Validate_Mappings</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validate Mappings</shortDescription>
+        <value>Validate Mappings</value>
+    </labels>
+    <labels>
+        <fullName>Validate_Mappings_Tooltip</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Validate Mappings Tooltip</shortDescription>
+        <value>Checks your mappings to make sure there are no duplicates or fields left unmapped.</value>
+    </labels>
+    <labels>
+        <fullName>View</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>View</shortDescription>
+        <value>View</value>
+    </labels>
+    <labels>
+        <fullName>View_More</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>View More</shortDescription>
+        <value>View More</value>
+    </labels>
+    <labels>
+        <fullName>Week_View</fullName>
+        <categories>calendar</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Week View</shortDescription>
+        <value>Week View</value>
+    </labels>
+    <labels>
+        <fullName>Welcome_Email_HTML_Body</fullName>
+        <categories>welcome,email,install,html,body</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Welcome Email HTML Body</shortDescription>
+        <value>&lt;img src=&quot;http://www.skoodat.com/resource/1344351187000/siteimages/images/tools_detail_skuid_logotype.png&quot; alt=&quot;Skuid&quot;/&gt;&lt;br/&gt;&lt;br/&gt;
+
+&lt;p&gt;Welcome to Skuid, the future of custom user interface development on Force.com.&lt;/p&gt;
+
+&lt;p&gt;To help you get started building your first pages in Skuid, we recommend watching the &lt;a href=&quot;http://www.skoodat.com/Skuid&quot;&gt;Skuid Demo&lt;/a&gt;. Then check out the following tutorials for step-by-step instructions:&lt;br/&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://bit.ly/TcaEMO&quot;&gt;Build an Account Tab page&lt;/a&gt;
+&lt;li&gt;&lt;a href=&quot;http://bit.ly/RXKG0w&quot;&gt;Build an Account Detail page&lt;/a&gt;
+&lt;li&gt;&lt;a href=&quot;http://bit.ly/RXKI8N&quot;&gt;Using your Skuid page as an override for a standard page layout&lt;/a&gt;
+&lt;/ol&gt;
+&lt;/p&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Welcome_Email_HTML_Body_Part_2</fullName>
+        <categories>welcome,email,install,html,body</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Welcome Email HTML Body Part 2</shortDescription>
+        <value>&lt;p&gt;For developers eager to start building custom Skuid components, explore our API, or dive in to sample code, check out the &lt;a href=&quot;http://skuidify.github.com/skuid/&quot;&gt;Skuid Developer Guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Mind blown? Totally psyched? Got some feedback? Let us know! We&apos;d love to hear from you!&lt;/p&gt;
+
+&lt;p&gt;Follow and Tweet at us on Twitter:&lt;br/&gt;
+&lt;a href=&quot;http://twitter.com/skuidify&quot;&gt;@skuidify&lt;/a&gt; (Skuid)&lt;br/&gt;
+&lt;a href=&quot;http://twitter.com/plusplusben&quot;&gt;@plusplusben&lt;/a&gt; (Ben Hubbard)&lt;br/&gt;
+&lt;a href=&quot;http://twitter.com/zachelrath&quot;&gt;@zachelrath&lt;/a&gt; (Zach McElrath)&lt;br/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Let your creativity run wild!&lt;/p&gt;
+&lt;p&gt;The Skuid Team&lt;/p&gt;</value>
+    </labels>
+    <labels>
+        <fullName>Welcome_Email_Plain_Text_Body</fullName>
+        <categories>welcome,email,install,plain,text,body</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Welcome Email Plain Text Body</shortDescription>
+        <value>Welcome to Skuid, the future of custom user interface development on Force.com.
+
+To help you get started building your first pages in Skuid, we recommend watching the Skuid Demo at http://www.skoodat.com/Skuid. Then check out the following tutorials for step-by-step instructions:
+
+1. Build an Account List page: http://bit.ly/TcaEMO
+2. Build an Account Detail page: http://bit.ly/RXKG0w
+3. Using your Skuid page as an override for a standard action: http://bit.ly/RXKI8N
+
+For developers eager to start building custom Skuid components, explore our API, or dive in to sample code, check out the Skuid Developer Guide: http://skuidify.github.com/skuid/
+
+Mind blown? Got questions? Let us know! We&apos;d love to hear from you!
+
+Follow and Tweet at us on Twitter:
+@skuidify (Skuid) --- http://twitter.com/skuidify
+@plusplusben (Ben Hubbard) --- http://twitter.com/plusplusben
+@zachelrath (Zach McElrath) --- http://twitter.com/zachelrath
+
+Let your creativity run wild!
+The Skuid Team</value>
+    </labels>
+    <labels>
+        <fullName>Welcome_To_Skuid</fullName>
+        <categories>welcome,email,thanks,install</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Welcome to Skuid</shortDescription>
+        <value>Welcome to Skuid!</value>
+    </labels>
+    <labels>
+        <fullName>Wizard_Step_Title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Wizard_Step_Title</shortDescription>
+        <value>Step {0} of {1} - {2}</value>
+    </labels>
+    <labels>
+        <fullName>Yes</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Yes</shortDescription>
+        <value>Yes</value>
+    </labels>
+    <labels>
+        <fullName>applying_sort_order_change</fullName>
+        <categories>table,update,order,sort</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Applying sort order change</shortDescription>
+        <value>Applying sort order change...</value>
+    </labels>
+    <labels>
+        <fullName>pb_No_component_renderer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No component renderer</shortDescription>
+        <value>No component renderer is available for this component.</value>
+    </labels>
+    <labels>
+        <fullName>pb_No_properties_renderer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No properties renderer</shortDescription>
+        <value>No properties renderer is available for this component.</value>
+    </labels>
+    <labels>
+        <fullName>summary_avg</fullName>
+        <categories>table,summary,function</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Summary Function (AVG)</shortDescription>
+        <value>AVG</value>
+    </labels>
+    <labels>
+        <fullName>summary_max</fullName>
+        <categories>table,summary,function</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Summary Function (MAX)</shortDescription>
+        <value>MAX</value>
+    </labels>
+    <labels>
+        <fullName>summary_med</fullName>
+        <categories>table,summary,function</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Summary Function (MED)</shortDescription>
+        <value>MED</value>
+    </labels>
+    <labels>
+        <fullName>summary_min</fullName>
+        <categories>table,summary,function</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Summary Function (MIN)</shortDescription>
+        <value>MIN</value>
+    </labels>
+    <labels>
+        <fullName>summary_sum</fullName>
+        <categories>table,summary,function</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Summary Function (SUM)</shortDescription>
+        <value>SUM</value>
+    </labels>
+</CustomLabels>

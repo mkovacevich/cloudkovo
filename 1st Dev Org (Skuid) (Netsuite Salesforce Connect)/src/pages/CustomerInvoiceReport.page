@@ -1,0 +1,81 @@
+<apex:page controller="CustInvRptController" >
+  
+<apex:pageBlock title="Customer Invoice Report" >  
+    
+    <!--Use the Key value for the repeat -->
+    <apex:repeat value="{!InvMap}" var="FID">
+    	<!--- Declare the Accumulation Variable -->
+    	<apex:variable var="CustInvCount" value="{!0000}"/>     
+    	<apex:variable var="CustInvExtPriceTotal" value="{!000000.00}"/> 
+		<apex:variable var="CustInvFreightTotal" value="{!000000.00}"/>  
+        
+        <!-- Invoice lines PageBlock should gather all the records for each customer --> 
+    	<apex:PageBlockTable value="{!InvMap[FID]}" var="InvLine">
+            <apex:column >
+                 <apex:facet name="header">Customer ID</apex:facet>
+                 <apex:outputText value="{!InvLine.CustomerID__c}"/>
+            </apex:column>
+            <apex:column >  
+                 <apex:facet name="header">Invoice ID</apex:facet>
+                <apex:outputLink value="/{!InvLine.ID}">{!InvLine.ExternalID}</apex:outputLink>
+                <!-- Count the Invoices   -->
+            <apex:variable var="CustInvCount" value="{!CustInvCount+1}"/> 
+          
+            <!-- Footer for this Column --> 
+            	<apex:facet name="footer"> 
+               		Count: <span class="CICF{!FID}"></span> 
+            	</apex:facet> 
+            </apex:column>
+            <apex:column >  
+                 <apex:facet name="header">Product Name</apex:facet>
+                 <apex:outputText value="{!InvLine.ProductName__c}"/>
+            </apex:column>
+            <apex:column >  
+                 <apex:facet name="header">Quantity</apex:facet>
+                 <apex:outputText value="{!InvLine.Quantity__c}"/>
+            </apex:column>
+            <apex:column >  
+                 <apex:facet name="header">Unit Price</apex:facet>
+                 <apex:outputText value="${0, number, ###,###,###.00}">
+                     <apex:param value="{!InvLine.UnitPrice__c}" />
+                 </apex:outputText>
+            </apex:column>
+            <apex:column >
+                 <apex:facet name="header">Extended Price</apex:facet>
+                 <apex:outputText value="${0, number, ###,###,###.00}">
+                     <apex:param value="{!InvLine.ExtendedPrice__c}" />
+                 </apex:outputText>
+                <!-- Generating the Total of Extended Price    -->
+            	<apex:variable var="CustInvExtPriceTotal" value="{!CustInvExtPriceTotal + InvLine.ExtendedPrice__c}"/> 
+            
+           	 	<!-- Footer for this Column --> 
+            	<apex:facet name="footer"> 
+                	Total: $ <span class="CIEPTF{!FID}"></span> 
+            	</apex:facet> 
+            </apex:column>
+            <apex:column >  
+                 <apex:facet name="header">Freight</apex:facet>
+                 <apex:outputText value="${0, number, ###,###,###.00}">
+                     <apex:param value="{!InvLine.Freight__c}" />
+                 </apex:outputText>
+                 <!-- Generating the Total of Freight    -->
+            	<apex:variable var="CustInvFreightTotal" value="{!CustInvFreightTotal + InvLine.Freight__c}"/> 
+            
+           	 	<!--Footer for this Column -->
+            	<apex:facet name="footer"> 
+                	Total: $ <span class="CIFTF{!FID}"></span> 
+            	</apex:facet>
+            </apex:column>    
+        </apex:PageBlockTable>
+        <!--- Javascript to place the totals --->
+        <script> 
+    		// Here we will set the generated subtotals to the footer cells 
+            document.getElementsByClassName('CICF{!FID}')[0].innerHTML = '{!CustInvCount}'; 
+    		document.getElementsByClassName('CIEPTF{!FID}')[0].innerHTML = '{!CustInvExtPriceTotal}'; 
+    		document.getElementsByClassName('CIFTF{!FID}')[0].innerHTML = '{!CustInvFreightTotal}'; 
+		</script> 
+   </apex:repeat> 	
+   
+</apex:pageBlock> 
+
+</apex:page>

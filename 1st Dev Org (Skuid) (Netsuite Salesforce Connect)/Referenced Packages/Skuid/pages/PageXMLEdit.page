@@ -1,0 +1,9 @@
+<apex:page sidebar="false" readOnly="true" docType="html-5.0"
+    standardController="skuid__Page__c"
+    showHeader="{!$Setup.Preferences__c.Show_SF_Header_Skuid_Core__c}"
+    title="Edit Page XML: {!IF(NOT(ISBLANK($CurrentPage.parameters.pagename)),$CurrentPage.parameters.pagename,skuid__Page__c.Name)}" 
+    >
+    <div class="{!IF($Setup.Preferences__c.Show_SF_Header_Skuid_Core__c, 'sk-hideheader', '')}">
+        <c:page page="PageXMLEdit"/>
+    </div>
+</apex:page>

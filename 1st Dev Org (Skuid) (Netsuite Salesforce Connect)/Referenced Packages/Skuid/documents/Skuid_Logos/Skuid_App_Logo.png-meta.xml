@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>The logo used by the Skuid App</description>
+    <internalUseOnly>false</internalUseOnly>
+    <keywords>skuid,app,logo</keywords>
+    <name>Skuid App Logo</name>
+    <public>true</public>
+</Document>

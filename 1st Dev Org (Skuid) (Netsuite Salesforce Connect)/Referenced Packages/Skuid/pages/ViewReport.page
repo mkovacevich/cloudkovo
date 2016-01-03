@@ -1,0 +1,2 @@
+<apex:page controller="skuid.ViewReportController" action="{!redirect}" 
+	showHeader="false" sidebar="false" standardStylesheets="false" showChat="false"/>

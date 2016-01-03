@@ -1,0 +1,149 @@
+<apex:page controller="skuid.ImportController" showHeader="true" standardStylesheets="true" sidebar="false" title="{!$Label.Import} {!objectLabelPlural}">
+
+<c:scripts loadCoreResources="true" loadDesktopResources="true"/>
+<c:contentHeader />
+	
+<apex:form >
+
+<apex:actionFunction name="removeColumn" action="{!removeColumn}" rerender="mappingTable">
+    <apex:param name="columnId" value=""/>
+</apex:actionFunction>
+
+<apex:variable var="totalSteps" value="{!ROUND(2,0)}" />
+
+<!--  Common section header for all steps -->
+<div style="margin: 8px 8px 12px 4px; font-weight: bold; font-size: 18pt;"><apex:outputText value="{!$Label.Import & ' ' & objectLabelPlural}"/></div>
+
+<apex:pageMessages />
+
+<!--  Step 1 -->
+
+<apex:pageBlock rendered="{!currentStep == 1}" title="{!step1Title}">
+    
+    <!-- 
+    <c:helpLink name="ImportHelp" text="{!$Label.Help}" title="{!$Label.ImportPeopleWizard_HelpLink_Hover}" 
+        link="{$!Label.HelpLinks_ImportPeople_Step1}" />
+     -->
+    
+    <apex:pageBlockButtons location="bottom">
+        <apex:commandButton action="{!cancel}" value="{!$Label.Cancel}" immediate="true"/>
+        <apex:commandButton action="{!validateFile}" value="{!$Label.Next}"/>
+    </apex:pageBlockButtons>    
+
+    <apex:actionRegion >
+        <apex:inputFile value="{!fileBody}" fileName="{!fileName}" fileSize="{!fileSize}" accept="text/csv"/>
+    </apex:actionRegion>
+    
+</apex:pageBlock>
+
+<apex:pageBlock rendered="{!currentStep == 1}" title="{!$Label.How_to_Format_Your_File}">
+    <apex:pageBlockSection collapsible="false">
+        <apex:image value="{!URLFOR($Resource.skuid__ImportWizard,'ImportWizard/images/SampleFileImage.png')}"
+                title="{!$Label.Example_Of_What_File_Should_Look_Like}"/>
+        <br/>
+        <apex:outputText value="{!$Label.ImportWizard_OnceFinishedWithEditsSelectSaveAs}"/>
+    </apex:pageBlockSection>
+    <apex:pageBlockSection collapsible="false">
+    <div id="download-sample-file-btn">{!$Label.Download_Sample_File}</div>
+    </apex:pageBlockSection>
+    
+</apex:pageBlock>
+
+<!--  Step 2 -->
+
+<apex:pageBlock id="thePageBlock" rendered="{!currentStep == 2}" title="{!step2Title}">
+
+    <!-- 
+    <c:helpLink name="ImportHelp" text="{!$Label.Help}" title="{!$Label.Help_Mapping_CSV_Column_Headers_To_Skoodat_Fields}" 
+        link="{!$Label.HelpLinks_ImportPeople_Step2}" />
+      -->
+    
+    <apex:pageBlockTable value="{!table.columns}" var="col" id="mappingTable">
+        <apex:column >
+            <apex:facet name="header"><apex:outputText value="{!$Label.File_Column_Header}"/></apex:facet>
+            <apex:outputText value="{!col.columnHeader}"/>
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header"><apex:outputText value="{!$Label.Field}"/></apex:facet>
+            <apex:selectList value="{!col.primaryKey}" style="width: 200px;" size="1">
+                <apex:selectOptions value="{!selectOptionsForCreateableFields}"/>
+            </apex:selectList>
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header"><apex:outputText value="{!$Label.Mapping_Status}"/></apex:facet>
+            <div style="margin: 4px 4px 4px 0px; float: left;" 
+            	class="ui-icon sk-icon inline {!IF(col.isMapped,'sk-icon-save','sk-icon-error')}">
+            	<apex:outputText value="{!IF(col.isMapped, $Label.Yes, $Label.No)}"/>
+            </div>    
+        </apex:column>
+
+        <apex:column >
+            <apex:facet name="header"><apex:outputText value="{!$Label.Action}"/></apex:facet>
+            <a href="#" onClick="deleteColumn('{!col.id}');return false;" title="{!$Label.Remove_this_Column}"><apex:outputText value="{!$Label.Remove}"/></a>
+            <img src="{!URLFOR($Resource.ImportWizard,'ImportWizard/images/spinnerSmall.gif')}" class="loading-icon" id="remove-status-{!col.id}" style="visibility: hidden;"/>
+        </apex:column>
+
+    </apex:pageBlockTable>
+
+    <apex:pageBlockButtons location="bottom" id="allButtons">
+        <apex:commandButton action="{!cancel}" value="{!$Label.Cancel}" immediate="true"/>
+        <apex:commandButton action="{!previousStep}" value="{!$Label.Previous}" onClick="return confirmNavigation();" immediate="true"/>
+        <apex:commandButton action="{!refreshMappings}" value="{!$Label.Validate_Mappings}" 
+            onClick="showValidateMappingsStatus();" onComplete="hideValidateMappingsStatus();"
+            rerender="mappingTable" title="{!$Label.Validate_Mappings_Tooltip}"/>
+        <apex:commandButton action="{!validateMappings}" value="{!$Label.Next}"/>
+    </apex:pageBlockButtons>
+    
+</apex:pageBlock>
+
+</apex:form>
+
+<script>
+
+
+	function confirmNavigation() {
+	    if (confirm('{!JSENCODE($Label.ImportWizardStep1ReturnWarning)}'))
+	        // The user still wants to go to Step 1, so send them there.
+	        return true;
+	    else 
+	        // The user has relented.
+	        return false;
+	}
+	
+	function hideValidateMappingsStatus() {
+	    skuid.$('#validate-mappings-status').css('visibility','hidden');
+	}
+	
+	function showValidateMappingsStatus() {
+	    skuid.$('#validate-mappings-status').css('visibility','visible');
+	}
+	
+	function deleteColumn(columnId) {
+	    skuid.$('#remove-status-'+columnId).css('visibility','visible');
+	    removeColumn(columnId);
+	}
+	
+	function downloadSampleCSVFile() {
+	    window.location.href = "{!URLFOR($Resource.ImportWizard,'ImportWizard/Contacts_Import_Template.xls')}";
+	}
+
+	skuid.$(function() {
+	
+		// Hack to highlight the desired SF tag
+	    var tabToOverride = '{!JSENCODE(objectTypeAPIName)}';
+	    if(tabToOverride) {
+	        skuid.utils.highlightSFTab(tabToOverride);                
+	    }
+	    
+	    // Setup the Download Sample File Button
+	    skuid.$('#download-sample-file-btn').skooButton({icon: 'sk-icon-export'}).button('enable').click(function() {
+	    	downloadSampleCSVFile();
+		});
+	
+	});
+	
+
+
+</script>
+
+</apex:page>

@@ -1,0 +1,10 @@
+<apex:page standardStylesheets="false" 
+	contentType="text/plain" 
+	showHeader="false" 
+	sidebar="false" 
+	showChat="false" 
+	applyHtmlTag="false" 
+	controller="skuid.OAuthProxyController"
+	action="{!run}">
+{!response}
+</apex:page>

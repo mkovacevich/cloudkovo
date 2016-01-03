@@ -1,0 +1,14 @@
+<apex:page controller="TestQueryController">
+  <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!opportunities}" var="co">
+            <apex:column value="{!co.Opportunity.CreatedDate}"/>
+            <apex:column value="{!co.Contact.FirstName}"/>
+            <apex:column value="{!co.Contact.LastName}"/>
+            <apex:column headerValue="Stage">
+                <apex:inputField value="{!co.Opportunity.StageName}"/>
+            </apex:column> 
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

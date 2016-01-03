@@ -1,0 +1,4 @@
+<apex:page controller="skuid.LabelsController" standardStylesheets="false" sidebar="false" showChat="false"
+	showHeader="false" contentType="text/plain" language="{!language}">
+;skuid.label.add({<apex:dynamicComponent componentValue="{!labelsOutput}"/>'':''});	
+</apex:page>

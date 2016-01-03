@@ -1,0 +1,21 @@
+<apex:page controller="skuid.Ui" readonly="true" standardStylesheets="false" extensions="skuid.RemotingStubs" sidebar="{!showSidebar}" showHeader="{!showHeader}" 
+	docType="html-5.0" cache="{!cachePage}" expires="{!cacheExpiration}">
+	
+    <!--  Load in standard Skuid page resources -->
+    <c:contentHeader pageType="{!pageType}" pageTheme="{!pageThemeUrl}" loadCoreResources="{!loadCoreResources}" loadMobileResources="{!loadMobileResources}" loadDesktopResources="{!loadDesktopResources}"/>
+    <!-- Load in external CSS files using link tags -->
+    <apex:outputText value="{!cssLoads}" escape="false" />
+    <!-- Load local/page/inline CSS -->
+    <style>{!css}</style>
+    <!-- Build the HTML DOM of our page -->
+    <apex:outputText value="{!html}" escape="false" />
+    <!-- Load in Skuid module JS -->
+    <c:scripts pageType="{!pageType}" pageTheme="{!pageThemeUrl}" loadCoreResources="{!loadCoreResources}" loadMobileResources="{!loadMobileResources}" loadDesktopResources="{!loadDesktopResources}" />
+    <!-- Load in custom labels -->
+    <script>;skuid.label && skuid.label.add({<apex:dynamicComponent componentValue="{!labels}"/>'':''});</script>
+    <!-- Load in external JS files using script tags with src attribute -->
+    <apex:outputText value="{!jsLoads}" escape="false" />
+    <!-- Load in inline JS -->
+    <script><apex:outputText value="{!js}"/></script>
+    
+</apex:page>

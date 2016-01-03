@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>33.0</apiVersion>
+    <description>Renders either a specific Skuid Page or performs Skuid Page Assignment rules for a given SObject.</description>
+    <label>page</label>
+</ApexComponent>

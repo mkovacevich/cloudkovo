@@ -1,0 +1,59 @@
+<apex:page showchat="false" showHeader="false" controller="skuid.UploadImageController" sidebar="false" standardStylesheets="false">
+
+<apex:form >
+<apex:actionFunction name="upload" action="{!upload}"/>
+<apex:inputFile filename="{!filename}" filesize="{!filesize}" value="{!imageBody}"/>
+</apex:form>
+
+<script src="{!$Resource.skuid__jQuery}"></script>
+
+<script>
+
+	(function($){
+	    
+    	// Get the Skuid element we were handed
+       	var elId = '#{!JSENCODE($CurrentPage.parameters.elid)}',
+       		el = parent.skuid.$(elId),
+    		fileInput = $('input[type=file]'),
+    		MAX_FILE_SIZE = 10000000;
+    	
+        fileInput.change(function(){
+        	var fileObject = fileInput.get(0),
+        		files,
+        		i,
+        		file,
+        		doApexUpload = true;
+        	if (fileObject && fileObject.files) {
+        		files = fileObject.files;
+			    if (files.length == 0) {
+			    	doApexUpload = false;
+			    	el.length && el.trigger('imageuploadcomplete',{ message: 'No files selected!' });
+			    } else {
+        			for (i = 0; i < files.length; i++) {
+            			file = files[i];
+			            if ('size' in file) {
+			                if (file.size >= MAX_FILE_SIZE) {
+			                	doApexUpload = false;
+			    				el.length && el.trigger('imageuploadcomplete',{ message: 'Max file size is 10MB.' });
+			                }
+			            }
+			        }
+			    }
+        	}
+        	if (doApexUpload) {
+	        	el.length && el.trigger('imageuploadstarted',{ fileName : fileInput.val().split(/(\\|\/)/g).pop() });
+	            upload();
+	        }
+        });
+        
+        if ({!OR(NOT(ISBLANK(fileName)),NOT(ISBLANK(message)))}) {
+        	el.length && el.trigger('imageuploadcomplete',{
+        		newAttachmentId : '{!newAttachmentId}',
+        		newImageId : '{!newImageId}',
+        		message : '{!message}'
+        	});
+        }
+	})(jQuery);
+    
+</script>
+</apex:page>

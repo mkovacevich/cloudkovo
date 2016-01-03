@@ -1,0 +1,222 @@
+<apex:page standardController="AsyncApexJob" extensions="skuid.ImportStatusController" title="Import Status">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"/>
+<apex:stylesheet value="{!URLFOR($Resource.skuid__ImportWizard,'/ImportWizard/styles.css')}"/>
+
+<apex:sectionHeader title="Import Wizard" id="section-header"
+    subtitle="{!IF(job.Status == 'Completed',$Label.Import_Complete,$Label.Import_In_Progress)}"/>
+    
+<apex:pageMessages rendered="{!pageHasErrors}"/>
+
+<apex:variable value="{!job.Status == 'Completed'}" var="jobIsCompleted"/>
+<apex:variable value="{!OR(job.Status == 'Aborted',job.Status == 'Failed')}" var="jobHadError"/>
+<apex:variable value="{!$CurrentPage.Parameters.firstVisit == 'yes'}" var="firstVisit"/>
+
+<apex:outputPanel rendered="{!NOT(pageHasErrors)}">
+
+<span id="message-box" style="{!IF(firstVisit,'','display: none;')}">
+    <div class="message inprogress" style="border-color: #fceeb4; {!IF(jobIsCompleted,'display: none;','')}">
+        <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding: 0px; margin: 0px;">
+            <tbody>
+                <tr valign="top">
+                    <td>
+                        <img src="{!URLFOR($Resource.skuid__ImportWizard, 'ImportWizard/images/spinner24.gif')}"/>
+                    </td>
+                    <td class="messageCell">
+                        <div class="messageText">
+                            <span class="message-title">
+                                <h4><apex:outputText value="{!$Label.Import_In_Progress}"/>...</h4>
+                            </span>
+                            <span class="message-body" id="inProgressMessage">
+                                <apex:outputText rendered="{!job.Status == 'Processing'}" value="{!$Label.Batches_Processed}">
+                                    <apex:param value="{!TEXT(job.JobItemsProcessed)}"/>
+                                    <apex:param value="{!TEXT(job.TotalJobItems)}"/>
+                                </apex:outputText>
+                                <apex:outputText rendered="{!NOT(job.Status == 'Processing')}" value="{!job.Status}"/>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="message complete" style="{!IF(AND(jobIsCompleted,firstVisit),'','display: none;')}">
+        <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding: 0px; margin: 0px;">
+            <tbody>
+                <tr valign="top">
+                    <td>
+                        <img src="{!URLFOR($Resource.skuid__ImportWizard, 'ImportWizard/images/confirm24.png')}"/>
+                    </td>
+                    <td class="messageCell">
+                        <div class="messageText">
+                            <span class="message-title">
+                                <h4><apex:outputText value="{!$Label.Import_Complete}"/></h4>
+                            </span>
+                            
+                            <span class="message-body" style="{!IF(hasReturnUrl,'display: none;','')}"><a href="{!tabURL}">
+                            	<apex:outputText value="{!$Label.Click_To_Go_To_Object_Tab}"><apex:param value="{!objectLabelPlural}"/></apex:outputText>
+                            </a>&nbsp;<apex:outputText value="{!$Label.To_See_Imported_Records}"/></span>
+                            <span class="message-body" style="{!IF(hasReturnUrl,'','display: none;')}"><a href="{!returnURL}">
+                            	<apex:outputText value="{!$Label.Click_Here_to_Return_to_Where_You_Started}"/>
+                            </a>&nbsp;<apex:outputText value="{!$Label.To_See_Imported_Records}"/></span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="message error" style="{!IF(jobHadError,'','display: none;')}">
+        <table border="0" cellpadding="0" cellspacing="0" class="messageTable" style="padding: 0px; margin: 0px;">
+            <tbody>
+                <tr valign="top">
+                    <td>
+                        <img src="{!URLFOR($Resource.skuid__ImportWizard, 'ImportWizard/images/error24.png')}"/>
+                    </td>
+                    <td class="messageCell">
+                        <div class="messageText">
+                            <span class="message-title">
+                                <h4><apex:outputText value="{!$ObjectType.AsyncApexJob.Label} {!job.Status}"/></h4>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2 style="{!IF(AND(NOT(jobIsCompleted),NOT(jobHadError),firstVisit),'display: inline','display: none;')}" id="processing-in-background-message">
+        <ul>
+            <li><apex:outputText value="{!$Label.Import_Processing_In_Background}"/></li>
+            <li><apex:outputText value="{!$Label.Import_Email_On_The_Way}"/></li>
+        </ul>
+    </h2>
+</span>
+</apex:outputPanel>
+
+<apex:form >
+    <apex:actionFunction name="refreshJobDetail" action="{!refreshJobDetail}" reRender="job-detail,section-header" onComplete="$j('#job-detail-container').show();">
+        <apex:param name="paramOne" assignTo="{!jobId}" value=""/>
+    </apex:actionFunction> 
+</apex:form>
+
+<div id="job-detail-container" style="{!IF(OR(jobIsCompleted,jobHadError),'','display: none;')}">
+
+<br/>
+<apex:pageBlock title="{!$Label.Job_Details}" id="job-detail">
+
+    <apex:pageBlockSection collapsible="false" columns="2">
+    
+        <apex:outputField value="{!job.Status}"/>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="{!$Label.Date_Submitted}" for="date-submitted"/>
+            <apex:outputField value="{!job.CreatedDate}" id="date-submitted"/>
+        </apex:pageBlockSectionItem>
+        
+        <apex:outputField value="{!job.TotalJobItems}"/>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="{!$Label.Date_Completed}" for="date-completed"/>
+            <apex:outputField value="{!job.CompletedDate}" id="date-completed"/>
+        </apex:pageBlockSectionItem>
+        
+        <apex:outputField value="{!job.JobItemsProcessed}"/>
+        <apex:pageBlockSectionItem >
+            <apex:outputLabel value="{!$Label.Submitted_By}" for="submitted-by"/>
+            <apex:outputField value="{!job.CreatedBy.Name}" id="submitted-by"/>
+        </apex:pageBlockSectionItem>
+        
+        <apex:outputField value="{!job.NumberOfErrors}"/>
+        <apex:outputField value="{!job.Id}"/>
+    </apex:pageBlockSection>
+    
+    <!--  If this Job failed, display the 'ExtendedStatus' field, which gives a short description of the first error -->    
+        
+    <apex:pageBlockSection collapsible="false" columns="1" rendered="{!job.Status == 'Failed'}">    
+        <apex:outputField value="{!job.ExtendedStatus}"/>
+    </apex:pageBlockSection>
+</apex:pageBlock>
+</div>
+
+<script>
+    // Obtain a unique reference to jQuery
+    $j = jQuery.noConflict();
+    
+    var messagePollingInterval;
+    
+    $j(document).ready(function() {
+    
+        // If the given Batch Job is still in process, or if the 'isNew' parameter is set,
+        // show the message box to either keep the user informed of the progress,
+        // or let the user (who, if the 'isNew' parameter is set, 
+        // has been sent here from the Import Wizard) know that their job is complete.
+        //
+        // If the Batch Job is still in progress, 
+        // use JavaScript Remoting to poll our AsyncApexJob every half a second
+        // to keep track of its progress.
+        //
+        // As soon as the Batch Job is Completed,
+        // stop polling,
+        // hide the status message (if the 'isNew' parameter is not set),
+        // or change the status message to Completed (if the 'isNew' paramter IS set)
+        // and rerender the Job Detail section
+        
+        var jobIsCompleted = '{!jobIsCompleted}';
+        var jobHadError = '{!jobHadError}';
+        
+        if (jobIsCompleted == 'false' && jobHadError == 'false') {
+            // Set up an interval to refresh our Batch Job every 2.5 seconds 
+            messagePollingInterval = setInterval("pollBatchJob();", 2500);
+        }
+    
+    });
+    
+    function pollBatchJob() {
+    
+        skuid.ImportStatusController.getJob('{!job.Id}', function(result, event){
+            if(event.type == 'exception') {
+                // log(event.message);
+            } else {
+                updatePage(result);
+            }
+        });
+    }
+    
+    function updatePage(batchJob) {
+        
+        // Get the default text that we need to populate using remoting
+        var messageText = $j('#batches-processed-text').html();
+        
+        // Replace the '-1-' and '-2-' sections with, respectively,
+        // batchJob.JobItemsProcessed and batchJob.TotalJobItems
+        messageText = messageText.replace('-1-',batchJob.JobItemsProcessed);
+        messageText = messageText.replace('-2-',batchJob.TotalJobItems);
+    
+        // Update the Message box
+        $j('#inProgressMessage').html(messageText);
+        
+        if (batchJob.Status == 'Completed' || batchJob.Status == 'Failed' || batchJob.Status == 'Aborted') {
+            
+            // Stop polling our controller for updates
+            clearInterval(messagePollingInterval);
+
+            $j('#processing-in-background-message').hide();
+            $j('.message.inprogress').hide();
+            
+            if (batchJob.Status == 'Completed') $j('.message.complete').show();
+            else $j('.message.error').show();
+            
+            // Show the Job Detail table
+            refreshJobDetail(batchJob.Id);
+            
+        }
+        
+    }
+
+</script>
+<!-- Used for storing the content of a Custom Label locally so that its text can be used by JavaScript after Remoting calls  -->
+<div id="batches-processed-text" style="display: none;">
+    <apex:outputText value="{!$Label.Batches_Processed}">
+        <apex:param value="-1-"/>
+        <apex:param value="-2-"/>
+    </apex:outputText>
+</div>
+
+</apex:page>

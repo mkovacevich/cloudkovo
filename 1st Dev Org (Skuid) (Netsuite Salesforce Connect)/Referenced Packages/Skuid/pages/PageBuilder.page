@@ -1,0 +1,8 @@
+<apex:page standardController="skuid__Page__c" title="Edit Page: {!IF(NOT(ISBLANK($CurrentPage.parameters.pagename)),$CurrentPage.parameters.pagename,skuid__Page__c.Name)}" 
+        readonly="true" docType="html-5.0" 
+        sidebar="false" 
+        showHeader="{!IF(AND(skuid__Page__c.skuid__Type__c!='Mobile', $Setup.Preferences__c.Show_SF_Header_Skuid_Core__c), 'true', 'false')}"
+        standardStylesheets="{!skuid__Page__c.skuid__Type__c!='Mobile'}"
+        showChat="false">
+        <c:page page="{!IF(skuid__Page__c.skuid__Type__c=='Mobile','Mobile','')}PageBuilder"/>
+</apex:page>

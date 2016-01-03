@@ -1,0 +1,6 @@
+<apex:page standardController="skuid__Theme__c" title="Edit Theme: {!skuid__Theme__c.Name}" 
+        readonly="true" docType="html-5.0" 
+        sidebar="false" showHeader="false"
+        standardStylesheets="false" showChat="false">
+    <c:page page="ThemeBuilder" noTheme="false"/>
+</apex:page>

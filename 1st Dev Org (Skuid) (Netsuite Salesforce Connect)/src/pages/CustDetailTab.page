@@ -1,0 +1,3 @@
+<apex:page standardController="Customers__x" 
+extensions="skuid.Redirects" action="{!redirect}?actionType=View&objecttype=Customers__x">
+</apex:page>

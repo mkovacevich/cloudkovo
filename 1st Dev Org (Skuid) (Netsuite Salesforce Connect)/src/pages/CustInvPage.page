@@ -1,0 +1,40 @@
+<apex:page controller="CustInvController" >
+<apex:pageBlock title="List of Customer Invoices">  
+    <apex:PageBlockTable value="{!Summaries}" var="InvSum">
+        <apex:column >
+             <apex:facet name="header">Customer ID</apex:facet>
+             <apex:outputText value="{!InvSum.CustomerID__c}"/>
+        </apex:column>
+        <apex:column >  
+             <apex:facet name="header">Invoice ID</apex:facet>
+             <apex:outputLink value="/{!InvSum.ID}">{!InvSum.ExternalID}</apex:outputLink>
+        </apex:column>
+        <apex:column >  
+             <apex:facet name="header">Product Name</apex:facet>
+             <apex:outputText value="{!InvSum.ProductName__c}"/>
+        </apex:column>
+        <apex:column >  
+             <apex:facet name="header">Quantity</apex:facet>
+             <apex:outputText value="{!InvSum.Quantity__c}"/>
+        </apex:column>
+        <apex:column >  
+             <apex:facet name="header">Unit Price</apex:facet>
+             <apex:outputText value="${0, number, ###,###,###.00}">
+                 <apex:param value="{!InvSum.UnitPrice__c}" />
+             </apex:outputText>
+        </apex:column>
+        <apex:column >
+             <apex:facet name="header">Extended Price</apex:facet>
+             <apex:outputText value="${0, number, ###,###,###.00}">
+                 <apex:param value="{!InvSum.ExtendedPrice__c}" />
+             </apex:outputText>
+        </apex:column>
+        <apex:column >  
+             <apex:facet name="header">Freight</apex:facet>
+             <apex:outputText value="${0, number, ###,###,###.00}">
+                 <apex:param value="{!InvSum.Freight__c}" />
+             </apex:outputText>
+        </apex:column>
+    </apex:PageBlockTable>
+</apex:pageBlock> 
+</apex:page>

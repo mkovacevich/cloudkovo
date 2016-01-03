@@ -1,0 +1,69 @@
+<apex:component access="global" layout="none">
+	
+	<apex:attribute name="pageType" type="String" default="Desktop"
+		 description="The type of the parent Skuid Page, e.g. Desktop or Mobile"/>
+		 
+	<apex:attribute name="pageTheme" type="String" default="/resource/skuid__SkuidThemeClassic/skuidtheme.css"
+		description="The URL to the desired Skuid Theme to display."/>
+		 
+	<apex:attribute name="loadCoreResources" type="Boolean" default="false"
+		 description="Do we need to load Core JS / CSS resources?"/>
+		 
+	<apex:attribute name="loadDesktopResources" type="Boolean" default="false"
+		 description="Do we need to load Desktop JS / CSS resources?"/>
+		 
+	<apex:attribute name="loadMobileResources" type="Boolean" default="false"
+		 description="Do we need to load Mobile JS / CSS resources?"/>	 	 
+	
+	<apex:variable var="isMobile" value="{!pageType=='Mobile'}"/>
+	
+	<!-- Core -->
+	<apex:outputPanel rendered="{!loadCoreResources}" layout="none">
+		<!-- Protect original jQuery/$ -->
+		<script>
+		if (window.jQuery) window.__skuidTempOriginalJQ = window.jQuery;
+		if (window.$) window.__skuidTempOriginal$ = window.$;
+		</script>
+		<script src="{!$Resource.skuid__JQuery}"/>
+		<script>
+		// Needed for Sforce API
+		if (typeof(__sfdcSiteUrlPrefix) === "undefined") __sfdcSiteUrlPrefix = "{!$Site.Prefix}";
+		if (typeof(__sfdcSessionId) === "undefined") __sfdcSessionId = "{!GETSESSIONID()}";
+		</script>
+	</apex:outputPanel>	
+	<!-- Desktop-only -->
+	<apex:outputPanel rendered="{!AND(NOT(isMobile),loadDesktopResources)}" layout="none">
+		<!-- This comment causes the namespaces below to not be deleted.  I don't know why -->
+		<script src="{!$Resource.skuid__SkuidJS}"/>
+	</apex:outputPanel>
+	
+	<!-- Mobile-only -->
+	<apex:outputPanel rendered="{!AND(isMobile,loadMobileResources)}" layout="none">
+		<!-- This comment causes the namespaces below to not be deleted.  I don't know why -->
+		<script src="{!$Resource.skuid__SkuidMobileJS}"/>
+	</apex:outputPanel>
+	
+	<apex:outputPanel rendered="{!loadCoreResources}" layout="none">
+		<!-- Restore original jQuery -->
+        <script>
+		if (window.__skuidTempOriginalJQ) {
+			window.jQuery = window.__skuidTempOriginalJQ;
+			delete window.__skuidTempOriginalJQ;
+		}
+		if (window.__skuidTempOriginal$) {
+			window.$ = window.__skuidTempOriginal$;
+			delete window.__skuidTempOriginal$;
+		}
+		</script>
+		<!-- Load the webfonts using https://github.com/typekit/webfontloader -->
+		<script src="{!$Resource.skuid__WebFontLoaderJS}"></script>
+		<script type="text/javascript">
+			// This is handled in SkuidPage.cls now
+			// skuid.loadFonts('{!SUBSTITUTE(pageTheme, 'skuidtheme.css', 'resources.json')}');
+			// Load Sforce API
+			skuid.$.extend(sforce.connection,{client:"Skuidify LLC/Skuid/",partnerServerUrls:{3:"{!$Api.Partner_Server_Url_30}",4:"{!$Api.Partner_Server_Url_40}",5:"{!$Api.Partner_Server_Url_50}",6:"{!$Api.Partner_Server_Url_60}",7:"{!$Api.Partner_Server_Url_70}",8:"{!$Api.Partner_Server_Url_80}",9:"{!$Api.Partner_Server_Url_90}",10:"{!$Api.Partner_Server_Url_100}",11:"{!$Api.Partner_Server_Url_110}",12:"{!$Api.Partner_Server_Url_120}",13:"{!$Api.Partner_Server_Url_130}",14:"{!$Api.Partner_Server_Url_140}",15:"{!$Api.Partner_Server_Url_150}",16:"{!$Api.Partner_Server_Url_160}",17:"{!$Api.Partner_Server_Url_170}",18:"{!$Api.Partner_Server_Url_180}",19:"{!$Api.Partner_Server_Url_190}",20:"{!$Api.Partner_Server_Url_200}",21:"{!$Api.Partner_Server_Url_210}",22:"{!$Api.Partner_Server_Url_220}",23:"{!$Api.Partner_Server_Url_230}",24:"{!$Api.Partner_Server_Url_240}",25:"{!$Api.Partner_Server_Url_250}",26:"{!$Api.Partner_Server_Url_260}",27:"{!$Api.Partner_Server_Url_270}",28:"{!$Api.Partner_Server_Url_280}",29:"{!$Api.Partner_Server_Url_290}"},enterpriseServerUrls:{3:"{!$Api.Enterprise_Server_Url_30}",4:"{!$Api.Enterprise_Server_Url_40}",5:"{!$Api.Enterprise_Server_Url_50}",6:"{!$Api.Enterprise_Server_Url_60}",7:"{!$Api.Enterprise_Server_Url_70}",8:"{!$Api.Enterprise_Server_Url_80}",9:"{!$Api.Enterprise_Server_Url_90}",10:"{!$Api.Enterprise_Server_Url_100}",11:"{!$Api.Enterprise_Server_Url_110}",12:"{!$Api.Enterprise_Server_Url_120}",13:"{!$Api.Enterprise_Server_Url_130}",14:"{!$Api.Enterprise_Server_Url_140}",15:"{!$Api.Enterprise_Server_Url_150}",16:"{!$Api.Enterprise_Server_Url_160}",17:"{!$Api.Enterprise_Server_Url_170}",18:"{!$Api.Enterprise_Server_Url_180}",19:"{!$Api.Enterprise_Server_Url_190}",20:"{!$Api.Enterprise_Server_Url_200}",21:"{!$Api.Enterprise_Server_Url_210}",22:"{!$Api.Enterprise_Server_Url_220}",23:"{!$Api.Enterprise_Server_Url_230}",24:"{!$Api.Enterprise_Server_Url_240}",25:"{!$Api.Enterprise_Server_Url_250}",26:"{!$Api.Enterprise_Server_Url_260}",27:"{!$Api.Enterprise_Server_Url_270}",28:"{!$Api.Enterprise_Server_Url_280}",29:"{!$Api.Enterprise_Server_Url_290}"},partnerServerUrl:"{!$Api.Partner_Server_Url_330}",enterpriseServerUrl:"{!$Api.Enterprise_Server_Url_330}"});
+			skuid.utils._setAttachmentBaseUrl("{!URLFOR($Action.Attachment.Download,'00P000000000000AAA')}");
+		</script>
+	</apex:outputPanel>
+
+</apex:component>

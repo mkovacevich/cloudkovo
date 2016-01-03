@@ -1,0 +1,6 @@
+<apex:page standardController="skuid__Page__c" title="New Skuid Page" readonly="true" sidebar="false" showHeader="{!$Setup.Preferences__c.Show_SF_Header_Skuid_Core__c}" docType="html-5.0">  
+    <head>
+        <title>New Skuid Page</title>
+    </head>
+    <c:page page="NewPage"/>
+</apex:page>

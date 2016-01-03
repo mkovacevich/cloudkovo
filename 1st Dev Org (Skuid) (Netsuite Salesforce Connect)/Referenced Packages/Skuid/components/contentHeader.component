@@ -1,0 +1,35 @@
+<apex:component access="global" selfClosing="true" layout="none">
+
+<apex:attribute name="pageType" type="String" default="Desktop"
+	description="The type of the parent Skuid Page, e.g. Desktop or Mobile"/>
+	 
+<apex:attribute name="pageTheme" type="String" default="/resource/skuid__SkuidThemeClassic/skuidtheme.css"
+	description="The URL to the desired Skuid Theme to display."/>
+
+<apex:attribute name="noTheme" type="Boolean" default="false" required="false"
+	 description="If true, then no Theme will be loaded for this page."/>
+	
+<apex:attribute name="loadCoreResources" type="Boolean" default="false"
+	 description="Do we need to load Core CSS resources?"/>
+	 
+<apex:attribute name="loadDesktopResources" type="Boolean" default="false"
+	 description="Do we need to load Desktop CSS resources?"/>
+	 
+<apex:attribute name="loadMobileResources" type="Boolean" default="false"
+	 description="Do we need to load Mobile CSS resources?"/>	 	
+
+<apex:outputPanel rendered="{!AND(pageType=='Mobile',loadMobileResources)}" layout="none">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1"></meta>
+</apex:outputPanel>
+<!-- 
+<apex:outputPanel rendered="{!AND(loadCoreResources,NOT(noTheme))}" layout="none">
+	<link href="{!URLFOR($Resource.skuid__JQueryUIStyle, 'jquery-ui-1.11.0.custom.min.css')}" rel="stylesheet" type="text/css" />
+</apex:outputPanel>
+-->
+<apex:outputPanel rendered="{!AND(OR(AND(pageType=='Mobile',loadMobileResources),AND(pageType!='Mobile',loadDesktopResources)),NOT(noTheme))}" layout="none">
+
+	<link id="themeLink" class="user" href="{!pageTheme}" rel="stylesheet" type="text/css" />
+	
+</apex:outputPanel>
+
+</apex:component>

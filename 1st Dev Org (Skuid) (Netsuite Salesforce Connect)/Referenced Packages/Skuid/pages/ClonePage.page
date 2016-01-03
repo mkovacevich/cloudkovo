@@ -1,0 +1,6 @@
+<apex:page standardController="skuid__Page__c" title="Clone Page: {!skuid__Page__c.Name}" readonly="true" sidebar="false" showHeader="{!$Setup.Preferences__c.Show_SF_Header_Skuid_Core__c}" docType="html-5.0">  
+    <head>
+        <title>Clone Page: {!skuid__Page__c.Name}</title>
+    </head>
+        <c:page page="ClonePage"/>
+</apex:page>

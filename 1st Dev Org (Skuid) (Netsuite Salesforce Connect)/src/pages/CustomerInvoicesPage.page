@@ -1,0 +1,15 @@
+<apex:page standardController="Invoices__x">
+  <apex:form >
+   <apex:pageblock >
+     <apex:pageblockSection title="Customer Invoices Standard Controller Output">
+         <apex:outputField value="{!Invoices__x.CustomerID__c}"/>
+         <apex:outputField value="{!Invoices__x.ExternalID}"/>
+         <apex:outputField value="{!Invoices__x.ProductName__c}"/>
+         <apex:outputField value="{!Invoices__x.Quantity__c}"/>
+         <apex:outputField value="{!Invoices__x.UnitPrice__c}"/>
+         <apex:outputField value="{!Invoices__x.ExtendedPrice__c}"/>
+         <apex:outputField value="{!Invoices__x.Freight__c}"/>
+     </apex:pageblockSection>
+   </apex:pageblock>
+  </apex:form>
+</apex:page>

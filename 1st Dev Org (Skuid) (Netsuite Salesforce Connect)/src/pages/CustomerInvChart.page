@@ -1,0 +1,28 @@
+<apex:page controller="CustInvRptController" >
+  
+<apex:pageBlock title="Customer Invoice Chart" >  
+    
+    <!--Use the Key value for the repeat -->
+    <apex:repeat value="{!InvMap}" var="FID">
+	<!--- Declare the Accumulation Variables -->
+    	<apex:variable var="CustInvCount" value="{!0000}"/>     
+    	<apex:variable var="CustInvExtPriceTotal" value="{!000000.00}"/> 
+		<apex:variable var="CustInvFreightTotal" value="{!000000.00}"/>  
+        
+        <apex:Repeat value="{!InvMap[FID]}" var="InvLine">
+			<apex:variable var="CustInvCount" value="{!CustInvCount+1}"/>
+            <apex:variable var="CustInvExtPriceTotal" value="{!CustInvExtPriceTotal + InvLine.ExtendedPrice__c}"/> 
+            <apex:variable var="CustInvFreightTotal" value="{!CustInvFreightTotal + InvLine.Freight__c}"/>
+        </apex:Repeat>
+        <apex:pageBlockSection >
+        	<apex:outputText value=" {!FID} "> Customer: </apex:outputText>
+        	<apex:outputText value=" {!CustInvCount} "> Count: </apex:outputText>
+        	<apex:outputText value=" {!CustInvExtPriceTotal} "> Total Sales: </apex:outputText>
+        	<apex:outputText value=" {!CustInvFreightTotal} "> Total Freight: </apex:outputText>
+        </apex:pageBlockSection>
+            
+	</apex:repeat> 	
+   
+</apex:pageBlock> 
+
+</apex:page>

@@ -1,0 +1,7 @@
+<apex:page standardStyleSheets="false" standardController="skuid__Page__c" extensions="skuid.PageListControllerExtension" recordsetvar="a" title="Skuid Pages" 
+        readonly="true" sidebar="false" showHeader="{!$Setup.Preferences__c.Show_SF_Header_Skuid_Core__c}" docType="html-5.0">  
+    <head>
+        <title>Skuid Pages</title>
+    </head>
+    <c:page page="PageList"/>
+</apex:page>

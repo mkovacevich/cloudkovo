@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Builder_Definition_File__c</fullName>
+        <defaultValue>&quot;skuid_builders.json&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Builder Definition File</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cache_Package_Definition__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Cache Package Definition</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Load_Order__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Load Order</label>
+        <precision>2</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Package_Cache01__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache01</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache02__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache02</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache03__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache03</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache04__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache04</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache05__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache05</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache06__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache06</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache07__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache07</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache08__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache08</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache09__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache09</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache10__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache10</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache11__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache11</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache12__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache12</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache13__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache13</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache14__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache14</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Cache15__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Cache15</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Resource_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Resource Name</label>
+        <length>255</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Resource_Namespace__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Resource Namespace</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Runtime_Definition_File__c</fullName>
+        <defaultValue>&quot;skuid_runtime.json&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Runtime Definition File</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Desktop, Mobile, or Any</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <length>40</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Component Pack</label>
+    <visibility>Public</visibility>
+</CustomObject>

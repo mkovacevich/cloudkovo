@@ -1,0 +1,3 @@
+<apex:page standardController="Invoice__c" recordSetVar="c" 
+extensions="skuid.Redirects" action="{!redirect}?actionType=Tab&objecttype=Invoice__c">
+</apex:page>

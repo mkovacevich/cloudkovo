@@ -1,0 +1,8 @@
+<apex:page standardStyleSheets="false" standardController="skuid__Page_Assignment__c" recordsetvar="a" extensions="skuid.PageAssignment"
+        title="Skuid Page Assignments" readonly="true" 
+        sidebar="false" showHeader="{!$Setup.Preferences__c.Show_SF_Header_Skuid_Core__c}" docType="html-5.0">  
+    <head>
+        <title>Skuid Page Assignments</title>
+    </head>
+        <c:page page="PageAssignments"/>
+</apex:page>

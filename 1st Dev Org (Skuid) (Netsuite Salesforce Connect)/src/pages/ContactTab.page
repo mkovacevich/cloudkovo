@@ -1,0 +1,3 @@
+<apex:page standardController="Contact" recordSetVar="c" 
+extensions="skuid.Redirects" action="{!redirect}?actionType=Tab&objecttype=Contact">
+</apex:page>

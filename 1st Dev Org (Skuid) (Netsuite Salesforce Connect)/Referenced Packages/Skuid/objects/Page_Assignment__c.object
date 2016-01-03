@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>PageAssignments</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Stores situations / occasions where Skuid Pages should be used, e.g. Skuid Page &apos;TeacherStudentView&apos; should be used as the View page for Contact records of Record Type &apos;Student&apos; where the running user&apos;s Profile is &apos;Teacher&apos;</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Action_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The Salesforce action type(s) to which this Page Assignment applies</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The Salesforce action type(s) to which this Page Assignment applies</inlineHelpText>
+        <label>Action Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Tab</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>List</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>View</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Edit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Clone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Assigned_To_User__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The User that this Page Assignment is for, if any.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The User that this Page Assignment is for, if any.</inlineHelpText>
+        <label>Assigned To User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Page_Assignments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Context__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Applies To</label>
+        <length>18</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IsActive__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If false for a record, the record will not be considered when Page Assignment logic is processed.</description>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Page__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Page to Use</label>
+        <referenceTo>Page__c</referenceTo>
+        <relationshipLabel>Page Assignments</relationshipLabel>
+        <relationshipName>Page_Assignments</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>RecordTypeDeveloperName__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The API / Developer Name of the Record Type to which this Page Assignment should apply</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The API / Developer Name of the Record Type to which this Page Assignment should apply</inlineHelpText>
+        <label>Record Type</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SObject_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The name of the SObject that this Page Assignment is for. Can also be an arbitrary name, e.g.  &quot;SiteHome&quot;, for running Skuid from the component, e.g. &lt;skuid:page objecttype=&quot;SiteHome&quot;&gt; component with</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Which SObject, or other scenario, will this Page Assignment be used for? Could also be an arbitrary name, such as &quot;SiteHome&quot;, for running Skuid from the Visualforce Component.</inlineHelpText>
+        <label>Object Type</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Use_Standard_Layouts__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If checked, then standard layouts will be used instead of Skuid Pages for this Page Assignment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If checked, then standard layouts will be used instead of Skuid Pages for this Page Assignment.</inlineHelpText>
+        <label>Use Standard Layouts</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Page Assignment</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>SObject_Type__c</columns>
+        <columns>Action_Type__c</columns>
+        <columns>Context__c</columns>
+        <columns>RecordTypeDeveloperName__c</columns>
+        <columns>Page__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>PA-{0000}</displayFormat>
+        <label>Page Assignment Id</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Page Assignments</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>SObject_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Action_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Context__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RecordTypeDeveloperName__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Page__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>SObject_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Action_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Context__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>RecordTypeDeveloperName__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Page__c</lookupDialogsAdditionalFields>
+        <searchFilterFields>SObject_Type__c</searchFilterFields>
+        <searchFilterFields>Action_Type__c</searchFilterFields>
+        <searchFilterFields>Context__c</searchFilterFields>
+        <searchFilterFields>RecordTypeDeveloperName__c</searchFilterFields>
+        <searchFilterFields>Page__c</searchFilterFields>
+        <searchResultsAdditionalFields>SObject_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Action_Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Context__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RecordTypeDeveloperName__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Page__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <validationRules>
+        <fullName>Must_Select_Page_or_use_Standard_Layouts</fullName>
+        <active>true</active>
+        <description>You must select either a Skuid Page to use, or choose to use Standard Layouts.</description>
+        <errorConditionFormula>AND(
+ISBLANK(Page__c),
+Use_Standard_Layouts__c = FALSE
+)</errorConditionFormula>
+        <errorMessage>You must either select a Skuid Page or select &quot;Use Standard Layouts&quot;.</errorMessage>
+    </validationRules>
+</CustomObject>

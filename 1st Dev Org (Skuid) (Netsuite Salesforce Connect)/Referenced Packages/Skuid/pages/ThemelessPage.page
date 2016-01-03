@@ -1,0 +1,5 @@
+<apex:page readonly="true" docType="html-5.0" 
+        sidebar="false" showHeader="false"
+        standardStylesheets="false" showChat="false" >
+    <c:page page="{!$CurrentPage.parameters.page}" noTheme="true"/>
+</apex:page>

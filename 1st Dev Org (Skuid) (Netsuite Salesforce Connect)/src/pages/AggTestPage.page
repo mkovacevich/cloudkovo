@@ -1,0 +1,7 @@
+<apex:page controller="AggTestController">
+    <apex:form >
+        <apex:repeat value="{!Summaries}" var="summary">
+            {!summary.Name}: {!summary.Quantity}<br/>
+        </apex:repeat>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,7 @@
+<apex:page standardStyleSheets="false" title="Skuid Themes" 
+        readonly="true" sidebar="false" showHeader="{!$Setup.Preferences__c.Show_SF_Header_Skuid_Core__c}" docType="html-5.0">  
+    <head>
+        <title>Skuid Pages</title>
+    </head>
+    <c:page page="ThemeList"/>
+</apex:page>

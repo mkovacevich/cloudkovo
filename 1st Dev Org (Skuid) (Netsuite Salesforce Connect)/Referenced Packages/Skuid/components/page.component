@@ -1,0 +1,26 @@
+<apex:component access="global" controller="skuid.Ui" extensions="skuid.RemotingStubs" selfClosing="true" layout="none">
+	<apex:attribute name="page" required="false" assignTo="{!pageNameProp}" type="String" description="The name of a specific Skuid page to render. Either page or objectType must be specified." access="global"/> 
+	<apex:attribute name="objecttype" required="false" assignTo="{!objectTypeProp}" type="String" description="The fully-qualified name of an SObject type whose Skuid Page Assignments will be used to determine which Skuid Page to render. Can also be an arbitrary name, such as 'SiteHome'." access="global"/>
+	<apex:attribute name="actiontype" required="false" assignTo="{!actionTypeProp}" type="String" description="The Salesforce action type, e.g. New, Edit, Tab, that this component will be performing. Used by Skuid to find an appropriate Skuid Page Assignment." access="global"/>
+	<apex:attribute name="recordtype" required="false" assignTo="{!recordTypeProp}" type="String" description="The API / DeveloperName of a RecordType of the selected SObject type. Used by Skuid to find an appropriate Skuid Page Assignment." access="global"/>
+	<apex:attribute name="language" required="false" assignTo="{!languageProp}" type="String" description="The language in which to render contents of this Skuid Page. Defaults to the running user's language. Used mainly in Site contexts to allow Site visitors to change the language." access="global"/>
+	<apex:attribute name="noTheme" required="false" default="false" type="Boolean" description="If true, then no Theme will be loaded for this page."/>
+	
+	<!--  Load in standard Skuid page resources -->
+    <c:contentHeader pageType="{!pageType}" noTheme="{!noTheme}" pageTheme="{!pageThemeUrl}" loadCoreResources="{!loadCoreResources}" loadMobileResources="{!loadMobileResources}" loadDesktopResources="{!loadDesktopResources}"/>
+    <!-- Load in external CSS files using link tags -->
+    <apex:outputText value="{!cssLoads}" escape="false" />
+    <!-- Load local/page/inline CSS -->
+    <style>{!css}</style>
+    <!-- Build the HTML DOM of our page -->
+    <apex:outputText value="{!html}" escape="false" />
+    <!-- Load in Skuid module JS -->
+	<c:scripts pageType="{!pageType}" pageTheme="{!pageThemeUrl}" loadCoreResources="{!loadCoreResources}" loadMobileResources="{!loadMobileResources}" loadDesktopResources="{!loadDesktopResources}" />
+	<!-- Load in custom labels -->
+    <script>;skuid.label && skuid.label.add({<apex:dynamicComponent componentValue="{!labels}" invokeAfterAction="true"/>'':''});</script>
+    <!-- Load in external JS files using script tags with src attribute -->
+    <apex:outputText value="{!jsLoads}" escape="false" />
+    <!-- Load in local/page/inline JS -->
+    <script><apex:outputText value="{!js}"/></script>
+
+</apex:component>

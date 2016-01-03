@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Auto_Assign_Licenses_on_Activation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If true, Skuid will auto-assign a License to Skuid (and optionally other packages) when a new user is created or newly-activated.</description>
+        <externalId>false</externalId>
+        <label>Auto Assign Licenses on Activation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Auto_Assign_Perm_Sets_on_Activation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If true, Skuid will auto-assign the &quot;Skuid Page Viewer&quot; Permission Set (and/or other Permission Sets) when a new user is created or newly-activated.</description>
+        <externalId>false</externalId>
+        <label>Auto Assign Perm Sets on Activation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Auto_Revoke_Licenses_on_Deactivation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If true, Skuid will auto-revoke a License to Skuid (and optionally licenses to other packages) when a user is deactivated.</description>
+        <externalId>false</externalId>
+        <label>Auto Revoke Licenses on Deactivation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Auto_Revoke_Perm_Sets_on_Deactivation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>If true, Skuid will auto-revoke the Skuid Page Viewer (and/or other Permission sets) when a user is deactivated.</description>
+        <externalId>false</externalId>
+        <label>Auto Revoke Perm Sets on Deactivation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Default_Builder_Theme__c</fullName>
+        <defaultValue>&quot;Builder Light&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default Composer Theme</label>
+        <length>80</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Default_Mobile_Builder_Theme__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default Mobile Composer Theme</label>
+        <length>80</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Default_Mobile_Theme__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default Mobile Theme</label>
+        <length>80</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Default_Theme__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Default Theme</label>
+        <length>80</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Package_Names_For_Auto_Assignment__c</fullName>
+        <defaultValue>&quot;skuid&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>(Optional) Namespaces of packages to which to auto-assign licenses when new users are created or activated. Semi-colon delimited.</description>
+        <externalId>false</externalId>
+        <label>Packages to Auto-Assign Licenses to</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Package_Names_For_Auto_Revocation__c</fullName>
+        <defaultValue>&quot;skuid&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>(Optional) Namespaces of packages from which licenses should be auto-revoked when users are deactivated. Semi-colon delimited.</description>
+        <externalId>false</externalId>
+        <label>Packages to Auto-Revoke Licenses to</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Perm_Sets_For_Auto_Assignment__c</fullName>
+        <defaultValue>&quot;skuid__Skuid_Page_Viewer&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>(Optional) Names of Permission Sets to auto-assign to new or newly-activated users. Semi-colon delimited and namespace-prefixed, e.g. &quot;skuid__Skuid_Page_Viewer&quot;</description>
+        <externalId>false</externalId>
+        <label>Permission Sets to Auto-Assign</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Perm_Sets_For_Auto_Revocation__c</fullName>
+        <defaultValue>&quot;skuid__Skuid_Page_Viewer&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>(Optional) Names of Permission Sets to auto-revoke from deactivated users. Semi-colon delimited and namespace-prefixed, e.g. &quot;skuid__Skuid_Page_Viewer&quot;</description>
+        <externalId>false</externalId>
+        <label>Permission Sets to Auto-Revoke</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Show_SF_Header_Skuid_Core__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Show Salesforce Header in Skuid Core</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Use_Component_Packs__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Use Component Packs</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>Preferences</label>
+    <visibility>Public</visibility>
+</CustomObject>

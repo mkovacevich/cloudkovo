@@ -1,0 +1,9 @@
+<apex:page showHeader="false" sidebar="false" showChat="false" doctype="xhtml-1.1-basic" 
+    	standardStylesheets="{!$CurrentPage.parameters.loadstandardstyles!='false'}" controller="skuid.Social">
+    
+    <topics:widget entity="{!$CurrentPage.parameters.id}" 
+    	rendered="{!$CurrentPage.parameters.showtopics=='true'}"/>
+    
+	<apex:dynamicComponent componentValue="{!chatterFeed}" />
+			
+</apex:page>

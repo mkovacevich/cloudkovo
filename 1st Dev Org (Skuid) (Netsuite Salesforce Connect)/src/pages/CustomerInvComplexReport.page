@@ -1,0 +1,91 @@
+<apex:page controller="CustInvRptController" >
+<!-- Use two Pageblocks, one for the Charts, one for the report details -->
+
+<apex:pageBlock title="Customer Invoice Report" >
+   <apex:pageBlockSection columns="2">
+       <apex:pageBlockSectionItem >             
+           <apex:chart height="250" width="450" data="{!TotalCustInvExtPrice}">
+               <apex:axis type="Numeric" position="bottom" fields="Value" title="Invoice Totals"/>   
+               <apex:axis type="Category" position="left" fields="Name" title="Customer"/>           
+               <apex:barSeries orientation="horizontal" axis="left" xField="Value" yField="Name"/>
+           </apex:chart>
+       </apex:pageBlockSectionItem>
+       <apex:pageBlockSectionItem > 
+           <apex:chart height="250" width="450" data="{!TotalCustInvCount}">
+               <apex:axis type="Numeric" position="bottom" fields="Value" title="Count of Invoices"/>   
+               <apex:axis type="Category" position="left" fields="Name" title="Customer"/>           
+               <apex:barSeries orientation="horizontal" axis="left" xField="Value" yField="Name"/>
+           </apex:chart>            
+       </apex:pageBlockSectionItem>
+   </apex:pageBlockSection>    
+</apex:pageBlock>
+  
+<apex:pageBlock title="Customer Invoice Details" > 
+     <!--Iterate by Customer -->   
+    <apex:repeat value="{!InvMap}" var="FID">
+        <!-- Iterate over Invoice lines by customer --> 
+        <apex:PageBlockTable value="{!InvMap[FID]}" var="InvLine" rendered="true">
+            <apex:column >
+                 <apex:facet name="header">Customer ID</apex:facet>
+                 <apex:outputText value="{!InvLine.CustomerID__c}"/>
+            </apex:column>
+            <apex:column >  
+                <apex:facet name="header">Invoice ID</apex:facet>
+                     <apex:outputLink value="/{!InvLine.ID}">{!InvLine.ExternalID}</apex:outputLink>
+            <!-- Footer for this Column  - not working --> 
+                <apex:facet name="footer"> 
+                     <apex:outputText value="{0, Number}">
+                     Count: <apex:param value="{!CustInvCount [FID]}"/> 
+                    </apex:outputText> 
+                </apex:facet> 
+
+            </apex:column>
+            <apex:column >  
+                 <apex:facet name="header">Product Name</apex:facet>
+                 <apex:outputText value="{!InvLine.ProductName__c}"/>
+            </apex:column>
+            <apex:column >  
+                 <apex:facet name="header">Quantity</apex:facet>
+                 <apex:outputText value="{!InvLine.Quantity__c}"/>
+            </apex:column>
+            <apex:column >  
+                 <apex:facet name="header">Unit Price</apex:facet>
+                 <apex:outputText value="${0, number, ###,###,###.00}">
+                     <apex:param value="{!InvLine.UnitPrice__c}" />
+                 </apex:outputText>
+            </apex:column>
+            <apex:column >
+                 <apex:facet name="header">Extended Price</apex:facet>
+                 <apex:outputText value="{0, Number, Currency}">
+                     <apex:param value="{!InvLine.ExtendedPrice__c}" />
+                 </apex:outputText>
+                            
+                <!-- Footer for this Column --> 
+                <apex:facet name="footer">
+                    <apex:outputText value="{0, Number, Currency}">
+                       Total: <apex:param value="{!CustInvExtPrice [FID]}"/>
+                     </apex:outputText> 
+                </apex:facet> 
+
+            </apex:column>
+            <apex:column >  
+                 <apex:facet name="header">Freight</apex:facet>
+                 <apex:outputText value="${0, number, ###,###,###.00}">
+                     <apex:param value="{!InvLine.Freight__c}" />
+                 </apex:outputText>
+                       
+                <!--Footer for this Column  -->
+                <apex:facet name="footer"> 
+                    <apex:outputText value="{0, Number, Currency}">
+                        Total: <apex:param value="{!CustInvFrt [FID]}"/>
+                    </apex:outputText>
+                </apex:facet>
+               
+            </apex:column>    
+        </apex:PageBlockTable>
+        
+   </apex:repeat>   
+   
+</apex:pageBlock> 
+
+</apex:page>

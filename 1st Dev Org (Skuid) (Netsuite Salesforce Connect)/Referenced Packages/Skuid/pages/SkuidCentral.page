@@ -1,0 +1,8 @@
+<apex:page sidebar="false" readOnly="true" docType="html-5.0" title="Skuid Central" tabStyle="SkuidCentral__tab"
+    standardController="skuid__Page__c" standardStyleSheets="false"
+    showHeader="{!$Setup.Preferences__c.Show_SF_Header_Skuid_Core__c}">
+    <head>
+        <title>Skuid Central</title>
+    </head>
+    <c:page page="SkuidCentral"/>
+</apex:page>
