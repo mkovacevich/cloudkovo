@@ -11,14 +11,13 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>com.salesforce.ide.builder.upgrade</name>
+			<name>com.salesforce.ide.builder.online</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
 		<nature>com.salesforce.ide.nature.default</nature>
-		<nature>com.salesforce.ide.nature.upgrade</nature>
-		<nature>com.salesforce.ide.nature.inactive</nature>
+		<nature>com.salesforce.ide.nature.online</nature>
 	</natures>
 </projectDescription>
