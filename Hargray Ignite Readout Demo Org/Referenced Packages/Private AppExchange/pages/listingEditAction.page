@@ -1,0 +1,2 @@
+<apex:page standardController="privateAppEx__Listing__c" extensions="privateAppEx.ListingEditActionController" action="{!init}">
+</apex:page>

@@ -1,0 +1,36 @@
+<apex:page >
+        <apex:includeScript value="{!URLFOR($Resource.SDO_jqueryui192, '/js/jquery-1.8.3.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SDO_bootstrap, '/js/bootstrap.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.SDO_bootstrap, '/css/bootstrap.css')}"/>
+        <style>
+        .centerContent {
+            padding: 5px;
+        }
+        
+        .container-fluid {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+        .feeditem .pollfieldset .pollquestion{
+            font-size: 12px !important;
+        }    
+    </style>
+     <div class="container-fluid">
+        <form id="searchform" action="/customers/apex/Video" method="get">
+					<input type="text" placeholder="Search" style="
+    float: right;
+    margin-top: -25px;
+    /* margin-right: -100px !important; */
+    width: 228px;
+                                  "/>
+					 <!-- <div id="pseudoSearchBtn" onclick="document.getElementById('searchBtn').click();"></div>
+          <input id="searchBtn" type="submit" value="Go!" style="
+    float: right;
+    margin-right: -280px;
+    margin-top: -21px;
+                                                                   "/>-->
+				</form>
+        <a href="https://sdodemo-main-14de302d774.force.com/customers/apex/Home2"><img src="{!URLFOR($Resource.confirmCopy)}" style="margin-left: -154px;
+                                                                                                                                  margin-top: 67px; max-width: none;"/></a>
+    </div>
+</apex:page>

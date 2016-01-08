@@ -1,0 +1,94 @@
+<apex:component >
+    
+    <!-- Usage  <c:googleMap_marker_infoWindow_generator addressList="{!listOfAddresses}" infoList="{!listOfInfo}"/> -->
+
+    <apex:attribute name="addressList" type="String[]" description="array of addresses" />
+    <apex:attribute name="infoList" type="String[]" description="array of Information Window of respective addresses" />
+
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var myOptions = {
+                center: new google.maps.LatLng(54, -2),
+                zoom: 1,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+    
+            var map = new google.maps.Map(document.getElementById("map"), myOptions);
+    
+            var addressArray = [];
+            var infoArray = [];
+    
+            <apex:repeat value="{!addressList}" var="address" >
+	            addressArray.push("{!address}");
+            </apex:repeat>
+    
+            <apex:repeat value="{!infoList}" var="info" >
+            	infoArray.push("{!info}"); 
+            </apex:repeat>
+    
+            console.log(infoArray);
+    
+            var geocoder = new google.maps.Geocoder();
+            var markerBounds = new google.maps.LatLngBounds();
+            var infoWindow = new google.maps.InfoWindow();
+    
+            for (var i = 0; i < addressArray.length; i++) {
+                var information = infoArray[i];
+                parseAddress(information, addressArray[i]);
+            }
+    
+            function parseAddress(info, address) {
+                geocoder.geocode({
+                    'address': address
+                }, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        map.setCenter(results[0].geometry.location);
+                        console.log(results);
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: results[0].geometry.location
+                            //title: addressArray[i]
+                        });
+                        // google.maps.event.addListener(marker, 'click', function() {
+                            var res = info.split(',');
+                            var iArray = [res];
+                            console.log('Array in info: ' + res[0]);
+                        infoWindow.setContent('<div style="height: 85px;"><h3>' + res[0] + '</h3><br />'+res[1]+'<br/>'+res[2]+', '+res[3] + ' ' +res[4]+'<br>Cell: '+res[5]+'</div>');
+                            //+ res[4] + '<br />' + res[3] + '<br/>' + res[1] + ', ' + res[2] + '<br /><h4>' + res[5] + '</h4>
+                            infoWindow.open(map, marker);
+                            //});
+                         google.maps.event.addListener(marker, 'click', function() {
+                            var res = info.split(',');
+                            var iArray = [res];
+                            console.log('Array in info: ' + res[0]);
+                        infoWindow.setContent('<div style="height: 85px;"><h3>' + res[0] + '</h3><br />'+res[1]+'<br/>'+res[2]+', '+res[3] + ' ' +res[4]+'<br>Cell: '+res[5]+'</div>');
+                            //+ res[4] + '<br />' + res[3] + '<br/>' + res[1] + ', ' + res[2] + '<br /><h4>' + res[5] + '</h4>
+                            infoWindow.open(map, marker);
+                            });
+    
+                        markerBounds.extend(results[0].geometry.location);
+                        //map.fitBounds(markerBounds);
+                        map.setZoom(13);
+                    } else {
+                        alert("Geocode was not successful for the following reason: " + status);
+                    }
+                });
+            }           
+        });
+    </script>
+    <style>
+        #map {
+            font-family: Arial;
+            font-size: 12px;
+            line-height: normal !important;
+            height: 500px;
+            width: 500px;
+            background: transparent;
+        }
+    </style>
+
+    <div id="map"></div>
+</apex:component>

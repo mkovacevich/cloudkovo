@@ -1,0 +1,10 @@
+<apex:page controller="privateAppEx.HomeController" action="{!init}" showHeader="false" sidebar="false" id="home" standardstylesheets="false">
+    <apex:repeat id="listing" var="listing" value="{!listings}" first="0">
+        <li class="prx-li-tile">
+            <c:tile id="tile" listing="{!listing}"/>
+        </li>
+    </apex:repeat>
+    <apex:outputPanel layout="none" rendered="{!hasNextResults}">
+       <a href="{!$Page.homeTileAjax}?pageNo={!searchParams.pageNo+1}" class="jscroll-next"></a>
+    </apex:outputPanel>
+</apex:page>

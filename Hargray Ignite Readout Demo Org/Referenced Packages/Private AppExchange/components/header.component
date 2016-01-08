@@ -1,0 +1,44 @@
+<apex:component >
+    <apex:attribute name="injectedController" description="the controller of the home page" type="privateAppEx.HomeController" required="true" />
+    
+	<div class="prx-content-header">
+		<div class="prx-content-header-inner">
+			<c:pageMessages />
+			
+		    <div class="prx-content-header-main">
+			    <div class="prx-store-logo"><img src="{!injectedController.store.logoUrl}" /></div>
+			    <h1 class="prx-h1-store">{!injectedController.store.Name}</h1>
+			</div>
+			<div class="prx-content-header-extra">
+				<c:searchBox />
+			</div>
+		    
+		    <!-- The container (page-banner-slider) is used to define the width of the slideshow -->
+		    <apex:outputPanel layout="block" styleClass="page-banner-slider-outer" id="page_banner_slider_outer" rendered="{!AND(injectedController.showBanner, injectedController.banner.bannerImages.size > 0)}">
+              <div class="page-banner page-banner-slider" id="page_banner_slider">
+                <div class="slides-banner-container" id="slides_banner_container">
+                  <ul class="prx-ul-reset slides">
+                    <apex:repeat var="bannerImage" value="{!injectedController.banner.bannerImages}">
+                      <li style="display: none;">
+                        <apex:outputLink value="{!bannerImage.link}" target="{!IF(bannerImage.IsNewWindow, '_blank', '_self')}" rendered="{!bannerImage.hasLink}">
+                          <img src="{!$Resource.uilib}/img/p1200x1.gif" data-src="{!bannerImage.imageURL}" class="page-banner-full-img" />
+                        </apex:outputLink>
+                        <apex:outputPanel layout="none" rendered="{!NOT(bannerImage.hasLink)}">
+                          <img src="{!$Resource.uilib}/img/p1200x1.gif" data-src="{!bannerImage.imageURL}" class="page-banner-full-img" />
+                        </apex:outputPanel>
+                      </li>
+                    </apex:repeat>
+                  </ul>
+                </div>
+			</div>
+			</apex:outputPanel>
+		
+			<script>
+			    // window onload, because we want the images to be loaded
+			    jQuery(window).load(function() {
+			        PrX.initBannerSliders();
+			    });
+			</script>    
+		</div>
+	</div>
+</apex:component>

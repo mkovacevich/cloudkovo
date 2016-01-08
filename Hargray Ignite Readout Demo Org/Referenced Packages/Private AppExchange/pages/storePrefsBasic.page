@@ -1,0 +1,113 @@
+<apex:page controller="privateAppEx.StorePreferencesController" action="{!init}" showheader="{!isDesktop}" title="{!store.Name}" sidebar="false" id="apps" standardstylesheets="false" tabStyle="Store_Administration__tab">
+	<apex:composition template="privateAppEx__PrivateExchangeLayout">
+		<apex:define name="content">
+			<div class="prx-content-block prx-content-block-admin" id="prx-content-block">
+				<!-- title bar -->
+				<c:storePreferencesTitle injectedController="{!controller}"/>
+
+				<div class="prx-content-content prx-content-content-with-secondary">
+					<apex:form id="basicForm">
+						<div class="prx-content-content-inner">
+							<c:leftSidebar selected="{!$Label.privateappex__Store_Preferences}" />
+							<div class="prx-content-primary">
+								<div class="prx-content-primary-inner">
+									<div class="prx-content-generic">
+										<c:storePreferencesTabs selected="{!$Label.privateappex__BasicInfo}" storeIsCreated="{!NOT(store.isNew)}" />
+										<div class="prx-form-info-b">
+											<div class="prx-form-info-b1">
+												<label class="prx-form-label"><span
+													class="prx-label-text"><apex:outputText value="{!$Label.privateappex__StoreName}" /></span> <span class="prx-req">*</span></label>
+												<div class="prx-form-group">
+													<apex:inputText value="{!storeName}" styleClass="prx-input prx-input-text prx-input-text-highlight" id="store_name" maxlength="{!$ObjectType.privateAppEx__Store__c.fields.Name.length}"/>
+												</div>
+												<label class="prx-form-label"><span
+													class="prx-label-text"><apex:outputText value="{!$Label.privateappex__StoreLogo}" /></span> <span class="prx-req">*</span></label>
+												<div class="prx-form-group">
+													<p class="prx-form-explanation">
+														<apex:outputText value="{!$Label.privateappex__UploadStoreLogo}" />
+													</p>
+													<apex:inputFile id="store_logo" value="{!imageBlob}" filename="{!imageFname}" onchange="PrX.hideLogo();" />
+												</div>
+												<apex:outputPanel id="logoPanel" layout="block" styleClass="prx-store-logo prx-store-logo-preferences" rendered="{!AND(NOT(ISNULL(store.logoUrl)),NOT(IsBlank(store.logoUrl)))}">
+													<img id="logoImage" src="{!store.logoUrl}" />
+												</apex:outputPanel>
+											</div>
+											<div class="prx-form-info-b2">
+												<label class="prx-form-label"><span class="prx-label-text"><apex:outputText value="{!$Label.privateappex__App_Categories}" /></span> <span class="prx-req">*</span> <a class="prx-label-edit" href="/p/setup/custent/CustomObjectsPage"><apex:outputText id="editAppCategoriesSetupLink" value="{!$Label.privateappex__EditInSetup}" /></a></label>
+												<p>{!storeCategories}</p>
+												<label class="prx-form-label"><span class="prx-label-text"><apex:outputText value="{!$Label.privateappex__ApprovalAdministratorsQueue}" /></span><span class="prx-req">*</span> <a class="prx-label-edit"  href="/p/process/ProcessDefinitionSetup"><apex:outputText id="editApprovalsSetupLink" value="{!$Label.privateappex__EditInSetup}" /></a></label>
+												<p>
+													<apex:outputText value="{!$Label.privateappex__ProcessDefined}" rendered="{!hasApprovalProcess}" />
+													<apex:outputText value="{!$Label.privateappex__ApprovalProcessSetupInfo}" escape="false" rendered="{!NOT(hasApprovalProcess)}"><apex:param value="https://appexchange.salesforce.com/private-appexchange-admin-guide" /></apex:outputText>
+												</p>
+											</div>
+										</div>
+										<div class="prx-btn-group prx-btn-group-a">
+											<a onclick="PrX.onbeforeunload = '';" class="prx-btn prx-btn-primary" href="javascript:saveBasic();"><apex:outputText id="basicPageSave" value="{!$Label.privateappex__Save}" /></a>
+										</div>
+										<script>
+										//<![CDATA[
+											PrX.hideLogo = function() {
+												var p = document.getElementById('{!$Component.basicForm.logoPanel}');
+												if (p) {
+													p.style.display = 'none';
+												} 
+											};
+										// ]]>
+										</script>
+									</div>
+								</div>
+							</div>
+						</div>
+						<apex:actionFunction name="saveBasic" action="{!saveBasic}"/>
+					</apex:form>
+				</div>
+			</div>
+
+			<script>
+			//<![CDATA[
+		        jQuery(document).ready(function() {
+		            // If the user leaves the page without saving, we will warn them. 
+		            // We will look at the text field and the logo upload field. 
+		            // If they have changed, we can warn the user. 
+		            // First store the current values. 
+		            $storeNameField = jQuery(PrX.jQid('{!$Component.basicForm.store_name}'));
+		            $storeLogoField = jQuery(PrX.jQid('{!$Component.basicForm.store_logo}'));
+		            storeNameOriginalValue = $storeNameField.val();
+		            storeLogoOriginalValue = $storeLogoField.val();
+		            // Then add blur events to the 2 fields. 
+		            $storeNameField.on('blur',function() {
+		                PrX.checkFormFieldsForChange();
+		            });
+		            $storeLogoField.on('blur',function() {
+		                PrX.checkFormFieldsForChange();
+		            });
+		        });
+		
+		        // For translation purposes, this is in the page. 
+		        PrX.onbeforeunloadTitle = '{!$Label.LeavePageMessage}';
+		        var storeNameOriginalValue;
+		        var storeLogoOriginalValue;
+		        // Every time there is an appropriate event on the page, we will call this function (e.g. a text field blur). 
+		        // We will compare current values with the original values. 
+		        // If they are different, we will set the PrX.onbeforeunload string to the correct message. 
+		        // Some JS will then warn the user when she leaves the page. 
+		        PrX.checkFormFieldsForChange = function() {
+		            var $storeNameField = jQuery(PrX.jQid('{!$Component.basicForm.store_name}'));
+		            var $storeLogoField = jQuery(PrX.jQid('{!$Component.basicForm.store_logo}'));
+		            
+		            if ($storeNameField.val() !== storeNameOriginalValue || $storeLogoField.val() !== storeLogoOriginalValue) {
+				        PrX.onbeforeunload = '{!$Label.UnsavedChangesMessage}';
+		            }
+		            else {
+		                PrX.onbeforeunload = '';
+		            }
+		        };
+
+		        jQuery(window).on('debouncedresize', function() {
+		        });
+        	// ]]>
+			</script>
+		</apex:define>
+	</apex:composition>
+</apex:page>

@@ -1,0 +1,2 @@
+<apex:page standardController="privateAppEx__Store__c" extensions="privateAppEx.StoreActionsController" action="{!init}">
+</apex:page>

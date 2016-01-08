@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Work%2Ecom Coaching Publisher</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <description>Coaching from anywhere, any devices with Work.com Coaching Publisher. 
+
+You can now initiate coaching  conversation from anywhere in Salesforce including Accounts, Leads, Opportunities, Reports, Dashboards, ... and you can do it from your Desktop or any mobile device running Salesforce1 app.</description>
+    <namespacePrefix>wdc_coachingmdp</namespacePrefix>
+    <types>
+        <members>CoachingMDPComponentController</members>
+        <members>CoachingMDPController</members>
+        <members>CoachingMDPControllerTest</members>
+        <members>CoachingService</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>CoachingMDPComponentF1</members>
+        <members>CoachingMDPComponentS1</members>
+        <members>ModalIndicator</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>CoachingMDPView</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Coaching</members>
+        <name>QuickAction</name>
+    </types>
+    <types>
+        <members>coaching_empty_state</members>
+        <members>coaching_icon_confirm</members>
+        <members>coaching_icon_error</members>
+        <members>coaching_publisher_icon</members>
+        <members>coaching_stylesheet_f1</members>
+        <members>coaching_stylesheet_s1</members>
+        <name>StaticResource</name>
+    </types>
+    <version>35.0</version>
+</Package>

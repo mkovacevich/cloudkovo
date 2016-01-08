@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <content>listingPopularityActions</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <content>listingPopularityActions</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>listingPopularityActions</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>listingPopularityActions</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>Daily popularity of each listing in the store.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AccessRequests__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The number of access requests on this listing on this date. Used to calculate 30-day popularity for the listing.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of access requests on on this listing on this date. Used to calculate 30-day popularity for the listing.</inlineHelpText>
+        <label>Access Requests</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ActivityDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date on which the activities for this listing occurred.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date on which the activities for this listing occurred.</inlineHelpText>
+        <label>Activity Date</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>InstallCount__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The number of installs on this listing on this date. Used to calculate 30-day popularity for the listing.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of installs on this listing on this date. Used to calculate 30-day popularity for the listing.</inlineHelpText>
+        <label>Install Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Listing__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The listing with which the popularity is associated.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The listing with which the popularity is associated.</inlineHelpText>
+        <label>Listing</label>
+        <referenceTo>Listing__c</referenceTo>
+        <relationshipLabel>Listing Popularity</relationshipLabel>
+        <relationshipName>UserActivitySnapshots</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>PageViews__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The number of page views for the listing on this date. Used to calculate 30-day popularity for the listing.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of page views for the listing on this date. Used to calculate 30-day popularity for the listing.</inlineHelpText>
+        <label>Page Views</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RequestsInstalls__c</fullName>
+        <defaultValue>0</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The number of access requests or installs for the listing on this date. Used to calculate 30-day popularity for the listing.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of access requests or installs for the listing on this date. Used to calculate 30-day popularity for the listing.</inlineHelpText>
+        <label>Requests/Installs</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Listing Popularity</label>
+    <nameField>
+        <displayFormat>LP-{0}</displayFormat>
+        <label>ListingPopularity Number</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Listing Popularity</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

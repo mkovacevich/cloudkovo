@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SocialCustomerService</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <namespacePrefix>SocialService</namespacePrefix>
+    <types>
+        <members>Social_Customer_Service</members>
+        <members>Social_Customer_Service/readme.txt</members>
+        <name>Document</name>
+    </types>
+    <version>35.0</version>
+</Package>

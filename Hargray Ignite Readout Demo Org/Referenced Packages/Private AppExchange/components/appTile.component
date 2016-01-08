@@ -1,0 +1,26 @@
+<apex:component >
+	<apex:attribute name="app" description="the app for this tile." type="privateAppEx.AppDO" required="true" />
+	<apex:attribute name="is30DaySort" description="flag to determine whether to show default sort" type="Boolean" required="false" default="true"/>
+	<apex:attribute name="showCounters" description="specify if counters should be shown" type="Boolean" required="true" />
+	<apex:attribute name="extraStyle" description="extra style" type="String" required="false" />
+	
+    	<div class="prx-tile">
+        	<div class="prx-tile-content">
+            	<div class="prx-tile-content-inner prx-tile-content-inner-1 {!extraStyle}">
+                	<div class="prx-tile-img"><span class="prx-tile-img-inner"><img src="{!app.AppMenuItemDO.LogoUrl}" /></span></div>
+                    <div class="prx-tile-title"><a href="{!$Page.appDetails}?appId={!app.Id}"><apex:outputText value="{!app.appMenuItemDO.name}"/></a></div>
+                </div>
+                <apex:outputPanel layout="none" rendered="{!showCounters}">
+                <a href="{!$Page.appDetails}?appId={!app.Id}" class="prx-tile-content-inner prx-tile-content-inner-4">
+                  	<span class="prx-tile-install-info">
+                  		<apex:variable var="popularity" value="{!IF(is30DaySort, FLOOR(app.Popularity), FLOOR(app.PopularityAllTime))}"/>
+                  		<span class="prx-tile-install-number"><apex:outputText value="{!popularity}"/></span>&#160;<apex:outputText value="{!LOWER(IF(popularity == 1, $Label.privateappex__RequestInstall, $ObjectType.privateAppEx__App__c.fields.privateAppEx__PopularityAllTime__c.label))}"/><br class="hidden-phone" />
+                        <apex:variable var="pageViews" value="{!IF(is30DaySort, FLOOR(app.PageViews), FLOOR(app.PageViewsAllTime))}"/>
+                        <span class="prx-tile-install-number"><apex:outputText value="{!pageViews}"/></span>&#160;<apex:outputText value="{!LOWER(IF(pageViews == 1, $Label.privateappex__Page_View, $ObjectType.privateAppEx__App__c.fields.privateAppEx__PageViews__c.label))}"/>
+                    </span>
+                </a>
+                </apex:outputPanel>
+        	</div>
+    	</div>
+	
+</apex:component>

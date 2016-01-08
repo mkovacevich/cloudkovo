@@ -1,0 +1,139 @@
+<apex:component controller="cam_LoginController" id="loginComponent">
+ <script>
+ 
+ 	usernameInputId= '{!$Component.loginForm.username}';
+ 	passwordInputId= '{!$Component.loginForm.password}';
+ 	
+ 	function getRetUrl(){
+ 		ret = '';
+ 		if (window.location.href.match(/startURL=/) != null){
+			l = window.location.href.split(/startURL=/);
+			ret =  l[1];
+		}
+ 		return ret;
+ 	}
+	function loginToFacebook(){
+		
+		
+		if (("{!$Site.CurrentSiteUrl}").match(/https:/)){
+		 	siteUrl	=	"{!$Site.CurrentSiteUrl}{!$Site.Prefix}";
+		}else{
+		 	siteUrl 	= ("{!$Site.CurrentSiteUrl}").replace("http:","https:").replace("force.com","secure.force.com");
+		}
+		if (siteUrl.match(/secure.force.com/) == null){
+			siteSecureUrl 	= siteUrl.replace("force.com","secure.force.com");
+		}else{
+			siteSecureUrl 	= siteUrl;
+		}
+		var fBkUrl = "https://login.salesforce.com/services/auth/sso/00D15000000hjBlEAI/Chatter_Answers_FB_login";
+		if (window.location.href.match(/startURL=/) != null){
+			l = getRetUrl();
+			startURL = "startURL="+encodeURIComponent(l);
+		}else{
+			startURL = "startURL=/cam_Home";
+		}
+		var siteURL = "site="+siteSecureUrl; 
+		var fullURL = fBkUrl +'?'+startURL +'&'+siteURL 
+		window.location = fullURL;
+	
+	}
+
+	function goBack(){
+		default_feed ="{!$Page.cam_feed}"; 
+		finalUrl = "{!$Page.cam_home}";
+		
+		retUrl = unescape(getRetUrl());
+		if (retUrl != ''){ 
+			pos = retUrl.indexOf(default_feed);
+			if (pos != -1){
+				aux = retUrl.substring((default_feed).length);
+				lpart = aux.split('/');
+				if (lpart.length>1){
+					cId = lpart[1];
+					finalUrl = default_feed+'?mainFeed/'+encodeURIComponent(cId)+'/';
+				}
+			} 
+		} 
+		
+		window.location = finalUrl;
+	}
+	
+ </script>
+ <style>
+
+ .multi_row input {
+		width: 97.5%;
+		padding-top: 12px;
+		padding-bottom: 12px;
+		font-size: 22px;
+		color: black;
+		-webkit-border-radius: 0;
+		border: 1px solid #CCC;/*none;*/
+		background-color: white;
+		-webkit-appearance: none;
+		padding-left: 15px;
+	} 
+	
+	.form .input_holder, .form .button, .form select {
+		display: block;
+		margin: 0 0 20px;
+	}
+	
+	.form .button {
+		float: none;
+		width: 100%;
+	}
+	
+	.hr{			
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+	.or_div{
+		width: 100%;
+		text-align: center;
+	}
+ 
+ </style>
+ 
+ 
+ <div  >
+ <nav class="app_nav">
+       	 	<h2>Login</h2>
+        <a class="button btn_dark btn_cancel" id="cancelPostQuestion" href="javascript:goBack();" style="float:right;" >
+            <img class="icon" src="/s.gif" alt="Cancel" />
+        </a>
+    </nav>
+
+	<section class="form"> 
+		<apex:form id="loginForm" forceSSL="true">
+			<p>Please sign in to contribute.</p>
+			<apex:pageMessages id="error" />
+			<div class="multi_row">
+				<apex:inputText id="username"
+					styleClass="blur" value="{!username}" alt="Email (Your Username)"
+					title="Email (Your Username)" /> 
+				<apex:inputSecret id="password"
+					styleClass="blur" value="{!password}" alt="Password" title="Password" />
+			</div>
+			<apex:commandButton styleClass="button btn_action btn_loginAction" action="{!login}"
+				value="Sign In" id="loginButton" />
+	
+			<input type="button" id="cancelBtn"
+				onclick="window.location='{!$Page.cam_home}';"
+				class="button btn_subtle" value="Cancel" />
+		
+			<h3 class="hr"><div class="or_div">Or</div></h3>
+		
+			<input class="button btn_subtle" value="Sign In with Facebook"
+				id="fcbk_signIn" type="button" />
+				
+			<p class="form_footer">
+				<a href="">Forgot password?</a> | New here?
+				<a href="">Sign up!</a>
+			</p>
+		</apex:form> 
+	</section>
+
+</div>
+ 
+</apex:component>

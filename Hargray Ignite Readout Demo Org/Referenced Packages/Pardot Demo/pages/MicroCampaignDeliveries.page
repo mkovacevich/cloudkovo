@@ -1,0 +1,99 @@
+<apex:page controller="salesedgedemo.SalesEdgeReportingController" sidebar="false" showHeader="false" standardStylesheets="false">
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/bootstrap/dist/css/bootstrap.min.css')}" />
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/kendo/styles/microcampaign.min.css')}" />
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'css/microcampaign.css')}" />
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/font-awesome/css/font-awesome.min.css')}" />
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'css/overrides.css')}" />
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row clearfix">
+                <nav class="navbar navbar-default navbar-static-top col-md-6 col-sm-12">
+                  <!-- Brand and toggle get grouped for better mobile display-->
+                  <div class="navbar-header">
+                    <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                  </div>
+                  <!-- Collect the nav links, forms, and other content for toggling-->
+                  <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                    <p class="history-back-link"><a href="#" onclick="history.go(-1);return false;">← Back</a></p>
+                    <ul class="nav navbar-nav">
+                      <li class="h2 email-title js-email-title"></li>
+                      <li class="dropdown js-email-type hidden"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" data-email-type="all" class="h2 dropdown-toggle">All Emails<span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                          <li data-email-type="all"><a href="#">All Emails</a></li>
+                          <li data-email-type="templates"><a href="#">Template-Based</a></li>
+                          <li data-email-type="notemplate"><a href="#">Not Template-Based</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown js-date-range"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" data-email-type="7" class="h2 dropdown-toggle">7 Days<span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                          <li data-date-range="7"><a href="#">7 Days</a></li>
+                          <li data-date-range="14"><a href="#">14 Days</a></li>
+                          <li data-date-range="30"><a href="#">30 Days</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- /.navbar-collapse-->
+                </nav>
+              </div>
+              <h3 class="panel-table-header text-muted">Deliveries</h3>
+              <div class="row clearfix">
+                <div data-role="grid" class="js-prospects-table k-grid k-widget">
+                  <div class="kendo-loading js-prospects-table-loading"></div>
+                  <div class="kendo-loading js-prospects-table-loading"></div>
+                  <table role="grid">
+                    <colgroup>
+                      <col/>
+                      <col/>
+                      <col/>
+                      <col/>
+                      <col/>
+                    </colgroup>
+                    <thead role="rowgroup" class="k-grid-header"></thead>
+                    <tbody role="rowgroup"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__Mobile_Design_Templates, 'Mobile-Design-Templates-master/common/js/jQuery2.0.2.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/cookies-js/dist/cookies.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/node_modules/secure-filters/lib/secure-filters.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/bootstrap/dist/js/bootstrap.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/kendo/custom-builds/kendo.microcampaign.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignDeliveries, 'js/override_ajax.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignDeliveries, 'js/microcampaign-prospects.dev.js')}"/>
+
+<script>
+	window.email_id = "12345";
+	window.microcampaignJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/microcampaign.json')}";
+	window.individualEmailJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/individual_email.json')}";
+	window.trackersJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/trackers.json')}";
+	window.deliveriesPath = "{!URLFOR($Resource.MicroCampaignDeliveries, 'js/delivered.json')}";
+	window.firstEmail = {
+		"email_subject" : "{!emailSubject}",
+		"email_html" : "{!emailHtml}",
+		"email_text" : "{!emailText}",
+		"template_name" : "{!templateName}",
+		"template_subject" : "{!templateSubject}",
+		"template_id" : "{!templateId}",
+		"email_count" : "{!emailCount}"
+	}
+	window.contactsForSentEmail = "{!contactsForEmailSend}";
+	window.leadsForSentEmail = "{!leadsForEmailSend}";
+</script>
+
+</apex:page>

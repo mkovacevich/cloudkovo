@@ -1,0 +1,52 @@
+<apex:component controller="wdc_coachingmdp.CoachingMDPComponentController" allowDml="true">
+    <apex:stylesheet value="{!$Resource.wdc_coachingmdp__coaching_stylesheet_f1}" />
+
+    <apex:form >
+        <div class="f1" id='mainPanel'>
+            <div class="subPanel">
+                <apex:outputPanel rendered="{!relationships.size > 0}">
+                    <div class="label">Post to my coaching relationship with</div>
+                    <apex:selectList size="1" multiselect="false"
+                        value="{!selectedWorkCoachingID}">
+                        <apex:selectOptions value="{!WorkCoachingItems}" />
+                        <apex:actionSupport event="onchange" status="ajaxStatus" rerender="notifyArea" />
+                    </apex:selectList>
+
+                    <div class="label margin-top-10">Private message</div>
+
+                    <apex:inputTextArea styleClass="messageInputBox" value="{!message}"/>
+
+                    <apex:outputPanel id="notifyArea">
+                        <label class="label"><apex:inputCheckbox styleClass="margin-top-8" value="{!shouldNotify}" /> Notify
+                            {!personToNotify.firstName} about this message </label>
+                    </apex:outputPanel>
+
+                    <div class="bottomBar">
+                        <apex:outputPanel rendered="{!operationalResult != null}">
+                            <apex:image styleClass="statusIcon"
+                                value="{!$Resource.wdc_coachingmdp__coaching_icon_confirm}"
+                                rendered="{!!operationalResult.isError}" />
+                            <apex:image styleClass="statusIcon"
+                                value="{!$Resource.wdc_coachingmdp__coaching_icon_error}"
+                                rendered="{!operationalResult.isError}" />
+                                &nbsp;{!operationalResult.message}
+                            </apex:outputPanel>
+                        <apex:commandButton value="Post" styleClass="postButton"
+                            action="{!insertFeedPost}" id="postButton" />
+
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!relationships.size == 0}">
+                    <div class="emptyState">
+                        <apex:image value="{!$Resource.wdc_coachingmdp__coaching_empty_state}" />
+
+                        <div class="margin-top-40">You don't have any coaching
+                            relationships yet.</div>
+                        <div class="writeNote margin-top-8">To write coaching notes
+                            on the fly, first add a coach in Work.com</div>
+                    </div>
+                </apex:outputPanel>
+            </div>
+        </div>      
+    </apex:form>        
+</apex:component>

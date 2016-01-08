@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Listing</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Listings</value>
+    </caseValues>
+    <fields>
+        <help><!-- The app that is listed. --></help>
+        <label><!-- App --></label>
+        <name>App__c</name>
+        <relationshipLabel><!-- Listings --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The ID of the banner attachment for the listing. --></help>
+        <label><!-- Banner Attachment ID --></label>
+        <name>BannerAttachmentId__c</name>
+    </fields>
+    <fields>
+        <help><!-- A text description of the app, written in the specified language. --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- The language for the listing. When viewing the store, users see listings matching their language. --></help>
+        <label><!-- Language --></label>
+        <name>Language__c</name>
+        <picklistValues>
+            <masterLabel>da</masterLabel>
+            <translation><!-- da --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>de</masterLabel>
+            <translation><!-- de --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>en_US</masterLabel>
+            <translation><!-- en_US --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>es</masterLabel>
+            <translation><!-- es --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>fi</masterLabel>
+            <translation><!-- fi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>fr</masterLabel>
+            <translation><!-- fr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>it</masterLabel>
+            <translation><!-- it --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ja</masterLabel>
+            <translation><!-- ja --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ko</masterLabel>
+            <translation><!-- ko --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>nl_NL</masterLabel>
+            <translation><!-- nl_NL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>pt_BR</masterLabel>
+            <translation><!-- pt_BR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ru</masterLabel>
+            <translation><!-- ru --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>sv</masterLabel>
+            <translation><!-- sv --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>th</masterLabel>
+            <translation><!-- th --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>zh_CN</masterLabel>
+            <translation><!-- zh_CN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>zh_TW</masterLabel>
+            <translation><!-- zh_TW --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The date when the listing was first published in the store. --></help>
+        <label><!-- Listed Date --></label>
+        <name>ListedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- The number of page views on the listing for all time. --></help>
+        <label>Page Views (All Time)</label>
+        <name>PageViewsAllTime__c</name>
+    </fields>
+    <fields>
+        <help><!-- Page views of the listing in the last 30 days. --></help>
+        <label><!-- Page Views (30 Days) --></label>
+        <name>PageViews__c</name>
+    </fields>
+    <fields>
+        <help><!-- Popularity by requests/installs (dependent on app type) for all time. --></help>
+        <label><!-- Popularity (All Time) --></label>
+        <name>PopularityAllTime__c</name>
+    </fields>
+    <fields>
+        <help><!-- Popularity by requests/installs (dependent on app type) for last 30 days. --></help>
+        <label><!-- Popularity (30 Days) --></label>
+        <name>Popularity__c</name>
+    </fields>
+    <fields>
+        <help><!-- The requirements (e.g. devices, operating systems, browsers) needed to use this app, written in the specified language. --></help>
+        <label><!-- Requirements --></label>
+        <name>Requirements__c</name>
+    </fields>
+    <fields>
+        <help><!-- Status indicates the current state of the listing. --></help>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Draft</masterLabel>
+            <translation><!-- Draft --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactive</masterLabel>
+            <translation><!-- Inactive --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Live</masterLabel>
+            <translation><!-- Live --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Brief tagline describing the listing. --></help>
+        <label><!-- Tagline --></label>
+        <name>Tagline__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates if the listing is the default listing for its associated app. --></help>
+        <label>Default App Listing</label>
+        <name>isDefaultAppListing__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,115 @@
+<apex:component controller="wdc_coachingmdp.CoachingMDPComponentController" allowDml="true">
+
+    <apex:stylesheet value="{!$Resource.wdc_coachingmdp__coaching_stylesheet_s1}" />
+    <script type='text/javascript' src='/canvas/sdk/js/29.0/publisher.js' />
+
+
+    <apex:form >
+        <div class="s1" id='mainPanel'>         
+            <c:ModalIndicator />            
+            <div class="subPanel">
+                <apex:outputPanel rendered="{!relationships.size > 0}">
+                    <div class="label">Post to my coaching relationship with</div>
+                    <apex:selectList size="1" multiselect="false"
+                        value="{!selectedWorkCoachingID}">
+                        <apex:selectOptions value="{!WorkCoachingItems}" />
+                        <apex:actionSupport event="onchange" status="ajaxStatus"
+                            rerender="notifyArea" />
+                    </apex:selectList>
+
+                    <div class="label margin-top-20">Private message</div>
+
+                    <apex:inputTextArea styleClass="messageInputBox" value="{!message}" onkeyup="return setValidForSubmit(this)" />
+
+                    <apex:outputPanel id="notifyArea">
+                        <label class="label"><apex:inputCheckbox styleClass="margin-top-10" value="{!shouldNotify}" /> Notify
+                            {!personToNotify.firstName} about this message </label>
+                    </apex:outputPanel>
+
+                    <div class="bottomBar">
+                        <apex:outputPanel id="actionResult">                        
+                            <apex:outputPanel rendered="{!operationalResult != null}">
+                                <script>
+                                    document.getElementById('modalIndicator').style.display='none';                                                                     
+                                </script>   
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!operationalResult != null && operationalResult.isError}">
+                                <apex:image styleClass="statusIcon"
+                                    value="{!$Resource.wdc_coachingmdp__coaching_icon_error}"
+                                    rendered="{!operationalResult.isError}" />
+                                &nbsp;{!operationalResult.message}
+                            </apex:outputPanel>
+                            
+                            <apex:outputPanel rendered="{!operationalResult != null && !operationalResult.isError}">
+                                <script>
+                                    try {                                       
+                                        window.parent.$A
+                                                .get("e.force:showToast")
+                                                .setParams(
+                                                        {
+                                                            message : "Message successfully posted"
+                                                        }).fire();
+                                    } catch (err) {
+                                        //ignore
+                                    }
+
+                                     Sfdc.canvas.publisher.publish({
+                                        name : "publisher.close",
+                                        payload : {
+                                            refresh : "false"
+                                        }
+                                    }); 
+                                </script>
+                            </apex:outputPanel>
+                        </apex:outputPanel>
+
+                    </div>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!relationships.size == 0}">
+                    <div class="emptyState">
+                        <apex:image value="{!$Resource.wdc_coachingmdp__coaching_empty_state}" />
+
+                        <div class="margin-top-40">You don't have any coaching
+                            relationships yet.</div>
+                        <div class="writeNote margin-top-8">To write coaching notes
+                            on the fly, first add a coach in Work.com</div>
+                    </div>
+                </apex:outputPanel>
+            </div>
+        </div>
+        <apex:actionFunction action="{!insertFeedPost}"
+            name="insertFeedPostJS" rerender="actionResult" />
+    </apex:form>
+
+
+    <script>        
+        function setValidForSubmit(messageInput) {                                  
+            if (sforce) {               
+                if (messageInput.value && messageInput.value.trim().length > 0) {
+                    Sfdc.canvas.publisher.publish({
+                        name : "publisher.setValidForSubmit",
+                        payload : "true"
+                    });
+                } else {
+                    Sfdc.canvas.publisher.publish({
+                        name : "publisher.setValidForSubmit",
+                        payload : "false"
+                    });
+                }
+            }           
+        }
+
+        if (sforce) {
+            Sfdc.canvas.publisher.subscribe({
+                name : "publisher.post",
+                onData : function(e) {
+                    document.getElementById('modalIndicator').style.display='block';                    
+                    insertFeedPostJS();
+                }
+            });
+        }
+                     
+    </script>
+
+</apex:component>

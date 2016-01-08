@@ -1,0 +1,35 @@
+<apex:component layout="none">
+	<apex:attribute name="selected" description="Currently selected tab" type="String" required="true" />
+	<apex:attribute name="storeIsCreated" description="Flag to indicate store has been created (Banners and Advanced not clickable if not)" type="Boolean" required="true" />
+	
+	<div class="prx-content-header">
+		<div class="prx-content-header-inner">
+			<div class="prx-content-header-one"></div>
+			<div class="prx-tabs">
+				<ul class="prx-ul-reset prx-tab-set">
+					<!--  Basic Info -->
+					<apex:outputPanel layout="none" rendered="{!selected == $Label.privateappex__BasicInfo}">
+						<li class="prx-selected"><span class="prx-tab"><span class="prx-tab-text"><apex:outputText value="{!$Label.privateappex__BasicInfo}" /></span></span></li>
+					</apex:outputPanel>
+					<apex:outputPanel layout="none" rendered="{!selected != $Label.privateappex__BasicInfo}">
+						<li><a href="{!$Page.storePrefsBasic}" class="prx-tab"><span class="prx-tab-text"><apex:outputText value="{!$Label.privateappex__BasicInfo}" /></span></a></li>
+					</apex:outputPanel>
+					<!--  Banners -->
+					<apex:outputPanel layout="none" rendered="{!OR(selected == $Label.privateappex__Banners, NOT(storeIsCreated))}">
+						<li class="{!IF(storeIsCreated, 'prx-selected','')}"><span class="prx-tab{!IF(NOT(storeIsCreated), ' prx-tab-disabled','')}"><span class="prx-tab-text"><apex:outputText value="{!$Label.privateappex__Banners}" /></span></span></li>
+					</apex:outputPanel>
+					<apex:outputPanel layout="none" rendered="{!AND(selected != $Label.privateappex__Banners, storeIsCreated)}">
+						<li><a href="{!$Page.storePrefsBanners}" class="prx-tab"><span class="prx-tab-text"><apex:outputText value="{!$Label.privateappex__Banners}" /></span></a></li>
+					</apex:outputPanel>
+					<!--  Advanced -->
+					<apex:outputPanel layout="none" rendered="{!OR(selected == $Label.privateappex__Advanced, NOT(storeIsCreated))}">
+						<li class="{!IF(storeIsCreated, 'prx-selected','')}"><span class="prx-tab{!IF(NOT(storeIsCreated), ' prx-tab-disabled','')}"><span class="prx-tab-text"><apex:outputText value="{!$Label.privateappex__Advanced}" /></span></span></li>
+					</apex:outputPanel>
+					<apex:outputPanel layout="none" rendered="{!AND(selected != $Label.privateappex__Advanced, storeIsCreated)}">
+						<li><a href="{!$Page.storePrefsAdvanced}" class="prx-tab"><span class="prx-tab-text"><apex:outputText value="{!$Label.privateappex__Advanced}" /></span></a></li>
+					</apex:outputPanel>
+				</ul>
+			</div>
+		</div>
+	</div>
+</apex:component>

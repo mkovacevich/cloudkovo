@@ -1,0 +1,310 @@
+<apex:page showHeader="false">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- d3 visualization -->
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.4.2/d3.min.js"></script>
+	<apex:include pageName="WorkGoalGlobalFunction"/>
+
+	<script>
+		//getting data from salesforce
+		var myGoals = [];
+		var myGoalIds = [];
+		var myAlignedGoals = [];
+		var myAlignedGoalIds = [];
+		var allGoalsMap = {};
+
+		//for d3
+		var nodes = [];
+		var links = [];
+		$(document).ready(function(){
+			focusUser = "{!$CurrentPage.parameters.sfdc.userId}";
+			console.log("focusUser: "+focusUser);
+			init();
+		});
+		var sitePrefix = "/_ui/core/userprofile/UserProfilePage?u=";
+		var tabUrl = "&tab=AlignedGoals";
+		var colors = [	{"label":"On Track", "value":"#8DB54C"}, 
+					    {"label":"Behind", "value":"#EFBA3A"},
+					    {"label":"Postponed", "value":"#009FD7"},
+					    {"label":"Critical", "value":"#F12916"},
+					    {"label":"No Metrics", "value":"#000"}];
+
+		function init(){
+			/* mapping of user to their goals */
+			
+			//get my Goals
+			getUserGoals(focusUser,function(result){
+				myGoals = result;
+				// console.log(myGoals);
+			
+				if(myGoals != null)
+				{
+					for(var x = 0;x<myGoals.length;x++)
+						myGoalIds.push(myGoals[x].Id);
+					// console.log(myGoalIds);
+
+					//get goals that are aligned to me
+					getUserGoalLinks(myGoalIds,function(result){
+						myAlignedGoals = result;
+						console.log('my aligned goal links:');
+						console.log(myAlignedGoals);
+					
+						if(myAlignedGoals != null)
+						{
+							for(var x=0;x<myAlignedGoals.length;x++)
+								myAlignedGoalIds.push(myAlignedGoals[x].SourceGoalId);
+						}
+
+						//add aligned goal id with your own goal id
+						var allGoals = myGoalIds.concat(myAlignedGoalIds);
+
+						//get all goals
+						getWorkGoalMapping(allGoals,function(result){
+							allGoalsMap = result;
+							console.log('all goals map:');
+							var d3Index = 0;
+							for (var m in allGoalsMap){
+								allGoalsMap[m].d3index = d3Index++;
+								nodes.push({
+									"Id" : allGoalsMap[m].Id,
+									"Owner" : allGoalsMap[m].Owner.Name,
+									"OwnerId" : allGoalsMap[m].OwnerId,
+									"Goal" :  allGoalsMap[m].Name,
+									"Progress" : (allGoalsMap[m].ActualValue == null) ? 0+"%" : Math.round(allGoalsMap[m].ActualValue)+"%",
+									"ImgUrl" : allGoalsMap[m].CreatedBy.SmallPhotoUrl,
+									"Stroke" : getColor(allGoalsMap[m].FlaggedAs)
+								});
+							} 
+							console.log(allGoalsMap);
+							console.log("Node:");
+							console.log(nodes);
+
+							//map my goals
+							buildGraphEdge();
+						});
+					});
+				}
+			});
+		}
+
+		function buildGraphEdge()
+		{
+			/****************************************************
+			* This is for d3 to use when creating the node/links. format is as follow:
+			*	{
+			*		"nodes":[
+			*			{
+			*				"Id" : "0WE1500000007sMOA4"
+			*				"Owner": "Henry Liu",
+			*				"OwnerId": "005xxxxxxx",
+			*				"ImgUrl": "https://c.na1.content.force.com/profilephoto/72915000000cSjn/F",
+			*				"Goal": "20K Pipeline Q2",
+			*				"Stroke" : "red"
+			*			},
+			*			{...}
+			*			],
+			*		"links":[
+			*			{
+			*				"source":0,
+			*				"target":1,
+			*				"color":"rgb(31, 137, 202)",
+			*				"width": "1"
+			*			},
+			*			{...}
+			*			]
+			*	}
+			****************************************************/
+			
+			if(myAlignedGoals != null)
+			{
+				//build the links
+				for(var i=0;i<myGoalIds.length;i++)
+					for(var x=0;x<myAlignedGoals.length;x++)
+						if(myAlignedGoals[x].TargetGoalId == myGoalIds[i])
+						{
+							console.log(myAlignedGoals[x].SourceGoalId);
+							var source = allGoalsMap[myAlignedGoals[x].SourceGoalId].d3index;
+							var target = allGoalsMap[myAlignedGoals[x].TargetGoalId].d3index;
+							links.push({
+								"source" : source,
+								"target" : target,
+								"color":"#c6c6c6",
+								"width": "1"
+							});
+						}
+			}
+			console.log("links:");
+			console.log(links);
+
+			//BUILD D3!!!
+			buildD3();
+		}
+
+
+		function buildD3(){
+
+			//d3object= {"nodes":nodes,"links":links}; 
+
+			//run d3
+			var width = window.innerWidth;
+			var height = 500;
+
+			var svg = d3.select("#myD3Div").append("svg")
+				.attr("width", width)
+				.attr("height", height)
+				.attr("class","mySvgClass");
+
+			var force = d3.layout.force()
+				.gravity(.15)
+				.distance(80)
+				.charge(-700)
+				.friction(.95)
+				.size([width, height]);
+			/*
+			var drag = force.drag()
+				.on("dragstart", dragstart);
+			*/
+
+			force.nodes(nodes)
+				.links(links)
+				.start();
+
+			var link = svg.selectAll(".link")
+				.data(links)
+				.enter().append("line")
+				.attr("class", "link")
+				.style("stroke", function(d) { return d.color; })
+				.style("stroke-width", function(d) { return d.width; });
+
+			var node = svg.selectAll(".node")
+				.data(nodes)
+				.enter().append("g")
+				.attr("class", "node")
+				.call(force.drag);
+
+			node.append("svg:image")
+				.attr("class","circle")
+				.attr("xlink:href", function(d){ return d.ImgUrl })
+				.attr("x", -20)
+				.attr("y", -20)
+				.attr("width", 36)
+				.attr("height", 36);
+				// .attr("border",2)
+				// .style("stroke",function(d){ return d.Stroke; })
+				// .style("stroke-width",1);
+			node.append("svg:rect")
+				.attr("class","circle nodeImg")
+				.attr("x", -20)
+				.attr("y", -20)
+				.attr("width", 36)
+				.attr("height", 36)
+				.attr("stroke",function(d){ return d.Stroke; })
+				.attr("fill","none");
+
+			node.append("text")
+				.attr("dx", 0)
+				.attr("dy", 27)
+				.attr("text-anchor", "middle")
+				.attr("class","nodetext")
+				.attr("font-size","11px")
+				.text(function(d) { 
+					return d.Owner;
+				});
+			node.append("text")
+				.attr("dx", 0)
+				.attr("dy", 38)
+				.attr("fill", "#4f4f4f")
+				.attr("text-anchor", "middle")
+				.attr("class","nodetext")
+				.attr("font-size","10px")
+				.text(function(d) { 
+					return d.Goal;
+				});
+
+			node.append("text")
+				.attr("dx", 20)
+				.attr("dy", 0)
+				.attr("fill", "#4f4f4f")
+				.attr("text-anchor", "right")
+				.attr("class","nodeGoalProgress")
+				.text(function(d) { 
+					return d.Progress;
+				});
+
+			node.on("click", function(d) {
+				if (d3.event.defaultPrevented) return; // ignore drag
+				//otherwiseDoAwesomeThing();
+				console.log('clicked on ');
+				console.log(d);
+				//parent.window.location.href = '/' + d.Id; //go directly to goal
+				parent.window.location.href = sitePrefix + d.OwnerId + tabUrl;
+			});
+
+			force.on("tick", function() {
+				link.attr("x1", function(d) { return d.source.x; })
+					.attr("y1", function(d) { return d.source.y; })
+					.attr("x2", function(d) { return d.target.x; })
+					.attr("y2", function(d) { return d.target.y; });
+
+				node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+			});
+
+				/*
+				selection.on("click", function(d) {
+					if (d3.event.defaultPrevented) return; // ignore drag
+					//otherwiseDoAwesomeThing();
+					console.log('clicked!');
+				});
+				*/
+
+			/****** Add Legend ******/
+			var color = d3.scale.category20c();
+
+	        var legendTitle = d3.select("#myD3Div").append("svg")
+				.attr("class", "legendTitle")
+				.attr("width", 110)
+				.attr("height", 20)
+				.selectAll("g")
+				.data(["Progress: "])
+				.enter().append("g")
+				.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+			legendTitle.append("text")
+				.attr("x", 24)
+				.attr("y", 9)
+				.attr("dy", ".35em")
+				.text(function(d) { return d; });
+
+			var legend = d3.select("#myD3Div").append("svg")
+				.attr("class", "legend")
+				.attr("width", 80)
+				.attr("height", 120)
+				.selectAll("g")
+				.data(colors)
+				.enter().append("g")
+				.attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+			legend.append("rect")
+				.attr("width", 18)
+				.attr("height", 18)
+				.style("fill", function(d, i) { console.log(d); return d.value; });
+
+			legend.append("text")
+				.attr("x", 24)
+				.attr("y", 9)
+				.attr("dy", ".35em")
+				.text(function(d) { return d.label; });
+		}
+
+	</script>
+	<div id="legendTitle"/>
+	<div id="myD3Div">
+	</div>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-48529596-1', 'work.com');
+		ga('send', 'pageview');
+	</script>
+</apex:page>

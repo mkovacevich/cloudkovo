@@ -1,0 +1,7 @@
+<apex:page standardController="privateAppEx__ListingPopularity__c" extensions="privateAppEx.ListingPopularityActionsController" action="{!init}" showheader="{!isDesktop}" sidebar="false">
+	<apex:composition template="privateAppEx__PrivateExchangeLayout">
+        <apex:define name="content">
+			<apex:pageMessages id="message"/>
+		</apex:define>
+	</apex:composition>
+</apex:page>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>XactlyDemo</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <namespacePrefix>XactlyDemo</namespacePrefix>
+    <types>
+        <members>XactlyEstimatorMobile</members>
+        <members>XactlyIncentRanking</members>
+        <members>XactlyIncentiveStatement</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Xactly</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Xactly</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>xactly_logo</members>
+        <members>xactly_logo/xactly_logo.png</members>
+        <members>xactly_logo/xtab_logo.png</members>
+        <name>Document</name>
+    </types>
+    <types>
+        <members>XactlyTabResource</members>
+        <name>StaticResource</name>
+    </types>
+    <version>35.0</version>
+</Package>

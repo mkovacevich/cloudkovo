@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <content>appActions</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <content>appEditAction</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>appEditAction</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Follow</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>appActions</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>appActions</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <deprecated>false</deprecated>
+    <description>An app that is listed in one or more languages in the store.</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AppSourceId__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The 18 character ID of the tabset or connected app that is listed in the store.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The 18 character ID of the tabset or connected app that is listed in the store.</inlineHelpText>
+        <label>App/Connected App</label>
+        <length>18</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AppType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The type of application.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The type of application.</inlineHelpText>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Android</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iOS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Categories__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The categories in which the app is included in the store.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The categories in which the app is included in the store.</inlineHelpText>
+        <label>Categories</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CustomerService</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marketing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HumanResources</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ERP</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Collaboration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Analytics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DefaultListing__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>The default listing is shown to users whose language setting doesn&apos;t match any language-specific listing for the app.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The default listing is shown to users whose language setting doesn&apos;t match any language-specific listing for the app.</inlineHelpText>
+        <label>Default Listing</label>
+        <referenceTo>Listing__c</referenceTo>
+        <relationshipLabel>Apps</relationshipLabel>
+        <relationshipName>Apps</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FirstListedDate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The date of the first published listing for the app.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The date of the first published listing for the app.</inlineHelpText>
+        <label>First Listed Date</label>
+        <summarizedField>Listing__c.ListedDate__c</summarizedField>
+        <summaryFilterItems>
+            <field>Listing__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Live</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Listing__c.App__c</summaryForeignKey>
+        <summaryOperation>min</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Languages__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The languages that the app supports.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The languages that the app supports.</inlineHelpText>
+        <label>Languages</label>
+        <picklist>
+            <picklistValues>
+                <fullName>zh_CN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>zh_TW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>da</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>nl_NL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>en_US</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>de</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>it</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ja</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ko</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>pt_BR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ru</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>es</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>sv</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>th</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>LiveListings__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number of listings for the app that are published and available in the store.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of listings for the app that are published and available in the store.</inlineHelpText>
+        <label>Published Listings</label>
+        <summaryFilterItems>
+            <field>Listing__c.Status__c</field>
+            <operation>equals</operation>
+            <value>Live</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Listing__c.App__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>PageViewsAllTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number of page views for the app for all time.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of page views for the app for all time.</inlineHelpText>
+        <label>Page Views (All Time)</label>
+        <summarizedField>Listing__c.PageViewsAllTime__c</summarizedField>
+        <summaryForeignKey>Listing__c.App__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>PageViews__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The number of page views for the app in the last 30 days.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The number of page views for the app in the last 30 days.</inlineHelpText>
+        <label>Page Views</label>
+        <summarizedField>Listing__c.PageViews__c</summarizedField>
+        <summaryForeignKey>Listing__c.App__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>PermissionSet__c</fullName>
+        <deprecated>false</deprecated>
+        <description>ID of Permission Set that grants access to the app.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of Permission Set that grants access to the app.</inlineHelpText>
+        <label>Access</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PopularityAllTime__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Popularity by requests/installs (dependent on app type) for all time.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Popularity by requests/installs (dependent on app type) for all time.</inlineHelpText>
+        <label>Requests/Installs</label>
+        <summarizedField>Listing__c.PopularityAllTime__c</summarizedField>
+        <summaryForeignKey>Listing__c.App__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Popularity__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Popularity by requests/installs (dependent on app type) for last 30 days.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Popularity by requests/installs (dependent on app type) for last 30 days.</inlineHelpText>
+        <label>Popularity (30 Days)</label>
+        <summarizedField>Listing__c.Popularity__c</summarizedField>
+        <summaryForeignKey>Listing__c.App__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Publication status of the app: if it has any published listings it is published, otherwise hidden.</description>
+        <externalId>false</externalId>
+        <formula>IF(LiveListings__c &gt; 0,  $Label.privateappex__Published, $Label.privateappex__Hidden)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Publication status of the app: if it has any published listings it is published, otherwise hidden.</inlineHelpText>
+        <label>Status</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Store__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The store in which the app is listed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The store in which the app is listed.</inlineHelpText>
+        <label>Store</label>
+        <referenceTo>Store__c</referenceTo>
+        <relationshipLabel>Apps</relationshipLabel>
+        <relationshipName>Apps</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>isActive__c</fullName>
+        <defaultValue>true</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates if the app is available in the store and included in the administrator&apos;s activities.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates if the app is available in the store and included in the administrator&apos;s activities.</inlineHelpText>
+        <label>Active</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <label>App</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <label>App Name</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Apps</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

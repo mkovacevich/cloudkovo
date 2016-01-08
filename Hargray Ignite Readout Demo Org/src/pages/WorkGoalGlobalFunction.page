@@ -1,0 +1,95 @@
+<apex:page showHeader="false" standardStylesheets="false" controller="WorkGoalLinkGlobal">
+<script type="text/javascript">
+	/*******************************************
+    * this page has all the global javascript
+    * functions that includes callout to salesforce
+    * and animation functions
+    *******************************************/
+    function getUserGoals(focusUser,callback){
+        Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.WorkGoalLinkGlobal.fetchUserGoals}', focusUser, function(result, event) {
+            if (event.status) {
+                callback(result);
+            } else if (event.type === 'exception') {
+                console.log("Exceptin in Fetching Your Goals - " + event.message);
+            }
+        }, {escape: true});
+    }
+    function getUserGoalLinks(userGoalIds, callback){
+        Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.WorkGoalLinkGlobal.fetchUserGoalLinks}', userGoalIds, function(result, event) {
+            if (event.status) {
+                callback(result);
+            } else if (event.type === 'exception') {
+                console.log("Exceptin in Fetching Goal Links to Your Goals - " + event.message);
+            }
+        }, {escape: true});
+    }
+    function getWorkGoalMapping(workGoalIds, callback){
+        Visualforce.remoting.Manager.invokeAction('{!$RemoteAction.WorkGoalLinkGlobal.fetchWorkGoalMapping}', workGoalIds, function(result, event) {
+            if (event.status) {
+                callback(result);
+            } else if (event.type === 'exception') {
+                console.log("Exceptin in Fetching Goal Id to Goal Object Map - " + event.message);
+            }
+        }, {escape: true});
+    }
+
+
+
+    /****** jquery center function *********/
+    jQuery.fn.center = function () {
+        //this.css("position","absolute");
+        this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 3) + $(window).scrollTop()) + "px");
+        this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + "px");
+        console.log("top:"+this.css("top"));
+        console.log("left:"+this.css("left"));
+        //console.log("center!");
+        return this;
+    }
+
+    //strip html tag from string
+    function strip(html)
+    {
+       var tmp = document.createElement("DIV");
+       tmp.innerHTML = html;
+       return tmp.textContent || tmp.innerText || "";
+    }
+
+    function getColor(flaggedAs)
+    {
+    	//color is determined on WorkGoalAlignment.page
+    	if(flaggedAs == "OnTrack")
+			return colors[0].value;
+		if(flaggedAs == "Behind")
+			return colors[1].value;
+		if(flaggedAs == "Postponed")
+			return colors[2].value;
+		if(flaggedAs == "Critical")
+			return colors[3].value;
+		return "#000";
+    }
+</script>
+<style>
+	.nodeImg
+	{
+		border-radius:20px;
+	    stroke-width: 2px;
+	}
+	svg.legend {
+		position: absolute;
+		right: 0px;
+		top: 30px;
+	}
+	svg.legendTitle {
+		position: absolute;
+		right: 0px;
+		top: 10px;
+	}
+	.node .nodeGoalProgress {
+		pointer-events: none;
+		font: 14px sans-serif;
+	}
+	.node:not(:hover) .nodeGoalProgress {
+		display: none;
+	}
+</style>	
+</apex:page>

@@ -1,0 +1,199 @@
+<apex:page sidebar="false" standardController="Opportunity" showHeader="false" docType="html-5.0">
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+    <link href="{!URLFOR($Resource.XactlyTabResource,'jqm-1.2.1/jquery.mobile-1.2.1.min.css')}" type="text/css" rel="stylesheet"/>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.XactlyTabResource, 'jquery-ui-1.9.2/js/jquery-1.8.3.min.js')}"></script>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.XactlyTabResource, 'jqm-1.2.1/jquery.mobile-1.2.1.min.js')}"></script>
+    <link href="{!URLFOR($Resource.XactlyTabResource,'css/estimator.css')}" rel="stylesheet"/>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.XactlyTabResource, 'gauge-plugin/gauge.js')}"></script>
+    <script>
+            /*properties for attainment gauges*/
+         var opts = {
+                        lines : 12, // The number of lines to draw
+                        angle : 0.15, // The length of each line
+                        lineWidth : 0.44, // The line thickness
+                        pointer : {
+                            length : 0.73, // The radius of the inner circle
+                            strokeWidth : 0.038, // The rotation offset
+                            color : '#000000' // Fill color
+                        },
+                        limitMax : 'false', // If true, the pointer will not go past the end of the gauge
+        
+                        colorStart : '#F7901E', // Colors
+                        colorStop : '#F7901E', // just experiment with them
+                        strokeColor : '#E0E0E0', // to see which ones work best for you
+                        generateGradient : true
+                   };
+         /*function to be called after incentive statement DOM is loaded*/
+          var createGauge=function(){
+                    
+                     var canvas_elements = document.getElementsByClassName('gauges-canvas');
+                        for (var i = 0; i < canvas_elements.length; ++i) {
+                            var target = canvas_elements[i];
+                            // your canvas element
+                            var title=$(target).attr('title');
+                            title=title.replace(',', '');
+                            var gauge = new Gauge(target).setOptions(opts);
+                            gauge.maxValue =100;// set max gauge value
+                            gauge.animationSpeed = 32;// set animation speed (32 is default value)
+                            var gaugeVal=parseInt(title,10);
+                            if(gaugeVal > 100){
+                                gauge.maxValue =gaugeVal;//reset the max value if it is more than 100%
+                            }
+                            gauge.set(gaugeVal);
+                        }                   
+                    
+            }   
+                
+        $(function(){
+            createGauge(); 
+                        
+        })
+        
+        
+        </script>
+    <!--estimator summary mobile card page -->
+        <div data-role="page" id="foo">
+            <div data-role="content">   
+                <div class="main-container" style="min-height:300px">
+                    <div class="attainment-header">
+                        <span class="logo-span">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/blank.gif')}" class="xtab-logo-gauge"/>
+                            <label>Xactly Incent</label>                            
+                        </span>
+                        <span class="drill-down-link">
+                            <a href="#more" data-transition="slide" data-prefetch="true" id="estimatorDetail">More</a>
+                        </span>                     
+                    </div>
+                    <div class="payment-summary-div">
+                        <span class="payment-label">
+                            <label>You Will Make</label>
+                        </span>
+                        <span class="payment-amount">
+                            <label>$599.41</label>
+                        </span>
+                    </div>
+                    <div class="incentive-gauge">
+                        <canvas class="gauges-canvas" title="74">
+
+                                </canvas>                                               
+                    </div>
+                    <div class="payment-summary-div background-highlight bottom-round-corners" style="margin-top: 10px;height: 45px;">
+                        <span class="payment-label">
+                            <label>Incentive Attainment</label>
+                        </span>
+                        <span class="payment-amount">
+                            <label>74%</label>
+                            <span class="increment-percent">[<label id="">+7%</label>]</span>
+                        </span>
+                    </div>                  
+                </div>
+            </div><!-- /content -->            
+        </div>      
+        <!-- Start of estimator drill down page-->
+        <div data-role="page" id="more">                
+            <div data-role="content">
+                <div class="main-container background-clear">
+                <div data-role="fieldcontain" class="opp-search-box">
+                    <label>Estimate for</label>
+                    <div>
+                        <span id="opp_name">{!opportunity.name}</span>
+                        <!--<a href="#" id="clear_opp_name">
+                            &#10006;
+                        </a>-->
+                    </div>                  
+                </div>              
+                <div class="incentive-gauge">
+                    <div class="incentive-summary">
+                        <label>Incentive Attainment</label>
+                        <span id="incentive-summary">74</span>
+                        <sub>%</sub>                    
+                    </div>
+                        <canvas class="gauges-canvas" title="74" id="attainment-canvas">
+                                </canvas>                                           
+                    </div>
+                <div class="horizontal-separator-thin">
+                    
+                </div>
+                <div class="detail-commission-row">
+                    <span class="commision-label">
+                        <label>Estimated Earnings for this Opportunity</label>
+                    </span>
+                    <span class="commision commision-amount-percent">
+                        <label style="float: right;padding-left: 20px">+$599.41</label>
+                    </span>                 
+                </div>
+                <div class="horizontal-separator-thin">
+                    
+                </div>
+                <div class="detail-commission-row">
+                    <span class="commision-label">
+                        <label>
+                            Commission for May-2013
+                            <span>$2,193.00</span>                          
+                        </label>
+                    </span>
+                    <span class="commision commision-amount-percent">
+                        <label style="float: right;padding-left: 5px">+10%</label>
+                    </span>                 
+                </div>
+                <div class="horizontal-separator-thin">
+                    
+                </div>
+                <div class="detail-commission-row">
+                    <span class="commision-label">
+                        <label>
+                            Bonus for May-2013
+                            <span>$1,000.00</span>                          
+                        </label>
+                    </span>
+                    <span class="commision commision-amount-percent zero-background">
+                        <label style="float: right;padding-left: 5px">+0%</label>
+                    </span>                 
+                </div>
+                <div class="horizontal-separator-thin">
+                    
+                </div>
+                <div class="detail-commission-row">
+                    <span class="commision-label">
+                        <label>
+                            Payout for May-2013
+                            <span>$3,193.00</span>                          
+                        </label>
+                    </span>
+                    <span class="commision commision-amount-percent">
+                        <label style="float: right;padding-left: 5px">+7%</label>
+                    </span>                 
+                </div>
+                <div class="butns-div">
+                    <div class="dashboard-butn">
+                        <a href="/apex/XactlyDemo__XactlyIncentiveStatement" data-ajax="false">
+                            Dashboard
+                        </a>
+                    </div>
+                    <div class="ranking-butn">
+                        <a href="/apex/XactlyDemo__XactlyIncentRanking" data-ajax="false">
+                            Rankings
+                        </a>
+                    </div>          
+                    
+                </div>
+            </div> 
+            </div>            
+        </div>
+        <style>
+        .oneAlohaPage{
+        overflow:visible !important;
+        height: 290px !important;
+        }
+        </style>
+        <!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("d00d19804771ac2e1f6cb6756c84beda");</script><!-- end Mixpanel -->
+<script>
+$(function(){
+mixpanel.track("Page Load",{"tab" : "estimator summary", "organization" : "{!$Organization.Name}", "division" : "{!$Organization.Division}"});
+})
+</script>
+</apex:page>

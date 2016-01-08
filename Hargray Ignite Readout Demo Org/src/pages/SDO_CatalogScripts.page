@@ -1,0 +1,80 @@
+<apex:page standardController="Order">
+	<script type="text/javascript">
+		var __sfdcSessionId = '{!GETSESSIONID()}';
+	</script>
+    <apex:includeScript value="{!URLFOR($Resource.CatalogResources, '/js/jquery.min.js')}"/>
+   <apex:includeScript value="/support/console/32.0/integration.js"/>
+
+   <script src="/soap/ajax/33.0/connection.js" type="text/javascript"></script>
+   <apex:includeScript value="{!URLFOR($Resource.CatalogResources, '/js/jquery.min.js')}"/>
+   <script type="text/javascript">
+        var url;
+        var tabName;
+
+        function openPrimaryTab() {
+            sforce.console.openPrimaryTab(undefined, 
+               'http://www.salesforce.com', true, 'salesforce');
+        }
+        
+        //The callback function that openSubtab will call once it's got the ID for its primary tab
+        var callOpenSubtab=function callOpenSubtab(result) {
+        	console.log(result.id);
+            sforce.console.openSubtab(result.id, 
+               url, true, 'Product Catalog');
+        };
+        
+        function openSubtab(myUrl,myTabName) {
+            url = myUrl;
+            tabName = myTabName;
+            sforce.console.getEnclosingPrimaryTabId(callOpenSubtab);
+        }
+
+        //Sets the title of the current tab to "SFDC"
+        function setTitle() {
+            sforce.console.setTabTitle('SFDC');
+        }
+        
+        //The callback function that closeTab will call once it's got the ID for its tab
+        var callCloseTab= function callCloseTab(result) {
+            sforce.console.closeTab(result.id);
+        }
+        
+        function closeTab() {
+            sforce.console.getEnclosingTabId(callCloseTab);
+        }
+
+        $(document).ready(function(){
+		   	//openSubtab('/apex/SDO_CatalogLayout','Product Catalog');
+
+		   });
+
+
+       var openSubtabTimer = null;
+       
+       function openGoogleSubtab() {
+       
+           // Use the results primary tab id and open a new subtab 
+           var openSubtab = function(result2) {    
+	           var result = sforce.connection.query("select id,name from profile where id = \'{!$User.ProfileId}\' limit 1");
+	           var records = result.getArray("records");
+  			   var profileRecord = records[0];
+  			   console.log(profileRecord);
+	           if(profileRecord.Name == 'Order Specialist - Custom' || profileRecord.Name  == 'System Administrator') {
+	           		sforce.console.openSubtab(result2.id,'/apex/SDO_CatalogLayout',true,'Product Catalog');           
+	                clearTimeout(openSubtabTimer);
+	           }           
+            };
+            // Get the enclosing primary tab id. The openSubtab method is set as the callback
+            sforce.console.getEnclosingPrimaryTabId(openSubtab);
+       }       
+      
+       var previousOnload = window.onload;        
+       window.onload = function() { 
+            if (previousOnload) { 
+                previousOnload();
+            }                
+           openSubtabTimer = setTimeout('openGoogleSubtab()', '500'); 
+       }
+  </script>
+  <!-- <div class="btn" onclick="openSubtab('/apex/SDO_CatalogLayout?id={!order.id}','Product Catalog')">Open Catalog</div> -->
+</apex:page>

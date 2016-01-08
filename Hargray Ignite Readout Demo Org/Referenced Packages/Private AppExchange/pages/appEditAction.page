@@ -1,0 +1,2 @@
+<apex:page standardController="privateAppEx__App__c" extensions="privateAppEx.AppEditActionController" action="{!init}">
+</apex:page>

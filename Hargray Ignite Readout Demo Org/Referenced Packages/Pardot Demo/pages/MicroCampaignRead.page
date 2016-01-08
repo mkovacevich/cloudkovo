@@ -1,0 +1,184 @@
+<apex:page controller="salesedgedemo.SalesEdgeReportingController" sidebar="false" showHeader="false" standardStylesheets="false">
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/bootstrap/dist/css/bootstrap.min.css')}" />
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/kendo/styles/microcampaign.min.css')}" />
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'css/microcampaign.css')}" />
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'css/overrides.css')}" />
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row clearfix">
+                <nav class="navbar navbar-default navbar-static-top col-md-6 col-sm-12">
+                  <!-- Brand and toggle get grouped for better mobile display-->
+                  <div class="navbar-header">
+                    <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                  </div>
+                  <!-- Collect the nav links, forms, and other content for toggling-->
+                  <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                    <p class="history-back-link"><a href="#" onclick="history.go(-1);return false;">← Back</a></p>
+                    <ul class="nav navbar-nav">
+                      <li class="h2 email-title js-email-title"></li>
+                      <li class="dropdown js-email-type hidden"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" data-email-type="all" class="h2 dropdown-toggle">All Emails <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                          <li data-email-type="all"><a href="#">All Emails</a></li>
+                          <li data-email-type="templates"><a href="#">Template-Based</a></li>
+                          <li data-email-type="notemplate"><a href="#">Not Template-Based</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown js-date-range"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" data-email-type="7" class="h2 dropdown-toggle">7 Days <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                          <li data-date-range="7"><a href="#">7 Days</a></li>
+                          <li data-date-range="14"><a href="#">14 Days</a></li>
+                          <li data-date-range="30"><a href="#">30 Days</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- /.navbar-collapse-->
+                </nav>
+                <div class="col-md-2 col-sm-3 chart-callout js-mc-delivered">
+                  <p class="text-muted">Delivered</p>
+                  <h2 class="h1"></h2>
+                </div>
+                <div class="col-md-2 col-sm-3 chart-callout js-mc-opens">
+                  <p class="text-muted">Opens</p>
+                  <h2 class="h1"></h2>
+                </div>
+                <div class="col-md-2 col-sm-3 chart-callout js-mc-clicks">
+                  <p class="text-muted">Clicks</p>
+                  <h2 class="h1"></h2>
+                </div>
+              </div>
+              <div class="row clearfix">
+                <!--
+                <div class="col-md-4 tod-chart js-tod-chart">
+                <div class="kendo-loading js-chart-loading"></div>
+                </div>
+                -->
+                <div data-email-type="all" data-date-range="7" class="col-md-12 main-chart js-chart">
+                  <div class="kendo-loading js-chart-loading"></div>
+                </div>
+              </div>
+              <div class="row clearfix">
+                <div class="col-md-6">
+                  <h3 class="panel-table-header text-muted">Email Statistics</h3>
+                  <table class="table table-striped js-email-table">
+                    <tbody>
+                      <tr>
+                        <td>Template</td>
+                        <td data-email-data="emailTemplateName"></td>
+                      </tr>
+                      <tr>
+                        <td>Sent</td>
+                        <td data-email-data="totalSends"></td>
+                      </tr>
+                      <tr>
+                        <td>Bounced</td>
+                        <td data-email-data="totalSoftHardBounce"></td>
+                      </tr>
+                      <tr>
+                        <td>Delivered</td>
+                        <td data-email-data="totalDelivered"></td>
+                      </tr>
+                      <tr>
+                        <td>Delivery Rate</td>
+                        <td data-email-data="deliveryRate"></td>
+                      </tr>
+                      <tr>
+                        <td>Opens</td>
+                        <td data-email-data="totalOpens"></td>
+                      </tr>
+                      <tr>
+                        <td>Open Rate</td>
+                        <td data-email-data="openRate"></td>
+                      </tr>
+                      <tr>
+                        <td>Unique Opens</td>
+                        <td data-email-data="uniqueOpens"></td>
+                      </tr>
+                      <tr>
+                        <td>Unique Open Rate</td>
+                        <td data-email-data="uniqueOpenRate"></td>
+                      </tr>
+                      <tr>
+                        <td>Clicks</td>
+                        <td data-email-data="totalClicks"></td>
+                      </tr>
+                      <tr>
+                        <td>Clickthrough Rate</td>
+                        <td data-email-data="totalCTR"></td>
+                      </tr>
+                      <tr>
+                        <td>Unique Clicks</td>
+                        <td data-email-data="uniqueClicks"></td>
+                      </tr>
+                      <tr>
+                        <td>Unique Clickthrough Rate</td>
+                        <td data-email-data="uniqueCTR"></td>
+                      </tr>
+                      <tr>
+                        <td>Opt-Outs</td>
+                        <td data-email-data="optOuts"></td>
+                      </tr>
+                      <tr>
+                        <td>Opt-Out Rate</td>
+                        <td data-email-data="optOutRate"></td>
+                      </tr>
+                      <tr>
+                        <td>Spam Complaints</td>
+                        <td data-email-data="spamComplaints"></td>
+                      </tr>
+                      <tr>
+                        <td>Complaint Rate</td>
+                        <td data-email-data="complaintRate"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-md-6">
+                  <h3 class="panel-table-header text-muted">Top Links</h3>
+                  <div class="js-links-table">
+                    <div class="kendo-loading js-links-table-loading"></div>
+                  </div>
+                  <h3 class="panel-table-header text-muted">Email Content</h3>
+                  <div class="thumbnail js-email-content"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__Mobile_Design_Templates, 'Mobile-Design-Templates-master/common/js/jQuery2.0.2.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/cookies-js/dist/cookies.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/node_modules/secure-filters/lib/secure-filters.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/bootstrap/dist/js/bootstrap.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/kendo/custom-builds/kendo.microcampaign.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'js/reports_read_main.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignRead, 'js/override_ajax.js')}"/>
+
+<script>
+	window.email_id = "12345";
+	window.microcampaignJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/microcampaign.json')}";
+	window.individualEmailJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/individual_email.json')}";
+	window.trackersJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/trackers.json')}";
+	window.firstEmail = {
+		"email_subject" : "{!emailSubject}",
+		"email_html" : "{!emailHtml}",
+		"email_text" : "{!emailText}",
+		"template_name" : "{!templateName}",
+		"template_subject" : "{!templateSubject}",
+		"template_id" : "{!templateId}",
+		"email_count" : "{!emailCount}"
+	}
+</script>
+
+</apex:page>

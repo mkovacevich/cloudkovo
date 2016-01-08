@@ -1,0 +1,67 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false"
+	standardStylesheets="false" cache="false"  >
+	<html lang="en">
+	<head>
+	<title>Mobile Support Login</title>
+	
+	<meta name="apple-mobile-web-app-capable" content="yes"></meta>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="initial-scale=.5, minimum-scale=.5, maximum-scale=.5"/>
+	<apex:stylesheet value="{!URLFOR($Resource.cam_javascripts, 'css/root.css')}" />
+	<script src="{!URLFOR($Resource.cam_javascripts, 'js/Libs/jquery.js')}"></script>
+	<script>
+	
+ 
+		window.addEventListener("orientationchange", function(e){
+			
+			$('.multi_row').css('visibility','hidden')
+			setTimeout(function(){
+				$('.multi_row').css('visibility','')
+			}, 0); 
+		});
+	
+	
+	$(function(){
+			window.loadingImage = "{!URLFOR($Resource.cam_javascripts, '/css/images/loader.gif')}";
+			$('body').append('<div id="loaderOverlay"></div>');
+			$('body').append('<div id="loaderContainer"> <img src="'+window.loadingImage+'"> </div>');
+			$('#loaderOverlay').hide();	$('#loaderContainer').hide();
+		 	$('#fcbk_signIn').click(function(e){
+		 			var c = $('#loaderContainer');
+					c.css("top", ( ($(window).height()/2) - (c.height()/2) ) );
+					c.css("left", ( ($(window).width()/2) - ((c.width()/2)+18) ) );
+					$('#loaderOverlay').show(); $('#loaderContainer').show();
+		 			loginToFacebook();
+		 		});
+		 		
+		 		$('.btn_loginAction').click(function(e){
+		 			var c = $('#loaderContainer');
+					c.css("top", ( ($(window).height()/2) - (c.height()/2) ) );
+					c.css("left", ( ($(window).width()/2) - ((c.width()/2)+18) ) );
+					$('#loaderOverlay').show(); $('#loaderContainer').show();
+		 		});
+		 		
+		 		//set placeholders
+		 		$('.multi_row input').each(function(i,e){ 
+		 			$(e).attr('placeholder', $(e).attr('alt')); 
+		 		})
+		 		
+		 		
+ 	});
+ 	</script>
+	</head>
+	<body  >
+	<c:cam_login />
+	</body>
+	</html>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46606102-1', 'salesforce.com');
+  ga('send', 'pageview');
+
+</script>
+</apex:page>

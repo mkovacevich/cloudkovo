@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Workday_oauth</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <modules>
+        <module>
+            <label>Workday_oauth</label>
+            <moduleType>connected</moduleType>
+            <name>Workday_oauth</name>
+            <types>
+                <members>Workday_oauth_devConfig</members>
+                <name>ConnectivityDevConfigMetadata</name>
+            </types>
+            <types>
+                <members>applauncher__Workday_oauth</members>
+                <name>Module</name>
+            </types>
+            <version>1.0</version>
+        </module>
+    </modules>
+    <namespacePrefix>applauncher</namespacePrefix>
+    <version>35.0</version>
+</Package>

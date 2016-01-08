@@ -1,0 +1,43 @@
+<apex:component id="accessRequestOverlayComp" controller="privateAppEx.AccessRequestController" allowDML="true">
+    <apex:attribute name="listing" description="Listing" type="privateAppEx.ListingDO" required="true" assignTo="{!currentListing}"/>
+    
+    <apex:form id="accesRequestForm">
+        
+        <apex:actionfunction name="accessRequest" action="{!accessRequest}" rerender="errorMessages" onComplete="if(doOnComplete()){rerenderButtons();}">
+            <apex:param name="comments" assignTo="{!comments}" value=""/>
+        </apex:actionfunction>
+        <apex:actionfunction name="rerenderButtons" rerender="actionButtonSection" onComplete="$('#prx_overlay_request').dialog('close');"/>
+        <div class="prx-dialogs" style="display: none;">
+            <!-- overlay for request access -->
+            <div class="prx-dialog" id="prx_overlay_request" title="{!$Label.RequestAccessTo} {!listing.AppMenuItem.Name}">
+                <div class="prx-dialog-content">
+                    <apex:outputPanel id="errorMessages">
+                        <script type="text/javascript">
+                        //<![CDATA[
+                            function doOnComplete(){
+                                return {!!requestError};
+                            }
+                        // ]]>
+                        </script>
+                        <c:pageMessages />
+                    </apex:outputPanel>
+                    <apex:inputTextarea id="additionalInfo" styleClass="prx-textarea" value="{!comments}"/>
+                </div>
+                <div class="prx-dialog-footer">
+                    <button class="prx-btn btn-close-overlay">{!$Label.privateappex__BUTTON_Cancel}</button>
+                    <button class="prx-btn prx-btn-primary" onclick="accessRequestToApp();">{!$Label.privateappex__BUTTON_RequestAccess}</button>
+                </div>
+            </div>
+        </div>
+        
+        <script type="text/javascript">
+                //<![CDATA[
+                    function accessRequestToApp(){
+                        var comments = document.getElementById('{!$Component.additionalInfo}').value;
+                        accessRequest(comments);
+                    }
+                // ]]>
+        </script>
+    </apex:form>
+
+</apex:component>

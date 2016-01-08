@@ -1,0 +1,12 @@
+<apex:component id="editListingDetailTop" layout="none">
+
+	<apex:attribute name="selectListing" description="Selected Listing" type="privateAppEx.ListingDO" required="true" />
+
+			<div class="prx-content-header-one">
+				<div class="prx-logo"><img src="{!selectListing.AppDO.AppMenuItemDO.LogoUrl}" /></div>
+				<h1 class="prx-h1-store">{!selectListing.AppDO.AppMenuItemDO.Name}</h1>
+				<p><apex:outputText rendered="{!!selectListing.isNew}" value="{!$Label.privateappex__Listing_Lang}" >
+					<apex:param value="{!selectListing.LanguageLabel}"/>
+				</apex:outputText></p>
+			</div>
+</apex:component>

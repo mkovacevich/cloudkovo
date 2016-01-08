@@ -1,0 +1,1048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- Private AppExchange --></label>
+        <name>Private_Appexchange</name>
+    </customApplications>
+    <customLabels>
+        <label><!-- Add Link --></label>
+        <name>AddLink</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Enter the link URL for your resource and a title for the link. --></label>
+        <name>AddLinkMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Additional Info --></label>
+        <name>AdditionalInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Set up store --></label>
+        <name>Admin_Set_Up_Store</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Advanced --></label>
+        <name>Advanced</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All Apps --></label>
+        <name>AllApps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All Categories --></label>
+        <name>AllCategories</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All Languages --></label>
+        <name>AllLanguages</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All Time --></label>
+        <name>All_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Android --></label>
+        <name>Android</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- App Access Request --></label>
+        <name>AppAccessRequest</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- App Access Request Approved for --></label>
+        <name>AppAccessRequestApprovedFor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- App Access Request Denied for --></label>
+        <name>AppAccessRequestDeniedFor</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- This App Was Listed Before --></label>
+        <name>AppListedBefore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- App Categories --></label>
+        <name>App_Categories</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- App Information --></label>
+        <name>App_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- App Listings --></label>
+        <name>App_Listings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Android App --></label>
+        <name>App_Type_Android</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Web App --></label>
+        <name>App_Type_Web</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- iOS App --></label>
+        <name>App_Type_iOS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Approval Process --></label>
+        <name>ApprovalAdministratorsQueue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Approval process setup info --></label>
+        <name>ApprovalProcessSetupInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Available for Use --></label>
+        <name>AvailableForUse</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Available without approval --></label>
+        <name>Available_Without_Approval</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request Access --></label>
+        <name>BUTTON_AccessPending</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Approve or Reject --></label>
+        <name>BUTTON_ApproveOrReject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel --></label>
+        <name>BUTTON_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Check Your Apps --></label>
+        <name>BUTTON_CheckYourApps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete --></label>
+        <name>BUTTON_Delete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Listing --></label>
+        <name>BUTTON_Delete_Listing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit --></label>
+        <name>BUTTON_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Get Started --></label>
+        <name>BUTTON_Get_Started</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hide --></label>
+        <name>BUTTON_Hide</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Install Now --></label>
+        <name>BUTTON_InstallNow</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- List Your Apps --></label>
+        <name>BUTTON_ListYourApps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- More --></label>
+        <name>BUTTON_More</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OK --></label>
+        <name>BUTTON_OK</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Open App --></label>
+        <name>BUTTON_OpenApp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Publish --></label>
+        <name>BUTTON_Publish</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Publish Listing --></label>
+        <name>BUTTON_PublishListing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Reactivate App --></label>
+        <name>BUTTON_ReactivateApp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Remove App --></label>
+        <name>BUTTON_RemoveApp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request Access --></label>
+        <name>BUTTON_RequestAccess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save --></label>
+        <name>BUTTON_Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save &amp; Next --></label>
+        <name>BUTTON_SaveNext</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save Changes --></label>
+        <name>BUTTON_Save_Changes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search Apps --></label>
+        <name>BUTTON_SearchApps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Set Your Store Preferences --></label>
+        <name>BUTTON_SetStorePreferences</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Start Over --></label>
+        <name>BUTTON_StartOver</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Take Offline --></label>
+        <name>BUTTON_Take_Offline</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View Listing --></label>
+        <name>BUTTON_ViewListing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Watch the Video --></label>
+        <name>BUTTON_WatchVideo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Banners --></label>
+        <name>Banners</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Basic Info --></label>
+        <name>BasicInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Changes Saved --></label>
+        <name>ChangesSaved</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- characters left --></label>
+        <name>CharactersLeft</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- characters too many --></label>
+        <name>CharactersTooMany</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Chatter --></label>
+        <name>Chatter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Chatter Feed --></label>
+        <name>ChatterFeed</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current File --></label>
+        <name>CurrentFile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Dashboard --></label>
+        <name>Dashboard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Day 30 --></label>
+        <name>Day_30</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Banner --></label>
+        <name>DeleteBanner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Banner Info --></label>
+        <name>DeleteBannerInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Resource --></label>
+        <name>DeleteResource</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Resource Info --></label>
+        <name>DeleteResourceInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Screenshot --></label>
+        <name>DeleteScreenshot</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete screenshot message --></label>
+        <name>DeleteScreenshotMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Video --></label>
+        <name>DeleteVideo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Video Info --></label>
+        <name>DeleteVideoInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete Listing Confirmation Text --></label>
+        <name>Delete_Listing_Text</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Detailed Dashboard --></label>
+        <name>Detailed_Dashboard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Details --></label>
+        <name>Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Display Chatter feed on app listings --></label>
+        <name>DisplayChatterOptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Access Policy Not Defined --></label>
+        <name>ERROR_AccessPolicyNotDefined</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- App must be specified --></label>
+        <name>ERROR_AppRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- App Types Required --></label>
+        <name>ERROR_AppTypesRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error cannot be longer --></label>
+        <name>ERROR_CannotBeLonger</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please select at least one category. --></label>
+        <name>ERROR_CategoryRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error when trying to the single store. --></label>
+        <name>ERROR_DeleteStore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Description can not be empty --></label>
+        <name>ERROR_DescriptionRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- The store name cannot be empty. --></label>
+        <name>ERROR_EmptyStoreName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- The title cannot be empty. --></label>
+        <name>ERROR_EmptyTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Field too long error --></label>
+        <name>ERROR_FieldTooLong</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- The file you uploaded is too large. --></label>
+        <name>ERROR_FileTooLarge</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- file type error - only only file type allowed --></label>
+        <name>ERROR_FileType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Intermittent Problem --></label>
+        <name>ERROR_IntermittentProblem</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Invalid App Id --></label>
+        <name>ERROR_Invalid_App_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Invalid listing id --></label>
+        <name>ERROR_Invalid_Listing_Id</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search keyword has to be more than one character. --></label>
+        <name>ERROR_KeywordLength</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please select at least one language this app supports. --></label>
+        <name>ERROR_LangRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- License MissMatch Error --></label>
+        <name>ERROR_LicenseMissMatch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You cannot clone, edit or create listing popularity. --></label>
+        <name>ERROR_ListingPopularityAction</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error when trying to create additional stores. --></label>
+        <name>ERROR_MultipleStores</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No approval process set --></label>
+        <name>ERROR_NoApprovalProcess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Parameters --></label>
+        <name>ERROR_No_Parameters</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Only one active App record allowed for each app source. --></label>
+        <name>ERROR_OnlyOneActiveApp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please select a permission set. --></label>
+        <name>ERROR_PermSetRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- The link cannot be empty. --></label>
+        <name>ERROR_ResourceLinkRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- The resource title cannot be empty. --></label>
+        <name>ERROR_ResourceTitleRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A language must be selected --></label>
+        <name>ERROR_SelectLanguage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Tagline can not be empty --></label>
+        <name>ERROR_TaglineRequired</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload limit --></label>
+        <name>ERROR_UploadLimit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload limit --></label>
+        <name>ERROR_UploadLimitPleaseDelete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- is not a valid ID --></label>
+        <name>ERROR_invalidID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please upload a file. --></label>
+        <name>ERROR_uploadFile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Banner --></label>
+        <name>EditBanner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Banner Info --></label>
+        <name>EditBannerInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit in Setup --></label>
+        <name>EditInSetup</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Listing --></label>
+        <name>EditListing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit the name and logo in --></label>
+        <name>EditLogoInSetup</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Screenshot --></label>
+        <name>EditScreenshot</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Screenshot Info --></label>
+        <name>EditScreenshotInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit Video --></label>
+        <name>EditVideo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit the type, ID or caption for your video. --></label>
+        <name>EditVideoFormDetailsMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Embed Vimeo video --></label>
+        <name>EmbedVimeoVideo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Embed YouTube video --></label>
+        <name>EmbedYouTubeVideo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You cannot delete default listing --></label>
+        <name>Error_CannotDeleteDefaultListing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You cannot make a hidden listing the default --></label>
+        <name>Error_HiddenListingDefault</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You cannot hide the default listing for an app --></label>
+        <name>Error_HideDefaultListing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- File --></label>
+        <name>File</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Find more apps to list on --></label>
+        <name>FindMoreApps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Intro Message --></label>
+        <name>GettingStarted_Intro</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 1 Text --></label>
+        <name>GettingStarted_Step1_Text</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 1 Text - Second paragraph --></label>
+        <name>GettingStarted_Step1_Text_b</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 1 Title --></label>
+        <name>GettingStarted_Step1_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 2 Text --></label>
+        <name>GettingStarted_Step2_Text</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 2 Text - ul/li 1 --></label>
+        <name>GettingStarted_Step2_Text_b</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 2 Text - ul/li 2 --></label>
+        <name>GettingStarted_Step2_Text_c</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 2 Text - ul/li 3 --></label>
+        <name>GettingStarted_Step2_Text_d</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 2 Text - ul/li 4 --></label>
+        <name>GettingStarted_Step2_Text_e</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 2 Text - Second paragraph --></label>
+        <name>GettingStarted_Step2_Text_f</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 2 Title --></label>
+        <name>GettingStarted_Step2_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 3 Text --></label>
+        <name>GettingStarted_Step3_Text</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 3 Text - Second paragraph --></label>
+        <name>GettingStarted_Step3_Text_b</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 3 Title --></label>
+        <name>GettingStarted_Step3_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 4 Text --></label>
+        <name>GettingStarted_Step4_Text</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 4 Text - Second paragraph --></label>
+        <name>GettingStarted_Step4_Text_b</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Step 4 Title --></label>
+        <name>GettingStarted_Step4_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started Video Title --></label>
+        <name>GettingStarted_Video_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Started --></label>
+        <name>Getting_Started</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Go to the App --></label>
+        <name>GoToTheApp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hidden --></label>
+        <name>Hidden</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Are you sure you would like to hide this listing? --></label>
+        <name>HideConfirmMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Hide Listing --></label>
+        <name>HideListing</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- iOS --></label>
+        <name>IOS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Are you sure you want to leave this page? --></label>
+        <name>LeavePageMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Link to Video --></label>
+        <name>LinkToVideo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- List in Another Language --></label>
+        <name>ListInAnotherLanguage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- List a New App --></label>
+        <name>ListNewApp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Listing Banner --></label>
+        <name>ListingBanner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Listing Detail Warning --></label>
+        <name>ListingDetailWarning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Listing Languages --></label>
+        <name>ListingLanguages</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Listing not finished yet --></label>
+        <name>ListingNotFinished</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Listing Details --></label>
+        <name>Listing_Details</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Listing Language --></label>
+        <name>Listing_Lang</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Message displayed when data is loading. --></label>
+        <name>Loading</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Make Default --></label>
+        <name>MakeDefault</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Media --></label>
+        <name>Media</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Message --></label>
+        <name>Message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Error --></label>
+        <name>Message_Text_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Info --></label>
+        <name>Message_Text_Info</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Success --></label>
+        <name>Message_Text_Success</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Warning --></label>
+        <name>Message_Text_Warning</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Month --></label>
+        <name>Month</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Most Popular Apps --></label>
+        <name>Most_Popular_Apps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New File --></label>
+        <name>NewFile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No results found. --></label>
+        <name>NoSearchResults</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You do not have access to administer the store. --></label>
+        <name>No_Access_To_Administer_Store</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You do not have access to the store. --></label>
+        <name>No_Access_To_Store</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- None --></label>
+        <name>None</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Label to indicate no items from a list (e.g., categories for an app). --></label>
+        <name>NoneSelected</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Open link in a new window --></label>
+        <name>OpenLinkNewWindow</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- (optional) --></label>
+        <name>OptionalParens</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- or (used between two buttons) --></label>
+        <name>OrForOptions</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Page View --></label>
+        <name>Page_View</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Page Views --></label>
+        <name>Page_Views</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select the permission set that grants access to this app. --></label>
+        <name>PermissionSetDescriptionOverlay</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please go to --></label>
+        <name>PleaseGoTo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 30 Days --></label>
+        <name>PopularityMetricThirtyDays</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Private AppExchange --></label>
+        <name>Private_AppExchange</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Process defined --></label>
+        <name>ProcessDefined</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- publish --></label>
+        <name>Publish</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Are you sure you would like to publish this listing? --></label>
+        <name>PublishConfirmMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Published --></label>
+        <name>Published</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Published Apps --></label>
+        <name>Published_Apps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- This app was listed before in the store. --></label>
+        <name>ReactivateAppMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Rearrange banners message. --></label>
+        <name>RearrangeBannersMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Rearrange listing resources message. --></label>
+        <name>RearrangeResourcesMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Message displayed to confirm removing from store action. --></label>
+        <name>RemoveAppConfirmMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Remove App from Store --></label>
+        <name>RemoveAppFromStore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request Access To --></label>
+        <name>RequestAccessTo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Request/Install --></label>
+        <name>RequestInstall</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Requests/Installs --></label>
+        <name>RequestsInstalls</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Required fields are marked with --></label>
+        <name>RequiredFieldsAreMarked</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- When all the required fields have a value you can take the store online. --></label>
+        <name>RequiredFieldsForOnline</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Resources --></label>
+        <name>Resources</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save --></label>
+        <name>Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Screenshots &amp; Videos --></label>
+        <name>ScreenshotsAndVideos</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select An App --></label>
+        <name>SelectAnApp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select the app you are listing --></label>
+        <name>SelectAnAppToList</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select the categories this app belongs in --></label>
+        <name>SelectAppCategories</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select the languages this app supports --></label>
+        <name>SelectAppLanguages</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SelectOne --></label>
+        <name>SelectOne</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select the app types your store will support. --></label>
+        <name>SelectStoreAppTypes</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select a listing language --></label>
+        <name>Select_Listing_Language</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Setup --></label>
+        <name>Setup</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Similar Apps --></label>
+        <name>Similar_Apps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- A-Z --></label>
+        <name>SortA_Z</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Popular --></label>
+        <name>SortPopular</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Recent --></label>
+        <name>SortRecent</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Relevance --></label>
+        <name>SortRelevance</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- The store is currently offline. --></label>
+        <name>Standard_User_Site_Unavailable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Store Banners --></label>
+        <name>StoreBanners</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- The store is offline. --></label>
+        <name>StoreIsOffline</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- The store is online. --></label>
+        <name>StoreIsOnline</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Store Logo --></label>
+        <name>StoreLogo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Store Name --></label>
+        <name>StoreName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Store Preferences --></label>
+        <name>Store_Preferences</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Take Store Offline --></label>
+        <name>TakeStoreOffline</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Take Store Online --></label>
+        <name>TakeStoreOnline</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AppExchange --></label>
+        <name>TheAppExchange</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Tile Preview --></label>
+        <name>TilePreview</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Title --></label>
+        <name>Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Total --></label>
+        <name>Total</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Type --></label>
+        <name>Type</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unsaved Changes --></label>
+        <name>UnsavedChanges</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You have made some changes which you might want to save. --></label>
+        <name>UnsavedChangesMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unsaved Changes for Publish Listing --></label>
+        <name>UnsavedChangesPublish</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unsaved Message Listings --></label>
+        <name>Unsaved_Message_Listings</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload Banner --></label>
+        <name>UploadBanner</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload Banner Info --></label>
+        <name>UploadBannerInfo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload banners message. --></label>
+        <name>UploadBannersMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload File --></label>
+        <name>UploadFile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload a file that is up to 5 MB in size and enter a title for your resource. --></label>
+        <name>UploadResourceFileMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload Screenshot --></label>
+        <name>UploadScreenshot</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload screenshot message --></label>
+        <name>UploadScreenshotMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload Store Banners --></label>
+        <name>UploadStoreBanners</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Upload store logo message. --></label>
+        <name>UploadStoreLogo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- User License --></label>
+        <name>UserLicense</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Video form details message --></label>
+        <name>VideoFormDetailsMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Video ID --></label>
+        <name>VideoID</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View Analytics --></label>
+        <name>ViewAnalytics</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View App Details --></label>
+        <name>ViewAppDetails</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View Store --></label>
+        <name>ViewStore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View All --></label>
+        <name>View_All</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View Detailed Dashboard --></label>
+        <name>View_Detailed_Dashboard</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Week --></label>
+        <name>Week</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Welcome to the Private AppExchange --></label>
+        <name>Welcome_Message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Wrong Device --></label>
+        <name>WrongDevice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Year --></label>
+        <name>Year</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Your Comment --></label>
+        <name>YourComment</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- default --></label>
+        <name>default</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Thousands Delimiter --></label>
+        <name>thousandsDelimiter</name>
+    </customLabels>
+    <customTabs>
+        <label><!-- Store --></label>
+        <name>Store</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Store Administration --></label>
+        <name>Store_Administration</name>
+    </customTabs>
+    <reportTypes>
+        <description><!-- Apps with Listings and Listing Activities --></description>
+        <label><!-- Apps with Listings and Listing Activities --></label>
+        <name>Apps_with_Listings_and_Listing_Activities</name>
+        <sections>
+            <label><!-- Apps --></label>
+            <name>Apps</name>
+        </sections>
+        <sections>
+            <label><!-- Listing Activities --></label>
+            <name>Listing Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Listings --></label>
+            <name>Listings</name>
+        </sections>
+    </reportTypes>
+</Translations>

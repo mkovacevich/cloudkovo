@@ -1,0 +1,7 @@
+<apex:page standardController="Outage__c" extensions="OutageMap">
+    <apex:pageBlock >
+    	<apex:pageBlockSection >
+            <c:googleMap_marker_infoWindow addressList="{!outageAddresses}" infoList="{!outageIssues}"/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

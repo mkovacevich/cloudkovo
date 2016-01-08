@@ -1,0 +1,11 @@
+<messaging:emailTemplate subject="{!$Label.privateappex__AppAccessRequest}: {!relatedTo.Listing__r.App__r.Name}" 
+	recipientType="User" 
+	relatedToType="privateAppEx__ListingActivity__c" >
+<messaging:htmlEmailBody >
+
+<c:accessRequestEmail activity="{!relatedTo}" 
+					  listingId="{!relatedTo.privateAppEx__Listing__c}" 
+					  requestorId="{!relatedTo.CreatedById}"
+					  appName="{!relatedTo.Listing__r.App__r.Name}"/>
+</messaging:htmlEmailBody>
+</messaging:emailTemplate>

@@ -1,0 +1,80 @@
+<apex:component id="accessRequestResponseEmailComp" controller="privateAppEx.AccessRequestEmailController" access="global">
+	<apex:attribute name="activity" description="The activity for the email" type="privateAppEx__ListingActivity__c" assignTo="{!cActivity}" />
+	<apex:attribute name="listingId" description="The listing for the activity" type="String" />
+	<apex:attribute name="requestorId" description="The activity for the email" type="String" assignTo="{!cRequestorId}" />
+	<apex:attribute name="appName" description="The name of the app for which access is being requested." type="String" />
+	<apex:attribute name="responseType" description="The type of response: approval, denial" type="String" />
+<html lang="en">
+  <body>
+  
+    <!-- center -->
+    <table width="100%" cellpadding="10" cellspacing="0" style="font-family: helvetica neue, helvetica, arial, sans-serif;">
+      <tr>
+        <td valign="top" align="center">
+        
+          <!-- header -->
+          <table width="600" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <table cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><!--  img src="" style="max-width: 300px; max-height: 50px;" / --></td>
+                    <td style="padding-left: 15px; font-size: 21px;"><apex:outputText value="{!store.Name}" /></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!-- /header -->
+          
+          &#160;<br />
+          
+          <!-- body -->
+          <table width="600" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="font-size: 14px;" align="left">
+              	<apex:outputPanel layout="block" style="font-size: 17px; color: #090;" rendered="{!responseType == 'approval'}">
+	                <apex:outputText value="{!$Label.privateappex__AppAccessRequestApprovedFor} {!appName}" />
+              	</apex:outputPanel>
+              	<apex:outputPanel layout="block" style="font-size: 17px; color: #a00;" rendered="{!responseType == 'denial'}">
+	                <apex:outputText value="{!$Label.privateappex__AppAccessRequestDeniedFor} {!appName}" />
+              	</apex:outputPanel>
+                &#160;<br />
+                <apex:outputText value="{!responseComment}" />
+
+                <table cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="padding: 10px 10px 10px 0; color: #999; white-space: nowrap; text-align: right; vertical-align: top;"><apex:outputText value="{!$ObjectType.User.label}" />:</td>
+                    <td style="padding: 10px 10px 10px 0;">
+                    	<a href="{!sfdcBaseUrl}/{!requestorId}" target="_blank" style="color: #015ba7;">{!accessRequestor.Name}</a><br />
+		            </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 10px 10px 0; color: #999; white-space: nowrap; text-align: right; vertical-align: top;"><apex:outputText value="{!$ObjectType.privateAppEx__App__c.fields.Name.label}" />:</td>
+                    <td style="padding: 10px 10px 10px 0;"><a href="{!sfdcBaseUrl}{!$Page.privateAppEx__listingDetail}?listingId={!listingId}" style="color: #015ba7;" target="_blank">{!appName}</a></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 10px 10px 0; color: #999; white-space: nowrap; text-align: right; vertical-align: top;"><apex:outputText value="{!$Label.privateappex__YourComment}" />:</td>
+                    <td style="padding: 10px 10px 10px 0;"><apex:outputText value="{!requestorComment}" /></td>
+                  </tr>
+                  <apex:outputPanel layout="none" rendered="{!responseType == 'approval'}">
+                  	<tr>
+                    	<td style="padding: 15px 10px 10px 0; color: #999; white-space: nowrap; text-align: right; vertical-align: top;">&#160;</td>
+                    	<td style="padding: 15px 10px 10px 0;"><a href="{!sfdcBaseUrl}{!$Page.listingDetail}?listingId={!listingId}" target="_blank" style="text-decoration: none; background: #87ac31; color: #fff; border-radius: 3px; padding: 7px 20px; font-weight: bold; text-shadow: 0px 1px 0px rgba(0,0,0,.3);"><apex:outputText value="{!$Label.privateappex__GoToTheApp}" /></a></td>
+                  	</tr>
+                  </apex:outputPanel>
+                </table>
+
+              </td>
+            </tr>
+          </table>
+          <!-- /body -->
+          
+        </td>
+      </tr>
+    </table>
+    <!-- /center -->
+
+  </body>
+</html>
+</apex:component>

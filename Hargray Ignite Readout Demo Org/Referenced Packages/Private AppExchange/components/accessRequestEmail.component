@@ -1,0 +1,83 @@
+<apex:component id="accessRequestEmailComp" controller="privateAppEx.AccessRequestEmailController" access="global">
+	<apex:attribute name="activity" description="The activity for the email" type="privateAppEx__ListingActivity__c" assignTo="{!cActivity}" />
+	<apex:attribute name="listingId" description="The listing for the activity" type="String" />
+	<apex:attribute name="requestorId" description="The activity for the email" type="String" assignTo="{!cRequestorId}" />
+	<apex:attribute name="appName" description="The name of the app for which access is being requested." type="String" />
+<html lang="en">
+  <body>
+  
+    <!-- center -->
+    <table width="100%" cellpadding="10" cellspacing="0" style="font-family: helvetica neue, helvetica, arial, sans-serif;">
+      <tr>
+        <td valign="top" align="center">
+        
+          <!-- header -->
+          <table width="600" cellpadding="0" cellspacing="0">
+            <tr>
+              <td>
+                <table cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td><!--  img src="" style="max-width: 300px; max-height: 50px;" / --></td>
+                    <td style="padding-left: 15px; font-size: 21px;"><apex:outputText value="{!store.Name}" /></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+          <!-- /header -->
+          
+          &#160;<br />
+          
+          <!-- body -->
+          <table width="600" cellpadding="0" cellspacing="0">
+            <tr>
+              <td style="font-size: 14px;" align="left">
+                <apex:outputText value="{!$Label.privateappex__AppAccessRequest}" />: {!appName}
+                &#160;<br />
+
+                <table cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="padding: 10px 10px 10px 0; color: #999; white-space: nowrap; text-align: right; vertical-align: top;"><apex:outputText value="{!$ObjectType.User.label}" />:</td>
+                    <td style="padding: 10px 10px 10px 0;">
+                    	<a href="{!sfdcBaseUrl}/{!requestorId}" target="_blank" style="color: #015ba7;">{!accessRequestor.Name}</a><br />
+                    	<apex:outputPanel layout="none" rendered="{!NOT(IsBlank(accessRequestor.Title))}">
+	                    	{!accessRequestor.Title}<br />
+                    	</apex:outputPanel>
+                    	<a href="mailto:{!accessRequestor.Email}" target="_blank" style="color: #015ba7;">{!accessRequestor.Email}</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 10px 10px 0; color: #999; white-space: nowrap; text-align: right; vertical-align: top;"><apex:outputText value="{!$Label.privateappex__UserLicense}" />:</td>
+                    <td style="padding: 10px 10px 10px 0;">{!accessRequestor.Profile.UserLicense.Name}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 10px 10px 0; color: #999; white-space: nowrap; text-align: right; vertical-align: top;"><apex:outputText value="{!$ObjectType.Profile.label}" />:</td>
+                    <td style="padding: 10px 10px 10px 0;">{!accessRequestor.Profile.Name}</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 10px 10px 0; color: #999; white-space: nowrap; text-align: right; vertical-align: top;"><apex:outputText value="{!$ObjectType.privateAppEx__App__c.fields.Name.label}" />:</td>
+                    <td style="padding: 10px 10px 10px 0;"><a href="{!sfdcBaseUrl}{!$Page.privateAppEx__listingDetail}?listingId={!listingId}" style="color: #015ba7;" target="_blank">{!appName}</a></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 10px 10px 0; color: #999; white-space: nowrap; text-align: right; vertical-align: top;"><apex:outputText value="{!$Label.privateappex__AdditionalInfo}" />:</td>
+                    <td style="padding: 10px 10px 10px 0;"><apex:outputText value="{!requestorComment}" /></td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 15px 10px 10px 0; color: #999; white-space: nowrap; text-align: right; vertical-align: top;">&#160;</td>
+                    <td style="padding: 15px 10px 10px 0;"><a href="{!sfdcBaseUrl}/{!activity.Id}" target="_blank" style="text-decoration: none; background: #87ac31; color: #fff; border-radius: 3px; padding: 7px 20px; font-weight: bold; text-shadow: 0px 1px 0px rgba(0,0,0,.3);"><apex:outputText value="{!$Label.privateappex__BUTTON_ApproveOrReject}" /></a></td>
+                  </tr>
+                </table>
+
+              </td>
+            </tr>
+          </table>
+          <!-- /body -->
+          
+        </td>
+      </tr>
+    </table>
+    <!-- /center -->
+
+  </body>
+</html>
+</apex:component>

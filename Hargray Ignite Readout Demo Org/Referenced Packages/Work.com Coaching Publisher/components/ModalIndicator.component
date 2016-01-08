@@ -1,0 +1,10 @@
+<apex:component >   
+    <div class="modalIndicator" id="modalIndicator">
+        <div class="modal-glass">&nbsp;</div>
+        <div class="indicatorContainer" role="alert">
+            <!-- Note: We are using an image with an svg background url instead of the icon font because of issues centering the spinner with the icon font -->
+            <div class="spinnerIcon icon"/>
+            <div class="message">Posting</div>
+        </div>
+    </div>
+</apex:component>

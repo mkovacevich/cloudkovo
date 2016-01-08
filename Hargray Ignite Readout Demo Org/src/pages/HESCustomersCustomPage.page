@@ -1,0 +1,3 @@
+<apex:page Controller="HESCustomerController">
+   <apex:detail subject="{!HESCustomer}" relatedList="true" title="false"/> 
+</apex:page>

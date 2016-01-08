@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectivityDevConfigMetadata xmlns="http://soap.sforce.com/2006/04/metadata">
+    <isOauth>false</isOauth>
+    <nameIdFormat>Unspecified</nameIdFormat>
+    <samlAscUrl>https://www.salesforceidentity.info/saml/</samlAscUrl>
+    <samlEntityUrl>https://office365</samlEntityUrl>
+    <samlSubjectType>Username</samlSubjectType>
+    <startUrl>https://login.microsoftonline.com/</startUrl>
+</ConnectivityDevConfigMetadata>

@@ -1,0 +1,20 @@
+<apex:component layout="none">
+	<apex:attribute name="selected" description="selected value in left panel" type="String" required="false" />
+	
+	<div class="prx-content-secondary">
+                  <div class="prx-content-secondary-inner">
+                    
+                    <div class="prx-nav2-admin" id="prx_nav2">
+                      <div class="prx-nav2-admin-inner">
+                        <ul class="prx-ul-reset prx-ul-nav2-admin">
+                          <li class="{!IF(selected==$Label.Getting_Started,'prx-selected','')}"><a href="{!$Page.gettingStarted}"><span class="prx-icon"></span><span class="prx-text"><apex:outputText value="{!$Label.privateappex__Getting_Started}"/></span></a></li>
+                          <li class="{!IF(selected==$Label.Dashboard,'prx-selected','')}"><a href="{!$Page.dashboard}"><span class="prx-icon"></span><span class="prx-text"><apex:outputText value="{!$Label.privateappex__Dashboard}"/></span></a></li>
+                          <li class="{!IF(selected==$Label.App_Listings,'prx-selected','')}"><a href="{!$Page.apps}"><span class="prx-icon"></span><span class="prx-text"><apex:outputText value="{!$Label.privateappex__App_Listings}"/></span></a></li>
+                          <li class="{!IF(selected==$Label.Store_Preferences,'prx-selected','')}"><a href="{!$Page.storePrefsBasic}"><span class="prx-icon"></span><span class="prx-text"><apex:outputText value="{!$Label.privateappex__Store_Preferences}"/></span></a></li>
+                        </ul>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+</apex:component>

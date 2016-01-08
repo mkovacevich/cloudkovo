@@ -1,0 +1,136 @@
+<apex:page controller="salesedgedemo.SalesEdgeReportingController" sidebar="false" showHeader="false" standardStylesheets="false">
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/bootstrap/dist/css/bootstrap.min.css')}" />
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/kendo/styles/microcampaign.min.css')}" />
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'css/microcampaign.css')}" />
+<apex:stylesheet value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'css/overrides.css')}" />
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row clearfix">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row clearfix">
+                <nav class="navbar navbar-default navbar-static-top col-md-6 col-sm-12">
+                  <!-- Brand and toggle get grouped for better mobile display-->
+                  <div class="navbar-header">
+                    <button type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                  </div>
+                  <!-- Collect the nav links, forms, and other content for toggling-->
+                  <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                      <li class="dropdown js-email-type"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" data-email-type="all" class="h2 dropdown-toggle">All Emails <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                          <li data-email-type="all"><a href="#">All Emails</a></li>
+                          <li data-email-type="templates"><a href="#">Template-Based</a></li>
+                          <li data-email-type="notemplate"><a href="#">Not Template-Based</a></li>
+                        </ul>
+                      </li>
+                      <li class="dropdown js-date-range"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" data-email-type="7" class="h2 dropdown-toggle">7 Days <span class="caret"></span></a>
+                        <ul role="menu" class="dropdown-menu">
+                          <li data-date-range="7"><a href="#">7 Days</a></li>
+                          <li data-date-range="14"><a href="#">14 Days</a></li>
+                          <li data-date-range="30"><a href="#">30 Days</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- /.navbar-collapse-->
+                </nav>
+                <div class="col-md-2 col-sm-3 chart-callout js-mc-delivered">
+                  <p class="text-muted">Delivered</p>
+                  <h2 class="h1"></h2>
+                </div>
+                <div class="col-md-2 col-sm-3 chart-callout js-mc-opens">
+                  <p class="text-muted">Opens</p>
+                  <h2 class="h1"></h2>
+                </div>
+                <div class="col-md-2 col-sm-3 chart-callout js-mc-clicks">
+                  <p class="text-muted">Clicks</p>
+                  <h2 class="h1"></h2>
+                </div>
+              </div>
+              <div class="row clearfix">
+                <!--
+                <div class="col-md-4 tod-chart js-tod-chart">
+                <div class="kendo-loading js-chart-loading"></div>
+                </div>
+                -->
+                <div data-email-type="all" data-date-range="7" class="col-md-12 main-chart js-chart">
+                  <div class="kendo-loading js-chart-loading"></div>
+                </div>
+              </div>
+              <div class="row clearfix">
+                <div class="col-md-12">
+                  <form role="search" class="pull-right form-inline">
+                    <div class="form-group">
+                      <input type="text" data-filter-table="emails" placeholder="Search..." class="form-control js-table-filter"/>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="row clearfix">
+                <div class="main-table js-table">
+                  <div class="kendo-loading js-table-loading"></div>
+                </div>
+              </div>
+              <div class="row clearfix">
+                <div class="col-md-12">
+                  <form role="search" style="display: none;" class="pull-right form-inline js-template-usage-table-filter">
+                    <div class="form-group">
+                      <input type="text" data-filter-table="templates" placeholder="Search..." class="form-control js-table-filter"/>
+                    </div>
+                  </form>
+                  <h3 style="display: none;" class="panel-table-header text-muted js-template-usage-table-label">Template Usage</h3>
+                </div>
+              </div>
+              <div class="row clearfix">
+                <div class="template-table js-template-usage-table">
+                  <div class="kendo-loading js-template-usage-table-loading"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__Mobile_Design_Templates, 'Mobile-Design-Templates-master/common/js/jQuery2.0.2.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/cookies-js/dist/cookies.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/node_modules/secure-filters/lib/secure-filters.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/bootstrap/dist/js/bootstrap.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'vendor/kendo/custom-builds/kendo.microcampaign.min.js')}"/>
+<apex:includeScript value="{!URLFOR($Resource.salesedgedemo__MicroCampaignReports, 'js/reports_main.js')}"/>
+
+<script type="text/javascript">
+	window.emailsJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/emails.json')}";
+	window.emailStatsByDateJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/email_stats_by_date.json')}";
+	window.totalStatsJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/total_stats.json')}";
+	window.templatesJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/templates.json')}";
+
+	// Not template-based paths
+	window.emailsNonTemplateJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/emails_non_template.json')}";
+	window.emailStatsByDateNonTemplateJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/email_stats_by_date_non_template.json')}";
+	window.totalStatsNonTemplateJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/total_stats_non_template.json')}";
+
+	// All Emails paths
+	window.emailsAllEmailsJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/emails_all_emails.json')}";
+	window.emailStatsByDateAllEmailsJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/email_stats_by_date_all_emails.json')}";
+	window.totalStatsAllEmailsJsonPath = "{!URLFOR($Resource.MicroCampaignReports, 'js/total_stats_all_emails.json')}";
+
+	window.firstEmail = {
+		"email_subject" : "{!emailSubject}",
+		"email_html" : "{!emailHtml}",
+		"email_text" : "{!emailText}",
+		"template_name" : "{!templateName}",
+		"template_subject" : "{!templateSubject}",
+		"template_id" : "{!templateId}",
+		"email_count" : "{!emailCount}"
+	};
+</script>
+
+</apex:page>

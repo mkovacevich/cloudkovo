@@ -1,0 +1,25 @@
+<apex:page controller="leadTable" >
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <apex:includeScript value="/support/console/22.0/integration.js"/>
+    <h1>My Leads</h1>
+        <br/><br/>
+    <apex:pageBlock >
+    <apex:pageBlockTable value="{!leads}" var="pitem">
+        <apex:column headerValue="Name">
+            <apex:outputLink value="/{!pitem.id}">{!pitem.Name}</apex:outputLink>
+        </apex:column>
+        <apex:column headerValue="Phone">
+            <apex:outputText value="{!pitem.Phone}"/>
+        </apex:column>
+        <apex:column headerValue="Owner">
+            <apex:outputText value="{!pitem.owner.name}"/>
+        </apex:column>
+        <apex:column headerValue="Status">
+            <apex:outputText value="{!pitem.Status}"/>
+        </apex:column>
+    </apex:pageBlockTable>
+    </apex:pageBlock>
+    <br/>
+    
+</apex:page>

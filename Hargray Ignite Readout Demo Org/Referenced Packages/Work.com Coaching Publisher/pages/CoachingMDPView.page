@@ -1,0 +1,8 @@
+<apex:page controller="wdc_coachingmdp.CoachingMDPController" standardStylesheets="false" showHeader="false" sidebar="false">
+    <apex:outputPanel rendered="{!targetPlatform == 's1'}">
+        <c:CoachingMDPComponentS1 /> 
+    </apex:outputPanel> 
+    <apex:outputPanel rendered="{!targetPlatform == 'f1'}">
+        <c:CoachingMDPComponentF1 /> 
+    </apex:outputPanel>     
+</apex:page>

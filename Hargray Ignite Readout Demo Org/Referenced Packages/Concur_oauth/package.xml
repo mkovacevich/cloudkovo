@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Concur_oauth</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <modules>
+        <module>
+            <label>Concur_oauth</label>
+            <moduleType>connected</moduleType>
+            <name>Concur_oauth</name>
+            <types>
+                <members>Concur_oauth_devConfig</members>
+                <name>ConnectivityDevConfigMetadata</name>
+            </types>
+            <types>
+                <members>applauncher__Concur_oauth</members>
+                <name>Module</name>
+            </types>
+            <version>1.0</version>
+        </module>
+    </modules>
+    <namespacePrefix>applauncher</namespacePrefix>
+    <version>35.0</version>
+</Package>

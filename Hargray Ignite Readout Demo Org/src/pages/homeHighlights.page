@@ -1,0 +1,60 @@
+<apex:page controller="OutageMap2">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <apex:includeScript value="/support/console/22.0/integration.js"/>
+    <script>
+      $(document).ready(function(){
+       	if($($("#tsidLabel", window.parent.parent.document)[0]).text() === '360 Delight- TAC'){
+			$('#offer').hide();
+            $('#outage').show();
+        }
+      })
+    </script>
+    
+    <div>
+        <img src="{!$Resource.offers}" id="offer" style="width: 95%; max-width: 1300px;
+  margin: 0 auto;margin-top: -7px;
+                                                                 display: block;"/>
+        <!--<img src="{!$Resource.outages}" id="outage" style="width: 100%; max-width: 1300px;
+  margin: 0 auto;
+                                                                   display: block;"/>-->
+        
+        <script>
+        function openTab(Id){
+        	sforce.console.openPrimaryTab(null,'https://na22.salesforce.com/' + Id, true, 'Outage: ' + Id );
+        }
+        </script>
+        
+        <div style="width: 95%; max-width: 1300px;
+  margin: 0 auto; background: #f9f9f9; height: 80px; padding: 10px;   border-style: solid;
+  border-width: 1px; display:none;" id="outage">
+            <p style="  color: #c8132e;
+  font-weight: 600; float: left; margin-right: 25px;">
+                System Outages
+            </p>
+            <apex:repeat value="{!outages2}" var="out">
+                <div style="width: 28.5%; background: #FFF; height: 60px; border-style: solid; border-width: 1px; float: left; margin: 0px 5px 0px 5px; margin-top: 10px; cursor: pointer;" onClick="openTab('{!out.Id}')">
+                    <img src="{!$Resource.outageImage}" style="margin: 10px; width: 35px;float: left;"/>
+                    <span style="float: left">
+                        <p style="color: #c8132e;
+      font-weight: 600; margin-bottom: 3px;">
+                            Confirmed Outage                        
+                        </p>
+                        {!out.account__r.billingstreet}<br/>
+                        {!out.account__r.billingCity}, {!out.account__r.billingState} {!out.account__r.billingPostalCode}
+                    </span>
+                </div>
+            </apex:repeat>
+                 <!--<div style="width: 28.5%; background: #FFF; height: 60px; border-style: solid; border-width: 1px; float: left; margin: 0px 5px 0px 5px">
+                    <img src="{!$Resource.outageImage}" style="margin: 10px; width: 35px;float: left;"/>
+                    <span style="float: left">
+                        <p style="color: #c8132e;
+      font-weight: 600; margin-bottom: 3px;">
+                            Confirmed Outage                        
+                        </p>
+                        123 Elm<br/>
+                        Chicago, IL 60601
+                    </span>
+                </div>-->
+        </div>
+    </div>
+</apex:page>

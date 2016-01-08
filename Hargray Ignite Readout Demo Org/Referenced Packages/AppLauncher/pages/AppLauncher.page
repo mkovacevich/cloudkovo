@@ -1,0 +1,97 @@
+<apex:page controller="applauncher.AppLauncherController" sidebar="false">
+        <apex:stylesheet value="{!URLFOR($Resource.applauncher__applauncher_css)}" />
+
+<script>
+    var apps = [ 
+        <apex:repeat value="{!apps}" var="app">
+        {
+        'id': '{!app.id}',
+        'name': '{!app.name}',
+        'label': '{!app.label}',
+        'StartURL': '{!app.StartURL}',
+        'LogoURL': '{!app.LogoURL}',
+        'Type': '{!app.Type}'          
+        },
+        </apex:repeat>
+        {
+        'id': 'getmore',
+        'StartURL': 'https://appexchange.salesforce.com/'       
+        }];
+    
+    
+    var applabels = [
+        <apex:repeat value="{!apps}" var="app">
+        '{!app.label}',
+        </apex:repeat>
+    ''];
+    
+    
+    function getMore(app){
+        return'<a href="' + app.StartURL + '" target="_blank"><div class="app" id="getmorewrapper"><div id="plus">+</div><div id="getmore">Get More</div></div></a>';
+    }
+    
+    function getLogo(app) {
+        if (app.label == 'Sales') return '{!URLFOR($Resource.applauncher__applauncher_sales)}';
+        else if (app.label == 'Call Center') return '{!URLFOR($Resource.applauncher__applauncher_service)}'; 
+        else if (app.label == 'Marketing') return '{!URLFOR($Resource.applauncher__applauncher_marketing)}'; 
+        else if (app.label == 'Community') return '{!URLFOR($Resource.applauncher__applauncher_salesforce)}'; 
+        else if (app.label == 'Site.com') return '{!URLFOR($Resource.applauncher__applauncher_sites)}'; 
+        else if (app.label == 'Salesforce Chatter') return '{!URLFOR($Resource.applauncher__applauncher_chatter)}'; 
+        else if (app.label == 'Content') return '{!URLFOR($Resource.applauncher__applauncher_salesforce)}'; 
+        else return app.LogoURL;
+    }
+    
+    function buildAppHtml(app){
+        if (app.id == 'getmore') return getMore(app);
+        var h = '<a href="' + app.StartURL + '" ';
+        if (app.Type != 'TabSet') h+= 'target="_blank" ';
+        h += '><div class="app" id="' + app.name + '">';
+        h += '<div class="tile-img"><span class="tile-img-inner"><img src="' + getLogo(app) + '" /></span></div>';
+        h += '<div class="applabel"><span>' + app.label + '</div></div><div class="arrow"/></a>';
+        return h;
+    }
+    
+    function appendApp(app) {
+        var node = document.getElementById('appcontainer');
+        var tile = document.createElement("div");
+        tile.innerHTML = buildAppHtml(app);
+        node.appendChild(tile);
+    }
+        
+    function clearApps(){
+        var node = document.getElementById('appcontainer');
+        while (node.hasChildNodes()) {
+            node.removeChild(node.firstChild);
+        }
+    }
+    
+    function displayAllApps(){
+        for(var app in apps) {
+            if (apps[app].id != null ) appendApp (apps[app]);
+        };
+    }
+    
+    
+    function search(q) {
+        clearApps(); 
+        for (var i=0; i<applabels.length; i++) {
+            if (applabels[i].toLowerCase().match(q.toLowerCase())) {
+                appendApp(apps[i]); 
+            }
+        }
+    }
+    
+</script>     
+    
+<div id="apps">
+    <div id="appcenter">
+        <div id="applauncherheader">
+            <div id="applaunchertitle">App Launcher</div>
+            <div id="applaunchersearch"><input id="q" name="q" onkeyup="search(this.value);" placeholder="Quick Find" /></div>   
+        </div>
+        <div id="appcontainer"/>
+    </div>
+</div>
+<p/>
+<script>displayAllApps();</script>
+</apex:page>

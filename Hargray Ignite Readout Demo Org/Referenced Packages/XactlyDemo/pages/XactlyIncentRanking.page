@@ -1,0 +1,962 @@
+<apex:page sidebar="false" showHeader="false" docType="html-5.0">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+</head>
+     <link href="{!URLFOR($Resource.XactlyTabResource,'jquery-coverflow-slider/jquery.coverflow.slider.css')}" type="text/css" rel="stylesheet" media="screen and (min-width:481px)"/>
+    <link href="{!URLFOR($Resource.XactlyTabResource,'jquery-coverflow-slider/jquery.coverflow.slider-mini.css')}" type="text/css" rel="stylesheet" media="only screen and (min-width:320px) and (max-width:480px), only screen and (min-device-width:320px) and (max-device-width:568px)"/>
+    <!--<link href="{!URLFOR($Resource.XactlyTabResource,'jquery-coverflow-slider/jquery.coverflow.slider-mini.css')}" type="text/css" rel="stylesheet"/>-->
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.XactlyTabResource, 'jquery-ui-1.9.2/js/jquery-1.8.3.min.js')}"></script>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.XactlyTabResource, 'jquery-coverflow-slider/jquery.coverflow.slider.js')}"></script>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.XactlyTabResource, 'jquery-ui-1.9.2/js/jquery-ui-1.9.2.custom.min.js')}"></script>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.XactlyTabResource, 'jquery-blockUI/jquery.blockUI.min.js')}"></script>
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.XactlyTabResource, 'js/xtab.js')}"></script>    
+    <apex:stylesheet value="{!URLFOR($Resource.XactlyDemo__XactlyTabResource,'jquery-ui-1.9.2/css/ui-lightness/jquery-ui-1.9.2.custom.min.css')}"/>
+    <link media="only screen and (min-width:481px)" href="{!URLFOR($Resource.XactlyTabResource,'css/xtab.css')}" rel="stylesheet"/>
+    <link rel="stylesheet" media="only screen and (min-width:20px) and (max-width:480px), only screen and (min-device-width:320px) and (max-device-width:568px)" href="{!URLFOR($Resource.XactlyTabResource,'css/xtab-mobile.css')}" />
+    <!--<link rel="stylesheet" media="" href="{!URLFOR($Resource.XactlyTabResource,'css/xtab-mobile.css')}" />-->
+    <script type="text/javascript" language="javascript" src="{!URLFOR($Resource.XactlyTabResource, 'gauge-plugin/gauge.js')}"></script>
+    
+    <script>
+    $(function(){
+    enableSlidingMenu();
+    
+    
+    jQuery('.repui-progressbar').each(function() {
+        //initialize the progress bar
+        jQuery(this).progressbar({
+            value : 0.01
+        })
+
+        var _parcent = jQuery.trim(jQuery(this).next(".attainment").text());
+        jQuery(this).children('.ui-progressbar-value').animate({
+            width : _parcent,
+            queue : false
+            }, 1500)
+        })
+        
+    })
+    </script>
+<div class="xtab-header-container">
+               <div class="xtab-logo-icon">
+               <div class="xtab-logo">
+                    <apex:image url="{!URLFOR($Resource.XactlyDemo__XactlyTabResource, 'images/xtab_logo.png')}" styleClass="xtab-logo"/>                                                            
+                    </div>
+                    <div class="count-div">
+                        <span id="attainment-count" class="xtab-attainment-count" style="display:inline-block">1</span>                   
+                    </div>
+                    <div class="trohpy-con-div">
+                        <img src="{!URLFOR($Resource.XactlyTabResource, 'images/xtab_trophy.png')}" class="xtab-trophy-icon" id="trophy-icon-dark"/>
+                   </div>
+                </div>
+            </div>
+           <div class="content">
+<div class="links-div">
+                        <a href="/apex/XactlyDemo__XactlyIncentiveStatement" style="text-decoration: none;cursor:pointer;" id="show-statement">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/blank.gif')}" class="link-show-statement-inactive"/>
+                        </a>
+                        <a href="/apex/XactlyDemo__XactlyIncentRanking" style="text-decoration: none;cursor:pointer" id="show-ranking">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/blank.gif')}" class="link-show-ranking-inactive link-show-ranking"/>                            
+                        </a>
+                    </div>
+<div id="pageLoader" style="display:none;" class="pageLoader">
+            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/progressBar.gif')}"/>
+            </div>
+ <div id="ranking-div">
+        <div class="rank-slider">
+           <div id="contentSlider-2">
+            <ul>
+                <li class="selected">
+                    <div class="rankingGroupSelect">
+                        <input type="hidden" value="GRP1" />
+                        <span>Attainment Ranking</span><label class="individual-rank">1st</label>
+                        <div class="bottom-border-div">
+
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="rankingGroupSelect">
+                        <input type="hidden" value="GRP2" />
+                        <span>Product Revenue Ranking</span><label class="individual-rank">6th</label><div class="bottom-border-div">
+
+                        </div>
+                    </div>
+                </li>
+                <li class="">
+                    <div class="rankingGroupSelect">
+                        <input type="hidden" value="GRP3" />
+                        <span>Total Margin Quota Ranking</span><label class="individual-rank">5th</label>
+                        <div class="bottom-border-div">
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+           </div>
+           </div> 
+           <div class="rank-table-container">              
+            <div class="xtab-table-container" id="group-1">
+            <div class="xtab-table-row xtab-row-highlight">
+                        <div class="highlight-rank">
+                            <span>1</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/DanPerkins.png')}" />
+                        </div>
+                        <div class="rep-name">
+                            Dan Perkins
+                        </div>
+                        <div class="rep-title">
+                            SVP Sales
+                        </div>                        
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            236%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>2</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/CindyCentral.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Cindy Central
+                        </div>
+                        <div class="rep-title">
+                            Central Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            96%
+                        </div>
+                    </div>                  
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>3</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/DebbieCanty.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Debbie Canty
+                        </div>
+                        <div class="rep-title">
+                            Central Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            93%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>4</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/ElyEast.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Ely East
+                        </div>
+                        <div class="rep-title">
+                            East Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            90%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>5</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/GordonSVP.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Gordon SVP
+                        </div>
+                        <div class="rep-title">
+                            SVP Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            85%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>6</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/RickyEast.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Ricky East 
+                        </div>
+                        <div class="rep-title">
+                            East Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            81%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>7</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/BillWest.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Bill West
+                        </div>
+                        <div class="rep-title">
+                            West Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            80%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>8</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/VanessaCentral.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                           Vanessa Central 
+                        </div>
+                        <div class="rep-title">
+                            VP Central
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            69%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>9</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/VinceWest.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Vince West
+                        </div>
+                        <div class="rep-title">
+                            VP West
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            68%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>10</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/WendyWest.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Wendy West
+                        </div>
+                        <div class="rep-title">
+                            West Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            66%
+                        </div>
+                    </div>
+            </div>
+            <div class="xtab-table-container" id="group-2" style="display: none">
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>1</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/CindyCentral.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Cindy Central
+                        </div>
+                        <div class="rep-title">
+                            Central Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            66%
+                        </div>
+                    </div>                  
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>2</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/DebbieCanty.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                           Debbie Canty
+                        </div>
+                        <div class="rep-title">
+                            Central Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            64%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>3</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/BillWest.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Bill West
+                        </div>
+                        <div class="rep-title">
+                            West Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            63%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>4</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/WendyWest.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Wendy West
+                        </div>
+                        <div class="rep-title">
+                            West Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            63%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>5</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/ElyEast.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Ely East
+                        </div>
+                        <div class="rep-title">
+                            East Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            62%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row xtab-row-highlight">
+                        <div class="highlight-rank">
+                            <span>6</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/DanPerkins.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Dan Perkins
+                        </div>
+                        <div class="rep-title">
+                            SVP Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            62%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>7</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/GordonSVP.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Gordon SVP
+                        </div>
+                        <div class="rep-title">
+                           SVP Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            59%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>8</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/RickyEast.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Ricky East
+                        </div>
+                        <div class="rep-title">
+                           East Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            57%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>9</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/VanessaCentral.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Vanessa Central
+                        </div>
+                        <div class="rep-title">
+                            VP Central
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            55%
+                        </div>
+                    </div>              
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>10</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/VinceWest.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Vince West
+                        </div>
+                        <div class="rep-title">
+                            VP West
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            52%
+                        </div>
+                    </div>
+                </div>
+                    <div class="xtab-table-container" id="group-3" style="display: none">
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>1</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/DebbieCanty.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Debbie Canty
+                        </div>
+                        <div class="rep-title">
+                            Central Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            51%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>2</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/BillWest.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Bill West
+                        </div>
+                        <div class="rep-title">
+                            West Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            47%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>3</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/CindyCentral.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Cindy Central
+                        </div>
+                        <div class="rep-title">
+                            Central Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            45%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>4</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/GordonSVP.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Gordon SVP
+                        </div>
+                        <div class="rep-title">
+                            SVP Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            42%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row xtab-row-highlight">
+                        <div class="highlight-rank">
+                            <span>5</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/DanPerkins.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Dan Perkins
+                        </div>
+                        <div class="rep-title">
+                            SVP Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            41%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>6</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/ElyEast.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Ely East
+                        </div>
+                        <div class="rep-title">
+                            East Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            36%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>7</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/VinceWest.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Vince West
+                        </div>
+                        <div class="rep-title">
+                              VP West
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            36%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>8</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/ValerieEast.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Valerie East
+                        </div>
+                        <div class="rep-title">
+                            VP East
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            35%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>9</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/RickyEast.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Ricky East
+                        </div>
+                        <div class="rep-title">
+                            East Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            28%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>10</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/KaseyCentral.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Kasey Central
+                        </div>
+                        <div class="rep-title">
+                            Central Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            26%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>11</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/TomReseller.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Tom Reseller
+                        </div>
+                        <div class="rep-title">
+                            Sustainable Audio Partner Manager
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            25%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>12</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/WendyWest.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Wendy West
+                        </div>
+                        <div class="rep-title">
+                            West Sales
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            24%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>13</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/StevenSupport.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Steven Support
+                        </div>
+                        <div class="rep-title">
+                            SVP Customer Service &amp; Support
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            23%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>14</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/SeanSilver.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Sean Silver
+                        </div>
+                        <div class="rep-title">
+                            Silver Partners Partner User
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            22%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>15</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/LaurenBoyle.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Lauren Boyle
+                        </div>
+                        <div class="rep-title">
+                            United Partners Customer Manager
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            20%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>16</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/VanceChannel.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Vance Channel
+                        </div>
+                        <div class="rep-title">
+                            Channel Manager
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            0%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>16</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/VanessaCentral.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Vanessa Central
+                        </div>
+                        <div class="rep-title">
+                            VP Central
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            0%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>16</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/ChetCallaghan.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Chet Callaghan
+                        </div>
+                        <div class="rep-title">
+                            Channel Manager
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            0%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>16</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/JamiePreston.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Jamie Preston
+                        </div>
+                        <div class="rep-title">
+                            CTW Resellers Partner User
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            0%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>16</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/MarkKingston.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Mark Kingston
+                        </div>
+                        <div class="rep-title">
+                            United Partners Customer User
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            0%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>16</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/ChrisPlus.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Chris Plus
+                        </div>
+                        <div class="rep-title">
+                            Team Lead
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            0%
+                        </div>
+                    </div>                    
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>16</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/AlfOperations.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Alf Operations
+                        </div>
+                        <div class="rep-title">
+                            Director of Professional Services
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            0%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>16</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/ElliotExecutive.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Elliot Executive
+                        </div>
+                        <div class="rep-title">
+                            CEO
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            0%
+                        </div>
+                    </div>
+                    <div class="xtab-table-row">
+                        <div class="incent-rank">
+                            <span>16</span>
+                        </div>
+                        <div class="rep_image rounded-corners">
+                            <img src="{!URLFOR($Resource.XactlyTabResource, 'images/SueMarket.png')}"/>
+                        </div>
+                        <div class="rep-name">
+                            Sue Market
+                        </div>
+                        <div class="rep-title">
+                            SVP Marketing
+                        </div>
+                        <div class="repui-progressbar" style="border-radius:0px;-webkit-border-radius:0px">
+                        </div>
+                        <div class="attainment">
+                            0%
+                        </div>
+                    </div>
+            </div>
+             <!-- incentive statement link for smaller devices 
+                <div class="mobile-links-div" style="margin-top:20px;width:100%">
+                    <a href="/apex/XactlyDemo__XactlyIncentiveStatement" style="text-decoration: none;cursor:pointer">
+                            <span class="estimator_butn">Dashboard</span>
+                        </a>
+                </div>  -->
+            </div>
+            <div class="xtab-table-bottom">
+                <span>Up to JUL-2013</span>
+                </div>
+                <div class="horizontal-separator" style="margin-bottom: 0px">
+                </div>                           
+        </div>        
+        </div>
+<!-- start Mixpanel --><script type="text/javascript">(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+mixpanel.init("d00d19804771ac2e1f6cb6756c84beda");</script><!-- end Mixpanel -->
+<script>
+$(function(){
+mixpanel.track("Page Load", {"tab" : "team ranking", "organization" : "{!$Organization.Name}", "division" : "{!$Organization.Division}"});
+})
+</script>
+</apex:page>

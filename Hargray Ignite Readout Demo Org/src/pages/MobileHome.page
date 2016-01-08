@@ -1,0 +1,35 @@
+<apex:page >
+
+    <apex:includeScript value="{!URLFOR($Resource.SDO_jqueryui192, '/js/jquery-1.8.3.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.SDO_bootstrap, '/js/bootstrap.js')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.SDO_bootstrap, '/css/bootstrap.css')}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <style>
+        .centerContent {
+            padding: 5px;
+        }
+        
+        .container-fluid {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+        .feeditem .pollfieldset .pollquestion{
+            font-size: 12px !important;
+        }    
+    </style>
+    <script>
+    	 $(document).ready(function(){
+        	$('#portalheader').remove();
+             $('#portalheadertop').remove();
+             $('#globalHeaderBar').remove();
+             $('body').css('overflow-y','scroll');
+             $('body').css('overflow-x','hidden');
+        })
+    
+    </script>
+    <div id="mobile">
+        <a href="https://sdodemo-main-14de302d774.force.com/customers/apex/Report"><img src="{!URLFOR($Resource.phoneHome)}" style="  margin-left: -10px;margin-top: 24px;"/></a>
+    </div>
+
+</apex:page>

@@ -1,0 +1,1781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AddLink</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Link</shortDescription>
+        <value>Add Link</value>
+    </labels>
+    <labels>
+        <fullName>AddLinkMsg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter the link URL for your resource and a title for the link.</shortDescription>
+        <value>Enter the link URL for your resource and a title for the link.</value>
+    </labels>
+    <labels>
+        <fullName>AdditionalInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Additional Info</shortDescription>
+        <value>Additional Info</value>
+    </labels>
+    <labels>
+        <fullName>Admin_Set_Up_Store</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Set up store</shortDescription>
+        <value>Welcome to your Private AppExchange. Let&apos;s &lt;a href=&quot;/apex/gettingStarted&quot;&gt;get started&lt;/a&gt;!</value>
+    </labels>
+    <labels>
+        <fullName>Advanced</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Advanced</shortDescription>
+        <value>Advanced</value>
+    </labels>
+    <labels>
+        <fullName>AllApps</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All Apps</shortDescription>
+        <value>All Apps</value>
+    </labels>
+    <labels>
+        <fullName>AllCategories</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All Categories</shortDescription>
+        <value>All Categories</value>
+    </labels>
+    <labels>
+        <fullName>AllLanguages</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All Languages</shortDescription>
+        <value>All Languages</value>
+    </labels>
+    <labels>
+        <fullName>All_Time</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>All Time</shortDescription>
+        <value>All Time</value>
+    </labels>
+    <labels>
+        <fullName>Android</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Android</shortDescription>
+        <value>Android</value>
+    </labels>
+    <labels>
+        <fullName>AppAccessRequest</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>App Access Request</shortDescription>
+        <value>App Access Request</value>
+    </labels>
+    <labels>
+        <fullName>AppAccessRequestApprovedFor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>App Access Request Approved for</shortDescription>
+        <value>App Access Request Approved for</value>
+    </labels>
+    <labels>
+        <fullName>AppAccessRequestDeniedFor</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>App Access Request Denied for</shortDescription>
+        <value>App Access Request Denied for</value>
+    </labels>
+    <labels>
+        <fullName>AppListedBefore</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This App Was Listed Before</shortDescription>
+        <value>This App Was Listed Before</value>
+    </labels>
+    <labels>
+        <fullName>App_Categories</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>App Categories</shortDescription>
+        <value>App Categories</value>
+    </labels>
+    <labels>
+        <fullName>App_Information</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>App Information</shortDescription>
+        <value>App Information</value>
+    </labels>
+    <labels>
+        <fullName>App_Listings</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>App Listings</shortDescription>
+        <value>App Listings</value>
+    </labels>
+    <labels>
+        <fullName>App_Type_Android</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Android App</shortDescription>
+        <value>Android App</value>
+    </labels>
+    <labels>
+        <fullName>App_Type_Web</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Web App</shortDescription>
+        <value>Web App</value>
+    </labels>
+    <labels>
+        <fullName>App_Type_iOS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>iOS App</shortDescription>
+        <value>iOS App</value>
+    </labels>
+    <labels>
+        <fullName>ApprovalAdministratorsQueue</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Approval Process</shortDescription>
+        <value>Approval Process</value>
+    </labels>
+    <labels>
+        <fullName>ApprovalProcessSetupInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Approval process setup info</shortDescription>
+        <value>Refer to the &lt;a href=&quot;{0}&quot;&gt;admin guide&lt;/a&gt; to set up the approval process for your store.</value>
+    </labels>
+    <labels>
+        <fullName>AvailableForUse</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Available for Use</shortDescription>
+        <value>Available for Use</value>
+    </labels>
+    <labels>
+        <fullName>Available_Without_Approval</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Available without approval</shortDescription>
+        <value>Available to all without approval</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_AccessPending</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Request Access</shortDescription>
+        <value>Access Pending</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_ApproveOrReject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Approve or Reject</shortDescription>
+        <value>Approve or Reject</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_Cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_CheckYourApps</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Check Your Apps</shortDescription>
+        <value>View and Define Apps</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_Delete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_Delete_Listing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Listing</shortDescription>
+        <value>Delete Listing</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_Edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_Get_Started</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Get Started</shortDescription>
+        <value>Get Started</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_Hide</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hide</shortDescription>
+        <value>Hide</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_InstallNow</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Install Now</shortDescription>
+        <value>Install Now</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_ListYourApps</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>List Your Apps</shortDescription>
+        <value>Create App Listings</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_More</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>More</shortDescription>
+        <value>More</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_OK</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>OK</shortDescription>
+        <value>OK</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_OpenApp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Open App</shortDescription>
+        <value>Open App</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_Publish</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Publish</shortDescription>
+        <value>Publish</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_PublishListing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Publish Listing</shortDescription>
+        <value>Publish Listing</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_ReactivateApp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Reactivate App</shortDescription>
+        <value>Reactivate App</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_RemoveApp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove App</shortDescription>
+        <value>Remove App</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_RequestAccess</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Request Access</shortDescription>
+        <value>Request Access</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_SaveNext</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save &amp; Next</shortDescription>
+        <value>Save &amp; Next</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_Save_Changes</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save Changes</shortDescription>
+        <value>Save Changes</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_SearchApps</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search Apps</shortDescription>
+        <value>Search Apps</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_SetStorePreferences</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Set Your Store Preferences</shortDescription>
+        <value>Set Store Preferences</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_StartOver</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Start Over</shortDescription>
+        <value>Start Over</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_Take_Offline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Take Offline</shortDescription>
+        <value>Take Offline</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_ViewListing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Listing</shortDescription>
+        <value>View Listing</value>
+    </labels>
+    <labels>
+        <fullName>BUTTON_WatchVideo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Watch the Video</shortDescription>
+        <value>Watch the Video</value>
+    </labels>
+    <labels>
+        <fullName>Banners</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Banners</shortDescription>
+        <value>Banners</value>
+    </labels>
+    <labels>
+        <fullName>BasicInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Basic Info</shortDescription>
+        <value>Basic Info</value>
+    </labels>
+    <labels>
+        <fullName>ChangesSaved</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Changes Saved</shortDescription>
+        <value>Your changes have been saved.</value>
+    </labels>
+    <labels>
+        <fullName>CharactersLeft</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>characters left</shortDescription>
+        <value>characters left</value>
+    </labels>
+    <labels>
+        <fullName>CharactersTooMany</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>characters too many</shortDescription>
+        <value>characters too many</value>
+    </labels>
+    <labels>
+        <fullName>Chatter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Chatter</shortDescription>
+        <value>Chatter</value>
+    </labels>
+    <labels>
+        <fullName>ChatterFeed</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Chatter Feed</shortDescription>
+        <value>Chatter Feed</value>
+    </labels>
+    <labels>
+        <fullName>CurrentFile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Current File</shortDescription>
+        <value>Current File</value>
+    </labels>
+    <labels>
+        <fullName>Dashboard</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Dashboard</shortDescription>
+        <value>Dashboard</value>
+    </labels>
+    <labels>
+        <fullName>Day_30</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Day 30</shortDescription>
+        <value>30 Day</value>
+    </labels>
+    <labels>
+        <fullName>DeleteBanner</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Banner</shortDescription>
+        <value>Delete Banner</value>
+    </labels>
+    <labels>
+        <fullName>DeleteBannerInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Banner Info</shortDescription>
+        <value>Are you sure you want to delete this banner?</value>
+    </labels>
+    <labels>
+        <fullName>DeleteResource</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Resource</shortDescription>
+        <value>Delete Resource</value>
+    </labels>
+    <labels>
+        <fullName>DeleteResourceInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Resource Info</shortDescription>
+        <value>Are you sure you want to delete this resource?</value>
+    </labels>
+    <labels>
+        <fullName>DeleteScreenshot</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Screenshot</shortDescription>
+        <value>Delete Screenshot</value>
+    </labels>
+    <labels>
+        <fullName>DeleteScreenshotMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete screenshot message</shortDescription>
+        <value>Are you sure you want to delete this screenshot?</value>
+    </labels>
+    <labels>
+        <fullName>DeleteVideo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Video</shortDescription>
+        <value>Delete Video</value>
+    </labels>
+    <labels>
+        <fullName>DeleteVideoInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Video Info</shortDescription>
+        <value>Are you sure you want to delete this Video?</value>
+    </labels>
+    <labels>
+        <fullName>Delete_Listing_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete Listing Confirmation Text</shortDescription>
+        <value>Are you sure you would like to delete this listing?</value>
+    </labels>
+    <labels>
+        <fullName>Detailed_Dashboard</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Detailed Dashboard</shortDescription>
+        <value>Detailed Dashboard</value>
+    </labels>
+    <labels>
+        <fullName>Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Details</shortDescription>
+        <value>Details</value>
+    </labels>
+    <labels>
+        <fullName>DisplayChatterOptionLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Display Chatter feed on app listings</shortDescription>
+        <value>Display Chatter feed on app listings</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_AccessPolicyNotDefined</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Access Policy Not Defined</shortDescription>
+        <value>The access policy for this app has not yet been defined. Please contact your Salesforce system administrator for assistance.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_AppRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>App must be specified</shortDescription>
+        <value>A tabset/connected app must be selected</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_AppTypesRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>App Types Required</shortDescription>
+        <value>Please select at least one app type.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_CannotBeLonger</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error cannot be longer</shortDescription>
+        <value>The {0} cannot be longer than {1} characters</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_CategoryRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please select at least one category.</shortDescription>
+        <value>Please select at least one category.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_DeleteStore</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error when trying to the single store.</shortDescription>
+        <value>Private AppExchange store cannot be deleted.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_DescriptionRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Description can not be empty</shortDescription>
+        <value>The description can not be empty.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_EmptyStoreName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The store name cannot be empty.</shortDescription>
+        <value>The store name cannot be empty.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_EmptyTitle</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The title cannot be empty.</shortDescription>
+        <value>The title cannot be empty.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_FieldTooLong</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Field too long error</shortDescription>
+        <value>The {0} that you entered is too long. You can enter a maximum of {1} characters.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_FileTooLarge</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The file you uploaded is too large.</shortDescription>
+        <value>The file you uploaded is too large. Please upload a file that is up to {0} {1} in size.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_FileType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>file type error - only only file type allowed</shortDescription>
+        <value>Please upload a file of type {0}.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_IntermittentProblem</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Intermittent Problem</shortDescription>
+        <value>We&apos;ve encountered an intermittent problem. Please try again. If this problem continues, please contact your Salesforce system administrator for more assistance.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Invalid_App_Id</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid App Id</shortDescription>
+        <value>Invalid App Id</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_Invalid_Listing_Id</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Invalid listing id</shortDescription>
+        <value>Invalid Listing Id</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_KeywordLength</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Search keyword has to be more than one character.</shortDescription>
+        <value>Search keyword has to be more than one character.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_LangRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please select at least one language this app supports.</shortDescription>
+        <value>Please select at least one language this app supports.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_LicenseMissMatch</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>License MissMatch Error</shortDescription>
+        <value>The permission set that grants access to this app doesn&apos;t work with your Salesforce license. Please contact your Salesforce system administrator for assistance.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_ListingPopularityAction</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You cannot clone, edit or create listing popularity.</shortDescription>
+        <value>You cannot clone, edit or create listing popularity.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_MultipleStores</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error when trying to create additional stores.</shortDescription>
+        <value>Only one Private AppExchange store can be created per organization.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_NoApprovalProcess</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No approval process set</shortDescription>
+        <value>An approval process has not been setup for the store. Please contact your Salesforce system administrator for more assistance.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_No_Parameters</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No Parameters</shortDescription>
+        <value>No Parameters</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_OnlyOneActiveApp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Only one active App record allowed for each app source.</shortDescription>
+        <value>Only one active App record allowed for each app source.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_PermSetRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please select a permission set.</shortDescription>
+        <value>Please select a permission set.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_ResourceLinkRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The link cannot be empty.</shortDescription>
+        <value>The link cannot be empty.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_ResourceTitleRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The resource title cannot be empty.</shortDescription>
+        <value>The resource title cannot be empty.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_SelectLanguage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A language must be selected</shortDescription>
+        <value>A language must be selected.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_TaglineRequired</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tagline can not be empty</shortDescription>
+        <value>The tagline can not be empty.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_UploadLimit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload limit</shortDescription>
+        <value>You can upload up to {0} {1}</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_UploadLimitPleaseDelete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload limit</shortDescription>
+        <value>You can upload up to {0} {1}. Please delete one before adding another.</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_invalidID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>is not a valid ID</shortDescription>
+        <value>Invalid Listing Id</value>
+    </labels>
+    <labels>
+        <fullName>ERROR_uploadFile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please upload a file.</shortDescription>
+        <value>Please upload a file that is up to {0} {1} in size.</value>
+    </labels>
+    <labels>
+        <fullName>EditBanner</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Banner</shortDescription>
+        <value>Edit Banner</value>
+    </labels>
+    <labels>
+        <fullName>EditBannerInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Banner Info</shortDescription>
+        <value>Upload a new file (1200 x 200 pixel PNG or JPG that is up to 1 MB in size) or edit the link.</value>
+    </labels>
+    <labels>
+        <fullName>EditInSetup</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit in Setup</shortDescription>
+        <value>Edit in Setup</value>
+    </labels>
+    <labels>
+        <fullName>EditListing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Listing</shortDescription>
+        <value>Edit Listing</value>
+    </labels>
+    <labels>
+        <fullName>EditLogoInSetup</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit the name and logo in</shortDescription>
+        <value>Edit the name and logo in</value>
+    </labels>
+    <labels>
+        <fullName>EditScreenshot</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Screenshot</shortDescription>
+        <value>Edit Screenshot</value>
+    </labels>
+    <labels>
+        <fullName>EditScreenshotInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Screenshot Info</shortDescription>
+        <value>Upload a new file (PNG or JPG that is up to 5 MB in size) or edit the caption for your screenshot.</value>
+    </labels>
+    <labels>
+        <fullName>EditVideo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit Video</shortDescription>
+        <value>Edit Video</value>
+    </labels>
+    <labels>
+        <fullName>EditVideoFormDetailsMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit the type, ID or caption for your video.</shortDescription>
+        <value>Edit the type, ID or caption for your video.</value>
+    </labels>
+    <labels>
+        <fullName>EmbedVimeoVideo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Embed Vimeo video</shortDescription>
+        <value>Embed Vimeo video</value>
+    </labels>
+    <labels>
+        <fullName>EmbedYouTubeVideo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Embed YouTube video</shortDescription>
+        <value>Embed YouTube video</value>
+    </labels>
+    <labels>
+        <fullName>Error_CannotDeleteDefaultListing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You cannot delete default listing</shortDescription>
+        <value>You cannot delete default listing.</value>
+    </labels>
+    <labels>
+        <fullName>Error_HiddenListingDefault</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You cannot make a hidden listing the default</shortDescription>
+        <value>You cannot make a hidden listing the default because this app is already published.</value>
+    </labels>
+    <labels>
+        <fullName>Error_HideDefaultListing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You cannot hide the default listing for an app</shortDescription>
+        <value>You cannot hide the default listing for an app. First make another listing the default, then you will be able to hide this listing.</value>
+    </labels>
+    <labels>
+        <fullName>File</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>File</shortDescription>
+        <value>File</value>
+    </labels>
+    <labels>
+        <fullName>FindMoreApps</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Find more apps to list on</shortDescription>
+        <value>Find more apps to list on</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Intro</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Intro Message</shortDescription>
+        <value>Get ready to transform the way your employees discover and get apps. Your Private AppExchange makes it easy for you to decide which apps to offer and who can access them. Your employees have a central, secure place to find and install the apps they need. Let&apos;s get started!</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step1_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 1 Text</shortDescription>
+        <value>First, define your apps in Setup.  Apps can be web or mobile apps that are internally-developed or available on public app stores such as the AppExchange, Apple App Store℠, and Google Play™.</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step1_Text_b</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 1 Text - Second paragraph</shortDescription>
+        <value>Learn about the &lt;a href=&quot;{0}&quot;&gt;different types of apps&lt;/a&gt; and how to create them in your org.</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step1_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 1 Title</shortDescription>
+        <value>1. Prepare apps for listing</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step2_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 2 Text</shortDescription>
+        <value>Create your personalized store by giving it a name and uploading a logo image, then set your store preferences:</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step2_Text_b</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 2 Text - ul/li 1</shortDescription>
+        <value>Define categories to organize your apps</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step2_Text_c</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 2 Text - ul/li 2</shortDescription>
+        <value>Specify the types of apps you&apos;ll list</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step2_Text_d</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 2 Text - ul/li 3</shortDescription>
+        <value>Define the approval process to handle requests for access to apps</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step2_Text_e</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 2 Text - ul/li 4</shortDescription>
+        <value>Select whether or not to use Chatter in your store</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step2_Text_f</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 2 Text - Second paragraph</shortDescription>
+        <value>Don&apos;t worry - you can edit these settings at any time.</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step2_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 2 Title</shortDescription>
+        <value>2. Set up your store</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step3_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 3 Text</shortDescription>
+        <value>Listings define how apps appear in your store. Each listing can include a tagline and description about the app, images and videos, and links to documentation. You can also create listings in different languages for the same app.</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step3_Text_b</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 3 Text - Second paragraph</shortDescription>
+        <value>Your listings should provide enough information so that employees can easily understand what the app is and how they can use it to help with their jobs.</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step3_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 3 Title</shortDescription>
+        <value>3. Create listings for apps</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step4_Text</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 4 Text</shortDescription>
+        <value>After your store is ready and your listings are in place, it&apos;s time to launch your store.  It&apos;s simple to change the status from Offline to Online, but don&apos;t stop there! Make sure your store gets the attention and traffic it deserves by promoting it to your employees.</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step4_Text_b</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 4 Text - Second paragraph</shortDescription>
+        <value>After launch, &lt;a href=&quot;{0}&quot;&gt;use the Dashboard&lt;/a&gt; to monitor activity and measure your success.</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Step4_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Step 4 Title</shortDescription>
+        <value>4. Open your store</value>
+    </labels>
+    <labels>
+        <fullName>GettingStarted_Video_Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started Video Title</shortDescription>
+        <value>Get Started with Your Private AppExchange</value>
+    </labels>
+    <labels>
+        <fullName>Getting_Started</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Started</shortDescription>
+        <value>Getting Started</value>
+    </labels>
+    <labels>
+        <fullName>GoToTheApp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Go to the App</shortDescription>
+        <value>Go to the App</value>
+    </labels>
+    <labels>
+        <fullName>Hidden</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hidden</shortDescription>
+        <value>Hidden</value>
+    </labels>
+    <labels>
+        <fullName>HideConfirmMsg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are you sure you would like to hide this listing?</shortDescription>
+        <value>Are you sure you would like to hide this listing?</value>
+    </labels>
+    <labels>
+        <fullName>HideListing</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Hide Listing</shortDescription>
+        <value>Hide Listing</value>
+    </labels>
+    <labels>
+        <fullName>IOS</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>iOS</shortDescription>
+        <value>iOS</value>
+    </labels>
+    <labels>
+        <fullName>LeavePageMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are you sure you want to leave this page?</shortDescription>
+        <value>Are you sure you want to leave this page?</value>
+    </labels>
+    <labels>
+        <fullName>LinkToVideo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Link to Video</shortDescription>
+        <value>Link to Video</value>
+    </labels>
+    <labels>
+        <fullName>ListInAnotherLanguage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>List in Another Language</shortDescription>
+        <value>List in Another Language</value>
+    </labels>
+    <labels>
+        <fullName>ListNewApp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>List a New App</shortDescription>
+        <value>List a New App</value>
+    </labels>
+    <labels>
+        <fullName>ListingBanner</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Listing Banner</shortDescription>
+        <value>Listing Banner</value>
+    </labels>
+    <labels>
+        <fullName>ListingDetailWarning</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Listing Detail Warning</shortDescription>
+        <value>This listing is hidden and cannot be found by searching or browsing until it is published.</value>
+    </labels>
+    <labels>
+        <fullName>ListingLanguages</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Listing Languages</shortDescription>
+        <value>Listing Languages</value>
+    </labels>
+    <labels>
+        <fullName>ListingNotFinished</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Listing not finished yet</shortDescription>
+        <value>You have not finished your listing yet. Fill in the required fields and click Save if you want to finish your listing.</value>
+    </labels>
+    <labels>
+        <fullName>Listing_Details</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Listing Details</shortDescription>
+        <value>Listing Details</value>
+    </labels>
+    <labels>
+        <fullName>Listing_Lang</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Listing Language</shortDescription>
+        <value>This listing is written in {0}</value>
+    </labels>
+    <labels>
+        <fullName>Loading</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message displayed when data is loading.</shortDescription>
+        <value>Loading...</value>
+    </labels>
+    <labels>
+        <fullName>MakeDefault</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Make Default</shortDescription>
+        <value>Make Default</value>
+    </labels>
+    <labels>
+        <fullName>Media</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Media</shortDescription>
+        <value>Media</value>
+    </labels>
+    <labels>
+        <fullName>Message</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message</shortDescription>
+        <value>message</value>
+    </labels>
+    <labels>
+        <fullName>Message_Text_Error</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Error</shortDescription>
+        <value>Error</value>
+    </labels>
+    <labels>
+        <fullName>Message_Text_Info</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Info</shortDescription>
+        <value>Info</value>
+    </labels>
+    <labels>
+        <fullName>Message_Text_Success</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Success</shortDescription>
+        <value>Success</value>
+    </labels>
+    <labels>
+        <fullName>Message_Text_Warning</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Warning</shortDescription>
+        <value>Warning</value>
+    </labels>
+    <labels>
+        <fullName>Month</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Month</shortDescription>
+        <value>Month</value>
+    </labels>
+    <labels>
+        <fullName>Most_Popular_Apps</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Most Popular Apps</shortDescription>
+        <value>Most Popular Apps</value>
+    </labels>
+    <labels>
+        <fullName>NewFile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>New File</shortDescription>
+        <value>New File</value>
+    </labels>
+    <labels>
+        <fullName>NoSearchResults</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>No results found.</shortDescription>
+        <value>No results found.</value>
+    </labels>
+    <labels>
+        <fullName>No_Access_To_Administer_Store</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You do not have access to administer the store.</shortDescription>
+        <value>You do not have access to administer the store. Please contact your Salesforce system administrator for assistance.</value>
+    </labels>
+    <labels>
+        <fullName>No_Access_To_Store</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You do not have access to the store.</shortDescription>
+        <value>You do not have access to the store. Please contact your Salesforce system administrator for assistance.</value>
+    </labels>
+    <labels>
+        <fullName>None</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>None</shortDescription>
+        <value>None</value>
+    </labels>
+    <labels>
+        <fullName>NoneSelected</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Label to indicate no items from a list (e.g., categories for an app).</shortDescription>
+        <value>None selected</value>
+    </labels>
+    <labels>
+        <fullName>OpenLinkNewWindow</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Open link in a new window</shortDescription>
+        <value>Open link in a new window</value>
+    </labels>
+    <labels>
+        <fullName>OptionalParens</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>(optional)</shortDescription>
+        <value>(optional)</value>
+    </labels>
+    <labels>
+        <fullName>OrForOptions</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>or (used between two buttons)</shortDescription>
+        <value>or</value>
+    </labels>
+    <labels>
+        <fullName>Page_View</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Page View</shortDescription>
+        <value>Page View</value>
+    </labels>
+    <labels>
+        <fullName>Page_Views</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Page Views</shortDescription>
+        <value>Page Views</value>
+    </labels>
+    <labels>
+        <fullName>PermissionSetDescriptionOverlay</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the permission set that grants access to this app.</shortDescription>
+        <value>Select the permission set that grants access to this app. This permission set will be assigned to users who request access for the app and are approved by administrators.</value>
+    </labels>
+    <labels>
+        <fullName>PleaseGoTo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please go to</shortDescription>
+        <value>Please go to your {0} device to install this app.</value>
+    </labels>
+    <labels>
+        <fullName>PopularityMetricThirtyDays</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>30 Days</shortDescription>
+        <value>30 Days</value>
+    </labels>
+    <labels>
+        <fullName>Private_AppExchange</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Private AppExchange</shortDescription>
+        <value>Private AppExchange</value>
+    </labels>
+    <labels>
+        <fullName>ProcessDefined</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Process defined</shortDescription>
+        <value>Process defined</value>
+    </labels>
+    <labels>
+        <fullName>Publish</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>publish</shortDescription>
+        <value>publish</value>
+    </labels>
+    <labels>
+        <fullName>PublishConfirmMsg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are you sure you would like to publish this listing?</shortDescription>
+        <value>Are you sure you would like to publish this listing?</value>
+    </labels>
+    <labels>
+        <fullName>Published</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Published</shortDescription>
+        <value>Published</value>
+    </labels>
+    <labels>
+        <fullName>Published_Apps</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Published Apps</shortDescription>
+        <value>Published Apps</value>
+    </labels>
+    <labels>
+        <fullName>ReactivateAppMsg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>This app was listed before in the store.</shortDescription>
+        <value>This app was listed before in the store. You can reactivate this app and all its related app and listing data or you can choose to start over.</value>
+    </labels>
+    <labels>
+        <fullName>RearrangeBannersMsg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rearrange banners message.</shortDescription>
+        <value>Hold &amp; drag the banners to rearrange the order.</value>
+    </labels>
+    <labels>
+        <fullName>RearrangeResourcesMsg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Rearrange listing resources message.</shortDescription>
+        <value>Hold &amp; drag items to rearrange the order.</value>
+    </labels>
+    <labels>
+        <fullName>RemoveAppConfirmMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Message displayed to confirm removing from store action.</shortDescription>
+        <value>Are you sure you would like to remove this app from the store? All the associated listings will no longer be visible but the underlying data is not deleted.</value>
+    </labels>
+    <labels>
+        <fullName>RemoveAppFromStore</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Remove App from Store</shortDescription>
+        <value>Remove App from Store</value>
+    </labels>
+    <labels>
+        <fullName>RequestAccessTo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Request Access To</shortDescription>
+        <value>Request Access To</value>
+    </labels>
+    <labels>
+        <fullName>RequestInstall</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Request/Install</shortDescription>
+        <value>Request/Install</value>
+    </labels>
+    <labels>
+        <fullName>RequestsInstalls</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Requests/Installs</shortDescription>
+        <value>Requests/Installs</value>
+    </labels>
+    <labels>
+        <fullName>RequiredFieldsAreMarked</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Required fields are marked with</shortDescription>
+        <value>Required fields are marked with</value>
+    </labels>
+    <labels>
+        <fullName>RequiredFieldsForOnline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>When all the required fields have a value you can take the store online.</shortDescription>
+        <value>When all the required fields have a value you can take the store online.</value>
+    </labels>
+    <labels>
+        <fullName>Resources</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Resources</shortDescription>
+        <value>Resources</value>
+    </labels>
+    <labels>
+        <fullName>Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>ScreenshotsAndVideos</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Screenshots &amp; Videos</shortDescription>
+        <value>Screenshots &amp; Videos</value>
+    </labels>
+    <labels>
+        <fullName>SelectAnApp</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select An App</shortDescription>
+        <value>Select An App</value>
+    </labels>
+    <labels>
+        <fullName>SelectAnAppToList</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the app you are listing</shortDescription>
+        <value>Select the app you are listing</value>
+    </labels>
+    <labels>
+        <fullName>SelectAppCategories</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the categories this app belongs in</shortDescription>
+        <value>Select the categories this app belongs in</value>
+    </labels>
+    <labels>
+        <fullName>SelectAppLanguages</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the languages this app supports</shortDescription>
+        <value>Select the languages this app supports</value>
+    </labels>
+    <labels>
+        <fullName>SelectOne</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SelectOne</shortDescription>
+        <value>-- Select One --</value>
+    </labels>
+    <labels>
+        <fullName>SelectStoreAppTypes</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select the app types your store will support.</shortDescription>
+        <value>Select the app types your store will support.</value>
+    </labels>
+    <labels>
+        <fullName>Select_Listing_Language</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select a listing language</shortDescription>
+        <value>Select a Listing Language</value>
+    </labels>
+    <labels>
+        <fullName>Setup</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Setup</shortDescription>
+        <value>Setup</value>
+    </labels>
+    <labels>
+        <fullName>Similar_Apps</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Similar Apps</shortDescription>
+        <value>Similar Apps</value>
+    </labels>
+    <labels>
+        <fullName>SortA_Z</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>A-Z</shortDescription>
+        <value>A-Z</value>
+    </labels>
+    <labels>
+        <fullName>SortPopular</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Popular</shortDescription>
+        <value>Popular</value>
+    </labels>
+    <labels>
+        <fullName>SortRecent</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Recent</shortDescription>
+        <value>Recent</value>
+    </labels>
+    <labels>
+        <fullName>SortRelevance</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Relevance</shortDescription>
+        <value>Relevance</value>
+    </labels>
+    <labels>
+        <fullName>Standard_User_Site_Unavailable</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The store is currently offline.</shortDescription>
+        <value>The store is currently offline. Please try again later or contact your Salesforce system administrator for assistance.</value>
+    </labels>
+    <labels>
+        <fullName>StoreBanners</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Store Banners</shortDescription>
+        <value>Store Banners</value>
+    </labels>
+    <labels>
+        <fullName>StoreIsOffline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The store is offline.</shortDescription>
+        <value>The store is offline.</value>
+    </labels>
+    <labels>
+        <fullName>StoreIsOnline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>The store is online.</shortDescription>
+        <value>The store is online.</value>
+    </labels>
+    <labels>
+        <fullName>StoreLogo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Store Logo</shortDescription>
+        <value>Store Logo</value>
+    </labels>
+    <labels>
+        <fullName>StoreName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Store Name</shortDescription>
+        <value>Store Name</value>
+    </labels>
+    <labels>
+        <fullName>Store_Preferences</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Store Preferences</shortDescription>
+        <value>Store Preferences</value>
+    </labels>
+    <labels>
+        <fullName>TakeStoreOffline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Take Store Offline</shortDescription>
+        <value>Take Store Offline</value>
+    </labels>
+    <labels>
+        <fullName>TakeStoreOnline</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Take Store Online</shortDescription>
+        <value>Take Store Online</value>
+    </labels>
+    <labels>
+        <fullName>TheAppExchange</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>AppExchange</shortDescription>
+        <value>AppExchange</value>
+    </labels>
+    <labels>
+        <fullName>TilePreview</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Tile Preview</shortDescription>
+        <value>Tile Preview</value>
+    </labels>
+    <labels>
+        <fullName>Title</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Title</shortDescription>
+        <value>Title</value>
+    </labels>
+    <labels>
+        <fullName>Total</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Total</shortDescription>
+        <value>Total</value>
+    </labels>
+    <labels>
+        <fullName>Type</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Type</shortDescription>
+        <value>Type</value>
+    </labels>
+    <labels>
+        <fullName>UnsavedChanges</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unsaved Changes</shortDescription>
+        <value>Unsaved Changes</value>
+    </labels>
+    <labels>
+        <fullName>UnsavedChangesMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You have made some changes which you might want to save.</shortDescription>
+        <value>You have made some changes which you might want to save.</value>
+    </labels>
+    <labels>
+        <fullName>UnsavedChangesPublish</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unsaved Changes for Publish Listing</shortDescription>
+        <value>There are unsaved changes on the page. Would you like to save these first or would you like to {0} the listing without these changes?</value>
+    </labels>
+    <labels>
+        <fullName>Unsaved_Message_Listings</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Unsaved Message Listings</shortDescription>
+        <value>There are unsaved changes on the page. Would you like to save these first or would you like to view the listing without these changes?</value>
+    </labels>
+    <labels>
+        <fullName>UploadBanner</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload Banner</shortDescription>
+        <value>Upload Banner</value>
+    </labels>
+    <labels>
+        <fullName>UploadBannerInfo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload Banner Info</shortDescription>
+        <value>Upload a 1200 x 200 pixel PNG or JPG file that is up to 1 MB in size.</value>
+    </labels>
+    <labels>
+        <fullName>UploadBannersMsg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload banners message.</shortDescription>
+        <value>Upload up to five PNG or JPG files for your store banners. They will cycle through in a carousel.</value>
+    </labels>
+    <labels>
+        <fullName>UploadFile</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload File</shortDescription>
+        <value>Upload File</value>
+    </labels>
+    <labels>
+        <fullName>UploadResourceFileMsg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload a file that is up to 5 MB in size and enter a title for your resource.</shortDescription>
+        <value>Upload a file that is up to 5 MB in size and enter a title for your resource.</value>
+    </labels>
+    <labels>
+        <fullName>UploadScreenshot</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload Screenshot</shortDescription>
+        <value>Upload Screenshot</value>
+    </labels>
+    <labels>
+        <fullName>UploadScreenshotMsg</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload screenshot message</shortDescription>
+        <value>Upload a PNG or JPG file that is up to 5 MB in size and enter a caption for your screenshot.</value>
+    </labels>
+    <labels>
+        <fullName>UploadStoreBanners</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload Store Banners</shortDescription>
+        <value>Upload Store Banners</value>
+    </labels>
+    <labels>
+        <fullName>UploadStoreLogo</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Upload store logo message.</shortDescription>
+        <value>Upload a PNG, JPG or GIF file for your store logo. The ideal height of this image is 50 pixels tall.</value>
+    </labels>
+    <labels>
+        <fullName>UserLicense</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>User License</shortDescription>
+        <value>User License</value>
+    </labels>
+    <labels>
+        <fullName>VideoFormDetailsMessage</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Video form details message</shortDescription>
+        <value>Enter the type, ID and caption for your video.</value>
+    </labels>
+    <labels>
+        <fullName>VideoID</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Video ID</shortDescription>
+        <value>Video ID</value>
+    </labels>
+    <labels>
+        <fullName>ViewAnalytics</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Analytics</shortDescription>
+        <value>View Analytics</value>
+    </labels>
+    <labels>
+        <fullName>ViewAppDetails</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View App Details</shortDescription>
+        <value>View App Details</value>
+    </labels>
+    <labels>
+        <fullName>ViewStore</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Store</shortDescription>
+        <value>View Store</value>
+    </labels>
+    <labels>
+        <fullName>View_All</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View All</shortDescription>
+        <value>View All</value>
+    </labels>
+    <labels>
+        <fullName>View_Detailed_Dashboard</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Detailed Dashboard</shortDescription>
+        <value>View Detailed Dashboard</value>
+    </labels>
+    <labels>
+        <fullName>Week</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Week</shortDescription>
+        <value>Week</value>
+    </labels>
+    <labels>
+        <fullName>Welcome_Message</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Welcome to the Private AppExchange</shortDescription>
+        <value>Welcome to the Private AppExchange</value>
+    </labels>
+    <labels>
+        <fullName>WrongDevice</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Wrong Device</shortDescription>
+        <value>Wrong Device</value>
+    </labels>
+    <labels>
+        <fullName>Year</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Year</shortDescription>
+        <value>Year</value>
+    </labels>
+    <labels>
+        <fullName>YourComment</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your Comment</shortDescription>
+        <value>Your Comment</value>
+    </labels>
+    <labels>
+        <fullName>default</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>default</shortDescription>
+        <value>default</value>
+    </labels>
+    <labels>
+        <fullName>thousandsDelimiter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Thousands Delimiter</shortDescription>
+        <value>,</value>
+    </labels>
+</CustomLabels>

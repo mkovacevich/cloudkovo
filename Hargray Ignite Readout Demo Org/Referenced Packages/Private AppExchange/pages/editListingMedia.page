@@ -1,0 +1,516 @@
+<apex:page controller="privateAppEx.EditListingMediaController" action="{!init}" showheader="{!isDesktop}" sidebar="false" id="editListingMedia" standardstylesheets="false" title="{!selectedListing.AppMenuItem.Name} - {!$Label.privateappex__Media}" cache="false" tabStyle="Store_Administration__tab">
+      <apex:composition template="privateAppEx__PrivateExchangeLayout">
+        <apex:define name="head">
+            
+        </apex:define>
+            <apex:define name="content">
+                  <div class="prx-content-block prx-content-block-admin">
+                        <c:editListingDetailHeader selectListing="{!selectedListing}"/>
+                        <apex:outputPanel id="errorMessages">
+		            	<c:pageMessages extraCss="prx-msg-bar" />  	
+						</apex:outputPanel>
+                        <apex:outputPanel layout="block" styleclass="prx-content-content prx-content-content-with-secondary">
+                        <div class="prx-content-content-inner">
+                              <c:leftSidebar selected="{!$Label.privateappex__App_Listings}"/>
+                              <div class="prx-content-primary" >
+                              <div class="prx-content-primary-inner">
+                                    
+                                          <apex:outputPanel styleclass="prx-content-generic" layout="block" rendered="{!!HasFatalError}">
+                                                <div class="prx-content-header">
+                                                      <div class="prx-content-header-inner">
+                                                            <c:editListingDetailTop selectListing="{!selectedListing}"/>
+                                                            <div class="prx-tabs">
+                                                                  <ul class="prx-ul-reset prx-tab-set prx-tab-set2">
+                                                                        <li>
+                                                                              <a class="prx-tab" href="{!$Page.privateAppEx__editListingDetails}?listingId={!selectedListing.Id}"><span class="prx-tab-text"><apex:outputText value="{!$Label.privateappex__Listing_Details}" /></span></a>
+                                                                        </li>
+                                                                        <li class="prx-selected">
+                                                                                    <span class="prx-tab"><span class="prx-tab-text"><apex:outputText value="{!$Label.privateappex__Media}" /></span></span>
+                                                                        </li>
+                                                                  </ul>
+                                                            </div>
+                                                      </div>
+                                                </div>
+                                        <div class="prx-form-info-b">
+                                            <p class="prx-page-explanation"><apex:outputText value="{!$Label.privateappex__RearrangeResourcesMsg}" /></p>
+                                            <label class="prx-form-label"><span class="prx-label-text"><apex:outputText value="{!$Label.privateappex__ScreenshotsAndVideos}" /></span></label>
+                                            <p class="prx-form-explanation">{!imageAndVideosDescription}</p>
+                                            <apex:outputPanel layout="none" rendered="{!showImageAndVideosButtons}">
+	                                            <p>
+	                                              <button class="prx-btn prx-btn-image prx-dialog-opener" data-prx-dialog-id="prx_app_overlay_image">
+	                                                <span class="prx-icon"></span>
+	                                                <span class="prx-btn-txt"><apex:outputText value="{!$Label.privateappex__UploadScreenshot}" /></span>
+	                                              </button>
+	                                              <span class="prx-button-separator"><apex:outputText value="{!$Label.privateappex__OrForOptions}" /></span>
+	                                              <button class="prx-btn prx-btn-video prx-dialog-opener" data-prx-dialog-id="prx_app_overlay_video">
+	                                                <span class="prx-icon"></span>
+	                                                <span class="prx-btn-txt"><apex:outputText value="{!$Label.privateappex__LinkToVideo}" /></span>
+	                                              </button>
+	                                            </p>
+	                                        </apex:outputPanel>
+                                            <ul class="prx-ul-reset prx-ul-sortable prx-ul-sortable-screenshots prx-sortable" id="prx_sortable_screenshots">
+                                                  <apex:repeat value="{!imageAndVideoAssets}" id="imageAssets" var="imageAsset">
+                                                    <!-- Image -->
+                                                    <apex:outputPanel layout="none" rendered="{!imageAsset.IsImageType}">
+                                                          <li id="{!imageAsset.Id}" class="prx-screenshot-li">
+                                                            <a href="{!imageAsset.assetUrl}" target="_blank" class="prx-screenshot-a"><img src="{!imageAsset.assetUrl}" class="prx-screenshot-img" /></a>
+                                                            <div class="prx-screenshot-actions">
+                                                              <a href="javascript:void(0)" onclick="javascript:PrX.setDeleteScreenshotId('{!imageAsset.Id}'); return false;" class="prx-screenshot-action prx-dialog-opener prx-screenshot-action-delete" data-prx-dialog-id="prx_app_overlay_deleteimage"><span class="prx-icon"></span></a>
+                                                              <a href="javascript:void(0)" onclick="javascript:PrX.populateEditScreenshotDialog('{!JSENCODE(imageAsset.attachment.name)}', '{!JSENCODE(imageAsset.caption)}', '{!imageAsset.Id}'); return false;" class="prx-screenshot-action prx-dialog-opener prx-screenshot-action-edit" data-prx-dialog-id="prx_app_overlay_editimage"><span class="prx-icon"></span></a>
+                                                            </div>
+                                                            <div class="prx-screenshot-caption" title="{!HTMLENCODE(imageAsset.Caption)}"><apex:outputText value="{!imageAsset.Caption}" /></div>
+                                                          </li>
+                                                    </apex:outputPanel>
+                                                    <!-- youtube video -->
+                                                    <apex:outputPanel layout="none" rendered="{!imageAsset.IsYouTubeVideo}">
+                                                          <li id="{!imageAsset.Id}" class="prx-screenshot-li prx-video-li">
+                                                            <a href="https://www.youtube.com/watch?v={!imageAsset.location}" target="_blank" class="prx-screenshot-a">
+                                                                  <img src="https://img.youtube.com/vi/{!imageAsset.location}/hqdefault.jpg" class="prx-screenshot-img" />
+                                                            </a>
+                                                            <div class="prx-screenshot-actions">
+                                                              <a href="javascript:void(0)" onclick="javascript:PrX.setDeleteVideoId('{!imageAsset.Id}'); return false;" class="prx-screenshot-action prx-dialog-opener prx-screenshot-action-delete" data-prx-dialog-id="prx_app_overlay_deletevideo"><span class="prx-icon"></span></a>
+                                                              <a href="javascript:void(0)" onclick="javascript:PrX.populateEditVideoDialog('{!imageAsset.Id}', 'YouTube', '{!imageAsset.location}', '{!JSENCODE(imageAsset.caption)}'); return false;" class="prx-screenshot-action prx-dialog-opener prx-screenshot-action-edit" data-prx-dialog-id="prx_app_overlay_editvideo"><span class="prx-icon"></span></a>
+                                                            </div>
+                                                            <div class="prx-screenshot-caption" title="{!HTMLENCODE(imageAsset.Caption)}"><apex:outputText value="{!imageAsset.Caption}" /></div>
+                                                            <a target="_blank" class="prx-video-image-overlay" href="https://www.youtube.com/watch?v={!imageAsset.location}"></a>
+                                                          </li>
+                                                    </apex:outputPanel>                                               
+                                                    <!-- vimeo video -->
+                                                    <apex:outputPanel layout="none" rendered="{!imageAsset.IsVimeoVideo}">
+                                                          <li id="{!imageAsset.Id}" class="prx-screenshot-li prx-video-li">
+                                                            <a href="https://vimeo.com/{!imageAsset.location}" target="_blank" class="prx-screenshot-a"><img data-vimeo-id="{!imageAsset.location}" src="{!$Resource.uilib}/img/p.gif" class="prx-screenshot-img prx-screenshot-img-vimeo" /></a>
+                                                            <div class="prx-screenshot-actions">
+                                                              <a href="javascript:void(0)" onclick="javascript:PrX.setDeleteVideoId('{!imageAsset.Id}'); return false;" class="prx-screenshot-action prx-dialog-opener prx-screenshot-action-delete" data-prx-dialog-id="prx_app_overlay_deletevideo"><span class="prx-icon"></span></a>
+                                                              <a href="javascript:void(0)" onclick="javascript:PrX.populateEditVideoDialog('{!imageAsset.Id}', 'Vimeo', '{!imageAsset.location}', '{!JSENCODE(imageAsset.caption)}'); return false;" class="prx-screenshot-action prx-dialog-opener prx-screenshot-action-edit" data-prx-dialog-id="prx_app_overlay_editvideo"><span class="prx-icon"></span></a>
+                                                            </div>
+                                                            <div class="prx-screenshot-caption" title="{!HTMLENCODE(imageAsset.Caption)}"><apex:outputText value="{!imageAsset.Caption}" /></div>
+                                                            <a target="_blank" class="prx-video-image-overlay" href="https://vimeo.com/{!imageAsset.location}"></a>
+                                                          </li>
+                                                    </apex:outputPanel>                                               
+                                                  </apex:repeat>
+                                            </ul>
+                                            <label class="prx-form-label"><span class="prx-label-text"><apex:outputText value="{!$Label.privateappex__Resources}" /></span></label>
+                                            <p class="prx-form-explanation">{!resourcesDescription}</p>
+                                            <apex:outputPanel layout="none" rendered="{!showResourcesButtons}">
+	                                            <p>
+	                                              <button class="prx-btn prx-btn-file prx-dialog-opener" data-prx-dialog-id="prx_app_overlay_file">
+	                                                <span class="prx-icon"></span><span class="prx-btn-txt"><apex:outputText value="{!$Label.privateappex__UploadFile}" /></span>
+	                                              </button>
+	                                              <span class="prx-button-separator"><apex:outputText value="{!$Label.privateappex__OrForOptions}" /></span>
+	                                              <button class="prx-btn prx-btn-link prx-dialog-opener" data-prx-dialog-id="prx_app_overlay_link">
+	                                                <span class="prx-icon"></span><span class="prx-btn-txt"><apex:outputText value="{!$Label.privateappex__AddLink}" /></span>
+	                                              </button>
+	                                            </p>
+                                            </apex:outputPanel>
+                                            <ul class="prx-ul-reset prx-ul-sortable prx-ul-sortable-resources prx-sortable" id="prx_sortable_resources">
+                                              <apex:repeat value="{!documentAssets}" id="documentAssets" var="documentAsset">
+	                                              <li id="{!documentAsset.Id}" class="prx-resource-li">
+	                                                <span class="resource-text">
+	                                                  <a href="{!documentAsset.assetUrl}" target="_blank"><apex:outputText value="{!documentAsset.name}" /></a>
+	                                                  <a href="javascript:PrX.setDeleteResourceId('{!documentAsset.Id}');" class="prx-resource-action prx-dialog-opener prx-resource-action-delete" data-prx-dialog-id="prx_app_overlay_deleteresource"><span class="prx-icon"></span></a>
+	                                                </span>
+	                                              </li>
+                                              </apex:repeat>
+                                            </ul>
+                                            <label class="prx-form-label"><span class="prx-label-text"><apex:outputText value="{!$Label.privateappex__ListingBanner}" /></span></label>
+                                            <apex:outputPanel layout="none" rendered="{!IsBlank(selectedListing.BannerAttachmentId)}">
+                                                  <p>
+                                                    <button class="prx-btn prx-btn-banner prx-dialog-opener" data-prx-dialog-id="prx_app_overlay_upload_banner">
+                                                      <span class="prx-icon"></span><span class="prx-btn-txt"><apex:outputText value="{!$Label.privateappex__UploadBanner}" /></span>
+                                                    </button>
+                                                  </p>
+                                              </apex:outputPanel>
+                                            <apex:outputPanel layout="none" rendered="{!NOT(IsBlank(selectedListing.BannerAttachmentId))}">
+                                                  <div class="page-banner-outer"><img src="{!selectedListing.BannerAttachmentUrl}" data-src="{!selectedListing.BannerAttachmentUrl}" class="desktop-img page-banner-full-img" /></div>
+                                                  <div class="prx-banner-actions">
+                                                    <a href="javascript:void(0)" class="prx-banner-action prx-dialog-opener prx-banner-action-delete" data-prx-dialog-id="prx_app_overlay_deletebanner"><span class="prx-icon"></span></a>
+                                                    <a href="javascript:void(0)" class="prx-banner-action prx-dialog-opener prx-banner-action-edit" data-prx-dialog-id="prx_app_overlay_edit_banner"><span class="prx-icon"></span></a>
+                                                  </div>
+                                            </apex:outputPanel>
+                                          </div>
+                                          <div class="prx-dialogs" style="display: none;">
+                                            <!-- overlay for upload screenshot -->
+                                            <div class="prx-dialog" id="prx_app_overlay_image" title="{!HTMLENCODE($Label.UploadScreenshot)}">
+                                              <apex:form id="uploadScreenshotForm">
+                                                    <div class="prx-dialog-content">
+                                                      <p><apex:outputText value="{!$Label.privateappex__UploadScreenshotMsg}" /></p>
+                                                      <div class="prx-form-group">
+                                                        <div class="prx-form-group-label"><label><apex:outputText value="{!$Label.privateappex__File}" /></label></div>
+                                                        <div class="prx-form-group-field"><apex:inputFile id="uploadScreenshotInput" value="{!attachmentObj.body}" filename="{!attachmentObj.name}" /></div>
+                                                      </div>
+                                                      <div class="prx-form-group">
+                                                        <div class="prx-form-group-label"><label><apex:outputText value="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Caption__c.label}" /></label></div>
+                                                        <div class="prx-form-group-field"><apex:inputText value="{!mediaCaption}" styleClass="prx-text-field" id="uploadImageCaption" maxlength="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Caption__c.length}" /></div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="prx-dialog-footer">
+                                                      <a href="javascript:void(0)" class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                      <a href="javascript:uploadScreenshotAct();" class="prx-btn prx-btn-primary"><apex:outputText value="{!$Label.privateappex__BUTTON_Save}" /></a>
+                                                    </div>
+                                                    <apex:actionFunction name="uploadScreenshotAct" action="{!uploadScreenshot}" />
+                                              </apex:form>
+                                            </div>
+                                            <!-- overlay for edit screenshot -->
+                                            <div class="prx-dialog" id="prx_app_overlay_editimage" title="{!HTMLENCODE($Label.EditScreenshot)}">
+                                                <apex:form id="editScreenshotForm">
+                                                    <div class="prx-dialog-content">
+                                                      <p><apex:outputText value="{!$Label.privateappex__EditScreenshotInfo}" /></p>
+                                                      <div class="prx-form-group">
+                                                        <div class="prx-form-group-label"><label><apex:outputText value="{!$Label.privateappex__CurrentFile}" /></label></div>
+                                                        <div class="prx-form-group-field"><span class="prx-text-alt" id="currentFilename"></span></div>
+                                                      </div>
+                                                      <div class="prx-form-group">
+                                                        <div class="prx-form-group-label"><label><apex:outputText value="{!$Label.privateappex__NewFile}" /></label></div>
+                                                        <div class="prx-form-group-field"><apex:inputFile id="editScreenshotInput" value="{!attachmentObj.body}" filename="{!attachmentObj.name}" /></div>
+                                                      </div>
+                                                      <div class="prx-form-group">
+                                                        <div class="prx-form-group-label"><label><apex:outputText value="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Caption__c.label}" /></label></div>
+                                                        <div class="prx-form-group-field"><apex:inputText value="{!mediaCaption}" styleClass="prx-text-field" id="editImageCaption" maxlength="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Caption__c.length}" /></div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="prx-dialog-footer">
+                                                      <a href="javascript:void(0)"  class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                      <a href="javascript:editScreenshotAct();" class="prx-btn prx-btn-primary"><apex:outputText value="{!$Label.privateappex__BUTTON_Save}" /></a>
+                                                    </div>
+                                                    <apex:inputHidden value="{!actionParamValue}" id="editScreenshotId"/>
+                                                    <apex:actionFunction name="editScreenshotAct" action="{!editScreenshot}" />
+                                                     <script>
+                                                           //<![CDATA[
+                                                           PrX.populateEditScreenshotDialog = function(currentImageName, caption, imageId) {
+                                                             document.getElementById('currentFilename').textContent = currentImageName;
+                                                             document.getElementById('{!$Component.editImageCaption}').value = decodeURI(caption);
+                                                             document.getElementById('{!$Component.editScreenshotId}').value = imageId;
+                                                           }; 
+                                                           // ]]>
+                                                     </script>
+                                                </apex:form>
+                                            </div>
+                                            <!-- overlay for delete screenshot -->
+                                            <div class="prx-dialog" id="prx_app_overlay_deleteimage" title="{!HTMLENCODE($Label.DeleteScreenshot)}">
+                                                <apex:form id="deleteScreenshotForm">
+                                                    <div class="prx-dialog-content"><p><apex:outputText value="{!$Label.privateappex__DeleteScreenshotMessage}" /></p></div>
+                                                    <div class="prx-dialog-footer">
+                                                      <a href="javascript:void(0)" class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                      <a href="javascript:deleteScreenshotAct();" class="prx-btn prx-btn-alert"><apex:outputText value="{!$Label.privateappex__BUTTON_Delete}" /></a>
+                                                    </div>
+                                                    <apex:inputHidden value="{!actionParamValue}" id="deleteScreenshotId"/>
+                                                    <apex:actionFunction name="deleteScreenshotAct" action="{!deleteAsset}" />
+                                                    
+                                                    <script>
+                                                          //<![CDATA[
+                                                          PrX.setDeleteScreenshotId = function(assetId) {
+                                                                document.getElementById('{!$Component.deleteScreenshotId}').value = assetId;
+                                                          };
+                                                          // ]]>
+                                                    </script>
+                                                </apex:form>
+                                            </div>
+                                            <!-- overlay for create link to video -->
+                                            <div class="prx-dialog" id="prx_app_overlay_video" title="{!HTMLENCODE($Label.LinkToVideo)}">
+                                                <apex:form id="createLinkToVideoForm">
+                                                    <div class="prx-dialog-content">
+                                                      <p><apex:outputText value="{!$Label.privateappex__VideoFormDetailsMessage}" /></p>
+                                                      <div class="prx-form-group">
+                                                        <div class="prx-form-group-label"><label><apex:outputText value="{!$Label.privateappex__Type}" /></label></div>
+                                                        <div class="prx-form-group-field">
+                                                          <apex:selectList onchange="PrX.updateVideoOverlay(this)" id="video_type" value="{!mediaType}" size="1">
+                                                            <apex:selectOption itemValue="" itemLabel="{!$Label.privateappex__SelectOne}"/>
+                                                            <apex:selectOption itemValue="YouTube" itemLabel="{!$Label.privateappex__EmbedYouTubeVideo}"/>
+                                                            <apex:selectOption itemValue="Vimeo" itemLabel="{!$Label.privateappex__EmbedVimeoVideo}"/>
+                                                          </apex:selectList>
+                                                        </div>
+                                                      </div>
+                                                      <div id="video_embed" style="display: none;">
+                                                        <div class="prx-form-group">
+                                                          <div class="prx-form-group-label"><label><apex:outputText value="{!$Label.privateappex__VideoID}" /></label></div>
+                                                          <div class="prx-form-group-field"><apex:inputText value="{!mediaLink}" styleClass="prx-text-field" id="videoLinkId" maxlength="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__VideoEmbedId__c.length}" /></div>
+                                                        </div>
+                                                        <div class="prx-form-group">
+                                                          <div class="prx-form-group-label"><label><apex:outputText value="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Caption__c.label}" /></label></div>
+                                                          <div class="prx-form-group-field"><apex:inputText value="{!mediaCaption}" styleClass="prx-text-field" id="videoLinkCaption" maxlength="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Caption__c.length}" /></div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="prx-dialog-footer">
+                                                      <a href="javascript:void(0)"  class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                      <a href="javascript:uploadVideoLinkAct();" class="prx-btn prx-btn-primary"><apex:outputText value="{!$Label.privateappex__BUTTON_Save}" /></a>
+                                                  </div>
+                                                    <apex:actionFunction name="uploadVideoLinkAct" action="{!uploadVideoLink}" />
+                                                </apex:form>
+                                            </div>
+                                            <!-- overlay for edit video link -->
+                                            <div class="prx-dialog" id="prx_app_overlay_editvideo" title="{!HTMLENCODE($Label.EditVideo)}">
+                                              <apex:form id="editLinkToVideoForm">
+                                                    <div class="prx-dialog-content">
+                                                      <p><apex:outputText value="{!$Label.privateappex__EditVideoFormDetailsMessage}" /></p>
+                                                      <div class="prx-form-group">
+                                                        <div class="prx-form-group-label"><label><apex:outputText value="{!$Label.privateappex__Type}" /></label></div>
+                                                        <div class="prx-form-group-field">
+                                                          <apex:selectList onchange="PrX.updateVideoOverlay(this)" id="video_type" value="{!mediaType}" size="1">
+                                                            <apex:selectOption itemValue="YouTube" itemLabel="{!$Label.privateappex__EmbedYouTubeVideo}"/>
+                                                            <apex:selectOption itemValue="Vimeo" itemLabel="{!$Label.privateappex__EmbedVimeoVideo}"/>
+                                                          </apex:selectList>
+                                                        </div>
+                                                      </div>
+                                                      <div id="video_embed">
+                                                        <div class="prx-form-group"><div class="prx-form-group-label"><label><apex:outputText value="{!$Label.privateappex__VideoID}" /></label></div>
+                                                        <div class="prx-form-group-field"><apex:inputText value="{!mediaLink}" styleClass="prx-text-field" id="videoLinkId" maxlength="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__VideoEmbedId__c.length}" /></div>
+                                                      </div>
+                                                      <div class="prx-form-group">
+                                                        <div class="prx-form-group-label"><label><apex:outputText value="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Caption__c.label}" /></label></div>
+                                                        <div class="prx-form-group-field"><apex:inputText value="{!mediaCaption}" styleClass="prx-text-field" id="videoLinkCaption" maxlength="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Caption__c.length}" /></div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="prx-dialog-footer">
+                                                    <a href="javascript:void(0)"  class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                    <a href="javascript:editVideoLinkAct();" class="prx-btn prx-btn-primary"><apex:outputText value="{!$Label.privateappex__BUTTON_Save}" /></a>
+                                                  </div>
+                                                    <apex:inputHidden value="{!actionParamValue}" id="editVideoId"/>
+                                                    <apex:actionFunction name="editVideoLinkAct" action="{!editVideoLink}" />
+                                                     <script>
+                                                           //<![CDATA[
+                                                           PrX.populateEditVideoDialog = function(assetId, videoType, videoId, videoCaption) {
+                                                                 jQuery(PrX.jQid('{!$Component.video_type}')).find('option[value="' + videoType + '"]').attr('selected', 'selected');
+                                                                 document.getElementById('{!$Component.editVideoId}').value = assetId;
+                                                                 document.getElementById('{!$Component.videoLinkId}').value = videoId;
+                                                                 document.getElementById('{!$Component.videoLinkCaption}').value = videoCaption;
+                                                           };
+                                                           // ]]>
+                                                     </script>
+                                              </apex:form>
+                                          </div>
+                                          <!-- overlay for delete video link -->
+                                          <div class="prx-dialog" id="prx_app_overlay_deletevideo" title="{!HTMLENCODE($Label.DeleteVideo)}">
+                                                <apex:form id="deleteVideoForm">
+                                                  <div class="prx-dialog-content"><p><apex:outputText value="{!$Label.privateappex__DeleteVideoInfo}" /></p></div>
+                                                  <div class="prx-dialog-footer">
+                                                    <a href="javascript:void(0)"  class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                    <a href="javascript:deleteVideoAct();" class="prx-btn prx-btn-alert"><apex:outputText value="{!$Label.privateappex__BUTTON_Delete}" /></a>
+                                                  </div>
+                                                    <apex:inputHidden value="{!actionParamValue}" id="deleteVideoId"/>
+                                                    <apex:actionFunction name="deleteVideoAct" action="{!deleteAsset}" />
+                                                     <script>
+                                                           //<![CDATA[
+                                                           PrX.setDeleteVideoId = function(assetId) {
+                                                                 document.getElementById('{!$Component.deleteVideoId}').value = assetId;
+                                                           };
+                                                           // ]]>
+                                                     </script>
+                                                </apex:form>
+                                          </div>
+                                          <!-- overlay for upload resource file -->
+                                          <div class="prx-dialog" id="prx_app_overlay_file" title="{!HTMLENCODE($Label.UploadFile)}">
+                                                <apex:form id="uploadResourceForm">
+                                                  <div class="prx-dialog-content">
+                                                    <p><apex:outputText value="{!$Label.privateappex__UploadResourceFileMsg}" /></p>
+                                                    <div class="prx-form-group">
+                                                      <div class="prx-form-group-label"><label><apex:outputText value="{!$Label.privateappex__File}" /></label></div>
+                                                      <div class="prx-form-group-field"><apex:inputFile id="uploadResourceInput" value="{!attachmentObj.body}" filename="{!attachmentObj.name}" /></div>
+                                                    </div>
+                                                    <div class="prx-form-group">
+                                                      <div class="prx-form-group-label"><label><apex:outputText value="{!$Label.privateappex__Title}" /></label></div>
+                                                      <div class="prx-form-group-field"><apex:inputText value="{!mediaCaption}" styleClass="prx-text-field" id="resourceTitle" maxlength="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Caption__c.length}" /></div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="prx-dialog-footer">
+                                                    <a href="javascript:void(0)"  class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                    <a href="javascript:uploadResourceFileAct();" class="prx-btn prx-btn-primary"><apex:outputText value="{!$Label.privateappex__BUTTON_Save}" /></a>
+                                                  </div>
+                                                  <apex:actionFunction name="uploadResourceFileAct" action="{!uploadResourceFile}" />
+                                                </apex:form>
+                                          </div>
+                                          <!-- overlay for add resouce link -->
+                                          <div class="prx-dialog" id="prx_app_overlay_link" title="{!HTMLENCODE($Label.AddLink)}">
+                                                <apex:form id="createResourceLinkForm">
+                                                  <div class="prx-dialog-content">
+                                                    <p><apex:outputText value="{!$Label.privateappex__AddLinkMsg}" /></p>
+                                                    <div id="addResourceLinkErrMsg" style="display:none;" class="prx-msg prx-msg-error">
+                                                    	<div class="prx-msg-icon"></div>
+                                                    	<p id="arlemMsg"></p>
+                                                    </div>
+                                                    <div class="prx-form-group">
+                                                      <div class="prx-form-group-label"><label><apex:outputText value="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Location__c.label}" /></label></div>
+                                                      <div class="prx-form-group-field"><apex:inputText value="{!mediaLink}" styleClass="prx-text-field" id="resourceLinkId" maxlength="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Location__c.length}" /></div>
+                                                    </div>
+                                                    <div class="prx-form-group">
+                                                      <div class="prx-form-group-label"><label><apex:outputText value="{!$Label.privateappex__Title}" /></label></div>
+                                                      <div class="prx-form-group-field"><apex:inputText value="{!mediaCaption}" styleClass="prx-text-field" id="resourceTitle" maxlength="{!$ObjectType.privateAppEx__ListingAsset__c.fields.privateAppEx__Caption__c.length}" /></div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="prx-dialog-footer">
+                                                    <a href="javascript:void(0)"  class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                    <a href="javascript:PrX.validateAddResourceLink();" class="prx-btn prx-btn-primary" id="addResourceLinkSaveBtn"><apex:outputText value="{!$Label.privateappex__BUTTON_Save}" /></a>
+                                                  </div>
+                                                  <apex:actionFunction name="uploadResourceLinkAct" action="{!uploadResourceLink}" />
+                                                    <script>
+                                                          //<![CDATA[
+                                                          PrX.validateAddResourceLink = function() {
+                                                                var link = document.getElementById('{!$Component.resourceLinkId}').value;
+                                                                var title = document.getElementById('{!$Component.resourceTitle}').value;
+                                                                if (link === null || link === '') {
+                                                                	document.getElementById("arlemMsg").innerHTML = '{!JSENCODE($Label.ERROR_ResourceLinkRequired)}';
+                                                                	document.getElementById('addResourceLinkErrMsg').style.display = 'block';
+                                                                }
+                                                                else if (title === null || title === '') {
+                                                                	document.getElementById("arlemMsg").innerHTML = '{!JSENCODE($Label.ERROR_ResourceTitleRequired)}';
+                                                                	document.getElementById('addResourceLinkErrMsg').style.display = 'block';
+                                                                }
+                                                                else {
+                                                                	document.getElementById('addResourceLinkErrMsg').style.display = 'none';
+                                                                	document.getElementById('addResourceLinkSaveBtn').onclick=function(){return false;};
+                                                                	uploadResourceLinkAct();
+                                                                }
+                                                          };
+                                                          // ]]>
+                                                    </script>
+                                                </apex:form>
+                                          </div>
+                                          <!-- overlay for delete resource -->
+                                          <div class="prx-dialog" id="prx_app_overlay_deleteresource" title="{!HTMLENCODE($Label.DeleteResource)}">
+                                                <apex:form id="deleteResourceForm">
+                                                  <div class="prx-dialog-content"><p><apex:outputText value="{!$Label.privateappex__DeleteResourceInfo}" /></p></div>
+                                                  <div class="prx-dialog-footer">
+                                                    <a href="javascript:void(0)"  class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                    <a href="javascript:deleteResourceAct();" class="prx-btn prx-btn-alert"><apex:outputText value="{!$Label.privateappex__BUTTON_Delete}" /></a>
+                                                  </div>
+                                                    <apex:inputHidden value="{!actionParamValue}" id="deleteResourceId"/>
+                                                    <apex:actionFunction name="deleteResourceAct" action="{!deleteAsset}" />
+                                                    <script>
+                                                          //<![CDATA[
+                                                          PrX.setDeleteResourceId = function(assetId) {
+                                                                document.getElementById('{!$Component.deleteResourceId}').value = assetId;
+                                                          };
+                                                          // ]]>
+                                                    </script>
+                                                </apex:form>
+                                          </div>
+                                          <!-- overlay for upload banner -->
+                                          <div class="prx-dialog" id="prx_app_overlay_upload_banner" title="{!HTMLENCODE($Label.UploadBanner)}">
+                                                <apex:form id="uploadBannerForm">
+                                                  <div class="prx-dialog-content">
+                                                    <p><apex:outputText value="{!$Label.privateappex__UploadBannerInfo}" /></p>
+                                                    <apex:inputFile id="uploadBannerInput" value="{!attachmentObj.body}" filename="{!attachmentObj.name}" />
+                                                  </div>
+                                                  <div class="prx-dialog-footer">
+                                                    <a href="javascript:void(0)" class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                    <a href="javascript:void(0);" onclick="this.onclick=function(){return false;}; uploadBannerAct()" class="prx-btn prx-btn-primary"><apex:outputText value="{!$Label.privateappex__BUTTON_Save}" /></a>
+                                                  </div>
+                                                  <apex:actionFunction name="uploadBannerAct" action="{!uploadBanner}" />
+                                                </apex:form>
+                                          </div>
+                                          <!-- overlay for edit banner -->
+                                          <div class="prx-dialog" id="prx_app_overlay_edit_banner" title="{!HTMLENCODE($Label.UploadBanner)}">
+                                                <apex:form id="editBannerForm">
+                                                  <div class="prx-dialog-content">
+                                                    <p><apex:outputText value="{!$Label.privateappex__UploadBannerInfo}" /></p>
+                                                    <apex:inputFile id="editBannerInput" value="{!attachmentObj.body}" filename="{!attachmentObj.name}" />
+                                                  </div>
+                                                  <div class="prx-dialog-footer">
+                                                    <a href="javascript:void(0)" class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                    <a href="javascript:editBannerAct();" class="prx-btn prx-btn-primary"><apex:outputText value="{!$Label.privateappex__BUTTON_Save}" /></a>
+                                                  </div>
+                                                                  <apex:actionFunction name="editBannerAct" action="{!editBanner}" />
+                                                </apex:form>
+                                          </div>
+                                          <!-- overlay for delete banner -->
+                                          <div class="prx-dialog" id="prx_app_overlay_deletebanner" title="{!HTMLENCODE($Label.DeleteBanner)}">
+                                                <apex:form id="deleteBannerForm">
+                                                  <div class="prx-dialog-content"><p><apex:outputText value="{!$Label.privateappex__DeleteBannerInfo}" /></p></div>
+                                                  <div class="prx-dialog-footer">
+                                                    <a href="javscript:void(0)" class="prx-btn btn-close-overlay"><apex:outputText value="{!$Label.privateappex__BUTTON_Cancel}" /></a>
+                                                    <a href="javascript:deleteBannerAct();" class="prx-btn prx-btn-alert"><apex:outputText value="{!$Label.privateappex__BUTTON_Delete}" /></a>
+                                                  </div>
+                                                                  <apex:actionFunction name="deleteBannerAct" action="{!deleteBanner}" />
+                                                </apex:form>
+                                          </div>
+						                    <!--  form used to update the assets order -->
+						                    <div>
+							                    <apex:form id="reorderAssetsForm">
+										            <apex:actionFunction name="reorderAssetsAct" action="{!reorderAssets}" rerender="reorderAssetsForm">
+										                  <apex:param name="assetsId" assignTo="{!actionParamValue}" value=""/> 
+										            </apex:actionFunction>
+							                    </apex:form>
+						                    </div>
+                                        </div>
+                                          </apex:outputPanel>
+                                    </div>
+                              </div>
+                        </div>
+                        </apex:outputPanel>
+                  </div>
+          </apex:define>
+    </apex:composition>
+      <script language="JavaScript">
+    //<![CDATA[
+        jQuery(document).ready(function() {
+            // show more details when the app select list changes
+            jQuery('#filter_app_sortby').on('change',function() {
+                jQuery('.prx-initial-hide').css('visibility','visible');
+            });
+            
+            // tile preview: clicking the tile preview shouldn't take the user anywhere
+            jQuery('.prx-app-info-tile').on('click','.prx-tile-title a',function(e) {
+                e.preventDefault();
+            })
+            
+            $('#prx_sortable_screenshots').sortable({
+                cursor: 'move',
+                opacity: 0.5,
+                delay: 150,
+                placeholder: 'prx-sortable-placeholder prx-sortable-placeholder-image',
+                update: function(event, ui) {
+                    var newOrder = $(this).sortable('toArray').toString();
+                    // now make ajax call to save this order 
+                    reorderAssetsAct(newOrder);
+                }
+            });
+            
+            $('#prx_sortable_resources').sortable({
+                cursor: 'move',
+                opacity: 0.5,
+                delay: 150,
+                placeholder: 'prx-sortable-placeholder prx-sortable-placeholder-resource',
+                update: function(event, ui) {
+                    var newOrder = $(this).sortable('toArray').toString();
+                    // now make ajax call to save this order 
+                    reorderAssetsAct(newOrder);
+                }
+            });
+            
+            // get vimeo video preview images if needed 
+            PrX.getVimeoImage();
+            // create video image overlays 
+            PrX.createVideoImageOverlays();
+        });
+    
+        jQuery(window).on('debouncedresize', function() {
+        });
+        
+        PrX.getVimeoImage = function() {
+            jQuery('.prx-screenshot-img-vimeo').each(function() {
+                var $thisImg = jQuery(this);
+                var videoId = $thisImg.attr('data-vimeo-id');
+                jQuery.ajax({
+                    type:'GET',
+                    url: 'https://vimeo.com/api/v2/video/' + videoId + '.json',
+                    jsonp: 'callback',
+                    dataType: 'jsonp',
+                    success: function(data){
+                        var thumbnailSrc = data[0].thumbnail_large;
+                        $thisImg.attr('src',thumbnailSrc);
+                    }
+                });
+            });
+        };
+        
+        PrX.createVideoImageOverlays = function() {
+            jQuery('.prx-video-li').each(function() {
+                var $thisLi = jQuery(this);
+                var videoUrl = $thisLi.find('a.prx-screenshot-a').attr('href');
+                $thisLi.append('<a href="' + videoUrl + '" class="prx-video-image-overlay" target="_blank"></a>');
+            });
+        };
+    // ]]> 
+    </script>
+</apex:page>

@@ -1,0 +1,131 @@
+<apex:page id="gettingStarted" name="gettingStarted" controller="privateAppEx.GettingStartedController" action="{!init}" showheader="{!isDesktop}" sidebar="false" standardStylesheets="false" tabStyle="Store_Administration__tab">
+    <apex:composition template="privateAppEx__PrivateExchangeLayout">
+    	<apex:define name="head">
+        	<link href="{!$Resource.uilib}/css/prx-getting-started.css" rel="stylesheet" />
+        </apex:define>
+        
+        <apex:define name="content">
+        	<div class="prx-content-block prx-content-block-admin">
+        		<!-- title bar -->
+				<div class="prx-title-bar" id="prx_title_bar">
+					<div class="prx-title-bar-primary">
+				    	<div class="prx-title-bar-primary-title">
+				        	<h1>{!$Label.Welcome_Message}</h1>
+				        </div>
+				        <div class="prx-filter prx-filter-S">
+				        	<div class="prx-overlaymenu-opener" id="prx_nav2_opener_phone"><span class="prx-icon"></span><span class="prx-overlay-opener-text">{!$Label.privateappex__Getting_Started}</span></div>
+				        </div>
+				        <div class="prx-filter prx-filter-M">
+				        	<div class="prx-overlaymenu-opener" id="prx_nav2_opener_small"><span class="prx-icon"></span><span class="prx-overlay-opener-text">{!$Label.privateappex__Getting_Started}</span></div>
+				        </div>
+				    </div>
+				</div>    
+				<!-- end title bar -->    
+				<div class="prx-content-content prx-content-content-with-secondary">
+					<div class="prx-content-content-inner">
+				    	<c:leftSidebar selected="{!$Label.privateappex__Getting_Started}"/>
+				        <div class="prx-content-primary">
+				        	<div class="prx-content-primary-inner">
+				        		<div class="prx-content-generic">
+				        			<!-- Intro -->
+				        			<div class="prx-gs-intro">
+							        	<div class="prx-gs-intro-video">
+							            	<a href="https://www.youtube.com/watch?v=P_GfkOCYRq4" id="video_link" target="_blank">
+							                	<img src="{!$Resource.uilib}/img/getting-started-video.png"/>
+							                    <span class="prx-gs-intro-video-button"></span>
+							                </a>
+							            </div>
+							            <div class="prx-gs-intro-text">
+							            	<p>{!$Label.GettingStarted_Intro}</p>
+							                <a href="https://www.youtube.com/watch?v=P_GfkOCYRq4" id="video_link_button" class="prx-btn prx-btn-primary" target="_blank">{!$Label.BUTTON_WatchVideo}</a>
+							            </div>
+							        </div>
+				        			<!-- End Intro -->
+				        			
+				        			<div class="prx-gs-steps">
+				        				<ul class="prx-ul-reset">
+				                          <li class="prx-gs-step prx-gs-step-odd prx-gs-step-1">
+				                            <h2>{!$Label.GettingStarted_Step1_Title}</h2>
+                                            <p>{!$Label.GettingStarted_Step1_Text}</p>
+                                            <p>
+                                              <apex:outputText value="{!$Label.privateappex__GettingStarted_Step1_Text_b}" escape="false">
+                                                <apex:param value="https://appexchange.salesforce.com/private-appexchange-admin-guide" />
+                                              </apex:outputText>
+                                            </p>
+                                            <apex:outputLink value="../02u?retURL=%2Fui%2Fsetup%2FSetup%3Fsetupid%3DDevTools&amp;setupid=TabSet" styleClass="prx-btn">{!$Label.privateappex__BUTTON_CheckYourApps}</apex:outputLink>
+				                          </li>
+				                          <li class="prx-gs-step prx-gs-step-even prx-gs-step-2">
+				                            <h2>{!$Label.privateappex__GettingStarted_Step2_Title}</h2>
+				                            <p>{!$Label.privateappex__GettingStarted_Step2_Text}</p>
+                                            <ul class="prx-ul-reset prx-ul-simple">
+                                              <li>{!$Label.privateappex__GettingStarted_Step2_Text_b}</li>
+                                              <li>{!$Label.privateappex__GettingStarted_Step2_Text_c}</li>
+                                              <li>{!$Label.privateappex__GettingStarted_Step2_Text_d}</li>
+                                              <li>{!$Label.privateappex__GettingStarted_Step2_Text_e}</li>
+                                            </ul>
+                                            <p>{!$Label.privateappex__GettingStarted_Step2_Text_f}</p>
+                                            <apex:outputLink value="{!$Page.privateAppEx__storePrefsBasic}" styleClass="prx-btn">{!$Label.privateappex__BUTTON_SetStorePreferences}</apex:outputLink>
+				                          </li>
+				                          <li class="prx-gs-step prx-gs-step-odd prx-gs-step-3">
+				                            <h2>{!$Label.privateappex__GettingStarted_Step3_Title}</h2>
+				                            <p>{!$Label.privateappex__GettingStarted_Step3_Text}</p>
+                                            <p>{!$Label.privateappex__GettingStarted_Step3_Text_b}</p>
+				                          	<apex:outputLink value="{!$Page.privateAppEx__apps}" styleClass="{!IF(AreThereStores, 'prx-btn prx-btn', 'prx-btn prx-btn-disabled')}" disabled="{!!AreThereStores}">{!$Label.privateappex__BUTTON_ListYourApps}</apex:outputLink>
+				                          </li>
+				                          <li class="prx-gs-step prx-gs-step-even prx-gs-step-4">
+				                            <h2>{!$Label.privateappex__GettingStarted_Step4_Title}</h2>
+				                            <p>{!$Label.privateappex__GettingStarted_Step4_Text}</p>
+                                            <p>
+                                              <apex:outputText value="{!$Label.privateappex__GettingStarted_Step4_Text_b}" escape="false">
+                                                <apex:param value="{!$Page.privateAppEx__dashboard}" />
+                                              </apex:outputText>
+                                            </p>
+				                          </li>
+				                        </ul>
+				        			</div>
+				        		</div>
+				        	</div>
+				        </div>
+				    </div>
+				</div>           
+        	</div>
+        </apex:define>
+    </apex:composition>
+    <script language="JavaScript">
+    //<![CDATA[
+        jQuery(document).ready(function() {
+            // video link
+            PrX.videoLink();
+        });
+    
+        jQuery(window).on('debouncedresize', function() {
+            // video link
+            PrX.videoLink();
+        });
+        
+        // use lightbox feature when on bigger device. 
+        // on phone, just follow the link
+        PrX.videoLink = function() {
+            if (PrX.getCurrentSiteState() === 'phone') {
+                jQuery('#video_link, #video_link_button').off('click');
+            }
+            else {
+                jQuery('#video_link, #video_link_button').on('click',function(event) {
+                    event.preventDefault();
+          			jQuery.fancybox.open({
+          				href : 'https://www.youtube.com/embed/P_GfkOCYRq4?enablejsapi=1&amp;wmode=transparent',
+          				type : 'iframe',
+          				title : '{!$Label.GettingStarted_Video_Title}',
+          				padding : 10,
+                        helpers:  {
+                            title : {
+                                type : 'inside' // 'float', 'inside', 'outside' or 'over'
+                            }
+                        }
+          			});
+                });
+            }
+        };
+    // ]]>  
+	</script>
+</apex:page>

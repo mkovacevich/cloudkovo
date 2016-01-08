@@ -1,0 +1,324 @@
+<apex:page showHeader="false" sidebar="false" standardController="Case">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></link>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+ 
+ <apex:includeScript value="/support/console/22.0/integration.js"/>
+    
+<style>
+        #highlightPanel{
+            width:100%;
+            overflow:auto;
+        }
+        .section{
+            float:left;
+            height: 120px;
+
+        }
+        .subSec{
+            width:33%;
+            float:left;
+        }
+        h1{
+            display:block;
+            width:90%;
+            margin-left:5%;
+            font-size:20px;
+            //text-align:center;
+            margin-top:5px;
+        }
+        h2{
+            color:#555;
+            width:95%;
+            font-size:12px;
+            display:block;
+            margin-top: 5px !important
+        }
+        h3{
+            color:#555;
+            width:100%;
+            text-align:center;
+            font-size:15px;
+            display:block;
+        }
+        .icon{
+            
+            vertical-align:middle;
+        }
+        .yellow{
+            width:99%;
+            border-left:2px solid #ebaf59;
+            background:#f3edd0;
+        }
+        .green{
+            width:99%;
+            border-left:2px solid #149bc8;
+            background:#e5f0f9;
+        }
+        .red{
+            width:99%;
+            border-left:2px solid #bd3636;
+            background:#f2d7d7;
+        }
+        .redCol{
+            color:red;
+        }
+        .subImg{
+            width: 25%;
+            margin-left: 50px;
+            margin-top: 25px;
+        }
+        h4{
+            width:100%;
+            background:#149bc8;
+            display:block;
+            padding-top:5px;
+            padding-bottom:5px;
+            color:white;
+            font-size:15px;
+            text-align:center;
+        }
+        #incDiv{
+            width:100%;
+        }
+        #caseNum{
+            color: red;
+            display: block;
+            font-size: 50px;
+            width: 100%;
+            text-align: center;
+            margin-top: 17px;
+        }
+        #demandeSec{
+            cursor:pointer;
+        }
+        
+        #underline{
+         text-decoration: underline;
+         color: #245dc1;
+         cursor: pointer;
+         text-align: left;
+     }
+     .table-bordered>tbody>tr>td{
+         border: none !important;
+     }
+     .table>tbody>tr>td{
+         border-top: none !important;
+     }
+     .table>tbody>tr>th{
+         border: none;
+     }
+     .table-bordered{
+         border: none;
+     }
+   .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+      padding: 3px;
+      }
+     body{
+         font-size: 12px;
+     }
+     #social{
+         padding-left: 24px;
+     }
+     #contactInfo{
+         padding-left: 24px;
+         padding-top: 76px;
+     }
+     .socialProfilePhoto{
+         padding-top: 5px;
+     }
+     .socialRow{
+         padding-top: 10px;
+     }
+     h5{
+         font-size: 12px;
+     }
+    
+    </style>
+    
+      <script>
+        
+  function OpenSubtab(e){
+       
+        sforce.console.openPrimaryTab(null, 'https://na24.salesforce.com/' + e, true);
+    }
+    
+    function testOpenSubtab(e) {
+         window.myValue = e;            
+        //First find the ID of the primary tab to put the new subtab in            
+        sforce.console.getEnclosingPrimaryTabId(openSubtab);                      
+    }
+    
+    var openSubtab = function openSubtab(result) {
+            //Now that we have the primary tab ID, we can open a new subtab in it
+            var primaryTabId = result.id;
+            sforce.console.openSubtab(primaryTabId , 'https://na24.salesforce.com/' + window.myValue, true, 
+                '', null, openSuccess);
+     };
+        
+     var openSuccess = function openSuccess(result) {
+            //Report whether we succeeded in opening the subtab
+            if (result.success == true) {
+                console.log('subtab successfully opened');
+            } else {
+                console.log('subtab cannot be opened');
+            }
+     };
+     
+     function OrdersOpenSubtab(e) {
+         window.myValue = e;            
+        //First find the ID of the primary tab to put the new subtab in            
+        sforce.console.getEnclosingPrimaryTabId(openOrdersSubtab);                      
+    }
+    
+    var openOrdersSubtab = function openOrdersSubtab(result) {
+            //Now that we have the primary tab ID, we can open a new subtab in it
+            var primaryTabId = result.id;
+            sforce.console.openSubtab(primaryTabId , 'https://na24.salesforce.com/' + window.myValue, true, 
+                'Order', null, report, 'Order');
+     };
+        
+     var report = function report(result) {
+            //Report whether we succeeded in opening the subtab
+            if (result.success == true) {
+                console.log('subtab successfully opened');
+            } else {
+                console.log('subtab cannot be opened');
+            }
+     };    
+      
+      $(document).ready(function(){
+       	if($($("#tsidLabel", window.parent.document)[0]).text() === 'Hargray TAC Console'){
+			$('#offer').hide();
+            $('#outage').show();
+        }
+      	$('.socialRow').remove();
+      })
+    </script>
+    
+    <div id="highlightPanel" style="overflow-y: hidden;">
+        
+        
+        <div class="section" style="width:20%">
+            <div id="social">
+                <social:profileViewer entityId="0011500001ChqCj"/>
+            </div>
+        </div>
+
+
+        <div class="section" style="width:15%">
+            <!--<br/>
+            <apex:image styleClass="icon" value="{!$Resource.demoUsage}" style="margin-left:5px;" /> <h5>Act#  2652047858-2</h5>
+            <br/>
+            <br/>
+            <h5><apex:image styleClass="icon" value="{!$Resource.demoHouseIcon}" style="margin-left:5px;"/>  Act#  2652047858-2</h5>
+            -->
+            <span style="font-weight: 600;   display: block;text-align: center;">Contact Info</span><br/>
+            <table class="table">
+                <tr>
+                <td><h5><apex:image styleClass="icon" value="http://png-1.findicons.com/files/icons/1580/devine_icons_part_2/128/home.png" style="margin-left:5px; width: 15px;"/> </h5></td>
+                <td><h5>Act#  2652047858-2</h5></td>
+                </tr>
+                <tr>
+                <td><h5><apex:image styleClass="icon" value="http://images.clipartpanda.com/phone-icon-Rid8o94i9.png" style="margin-left:5px; width: 15px;"/> </h5></td>
+                <td><h5>(312) 415-4455</h5></td>
+                </tr>
+                <tr>
+                <td><h5><apex:image styleClass="icon" value="http://iconshow.me/media/images/Mixed/Free-Flat-UI-Icons/png/128/mail-24-128.png" style="margin-left:5px; width: 15px;"/> </h5></td>
+                <td><h5>lbaxter@yahoo.com</h5></td>
+                </tr>
+                <tr>
+                <td><h5><apex:image styleClass="icon" value="https://cdn1.iconfinder.com/data/icons/simple-icons/128/twitter-128-black.png" style="margin-left:5px; width: 15px;"/> </h5></td>
+                <td><h5>@lbaxter</h5></td>
+                </tr>
+                
+            </table>
+			
+            
+        </div>   
+                            
+        
+        <div class="section" style="width:15%">
+            <div style="text-align:center">
+                <span style="font-weight: 600;">Household Spend</span><br/>
+                <apex:image value="{!$Resource.customerProfile}" style="width: 140px; margin-top: 10px;"/>
+                <div style="text-align: center; margin-left: 28px;">
+                    
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Farm-Fresh_fire.png" style="
+    float:  left;
+    width: 15px;
+                                                                                                          "/><p style="float: left">
+                	High Profile
+                </p>
+                    </div>
+            </div>
+        </div>
+        
+        <div class="section" style="width:15%">
+            <div style="text-align:center">
+                <span style="font-weight: 600;">Next Best Offer</span><br/>
+                <p style="margin-top: 10px" >
+                    TV, Internet and Phone Bundle
+                </p>
+            </div>
+        </div>    
+        
+        <div class="section" style="width:20%; padding-left: 2%; text-align:center">
+            <span style="font-weight: 600;">Customer Satisfaction</span><br/>
+        	<apex:image value="{!$Resource.democsat3}" style="width: 140px; margin-top: 10px;"/>
+        </div>
+
+        
+        
+    </div><br/>
+   <!-- <div>
+        <img src="{!$Resource.offers}" id="offer" style="width: 100%; max-width: 1300px;
+  margin: 0 auto;
+                                                                 display: block;"/>
+        <img src="{!$Resource.outages}" id="outage" style="width: 100%; max-width: 1300px;
+  margin: 0 auto;
+                                                                   display: block;"/>
+        
+        <script>
+        function openTab(Id){
+        	sforce.console.openPrimaryTab(null,'https://na22.salesforce.com/' + Id, true, 'Outage: ' + Id );
+        }
+        </script>
+        
+        <div style="width: 95%; max-width: 1300px;
+  margin: 0 auto; background: #f9f9f9; height: 80px; padding: 10px;   border-style: solid;
+  border-width: 1px; display:none;" id="outage">
+            <p style="  color: #c8132e;
+  font-weight: 600; float: left; margin-right: 25px;">
+                System Outages
+            </p>
+            <apex:repeat value="{!outages2}" var="out">
+                <div style="width: 28.5%; background: #FFF; height: 60px; border-style: solid; border-width: 1px; float: left; margin: 0px 5px 0px 5px; cursor: pointer;" onClick="openTab('{!out.Id}')">
+                    <img src="{!$Resource.outageImage}" style="margin: 10px; width: 35px;float: left;"/>
+                    <span style="float: left">
+                        <p style="color: #c8132e;
+      font-weight: 600; margin-bottom: 3px;">
+                            Confirmed Outage                        
+                        </p>
+                        {!out.account__r.billingstreet}<br/>
+                        {!out.account__r.billingCity}, {!out.account__r.billingState} {!out.account__r.billingPostalCode}
+                    </span>
+                </div>
+            </apex:repeat>
+                 <div style="width: 28.5%; background: #FFF; height: 60px; border-style: solid; border-width: 1px; float: left; margin: 0px 5px 0px 5px">
+                    <img src="{!$Resource.outageImage}" style="margin: 10px; width: 35px;float: left;"/>
+                    <span style="float: left">
+                        <p style="color: #c8132e;
+      font-weight: 600; margin-bottom: 3px;">
+                            Confirmed Outage                        
+                        </p>
+                        123 Elm<br/>
+                        Chicago, IL 60601
+                    </span>
+                </div>
+        </div>
+    </div>-->
+    
+  
+</apex:page>

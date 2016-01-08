@@ -1,0 +1,334 @@
+<apex:page controller="privateAppEx.ListingDetailController" id="listingDetailPage" 
+           action="{!init}" title="{!currentListing.AppMenuItem.Name}" showHeader="{!isDesktop}" sidebar="false" standardStylesheets="{!NOT(isDesktop)}" tabStyle="Store__tab">
+    <apex:composition template="privateAppEx__PrivateExchangeLayout">
+        <apex:define name="content">
+            <style>
+		        ul li, ol li {
+		            margin-left: 0;
+		        }
+		        
+		    </style>
+		    <script src="{!$Resource.uilib}/js/external/froogaloop.js" type="text/javascript" ></script>
+            <apex:outputPanel layout="none" rendered="{!NOT(error)}">
+            
+            	<apex:form >
+            		<apex:actionfunction name="createListingInstall" action="{!createListingInstall}" oncomplete="goToMobileInstallUrl()"/>
+            	</apex:form>
+            
+                <input type="hidden" id="currentListingId" value="{!currentListing.Id}"/>
+                <div class="prx-content-block prx-content-block-listing">
+                    <div class="prx-content-header">
+                        <div class="prx-content-header-inner">
+                          <c:pageMessages />
+							<div class="prx-content-header-bread">
+							    <a href="home"><apex:outputText value="{!currentListing.Store.Name}"/></a>&#160;·&#160;<apex:outputText value="{!currentListing.AppMenuItem.Name}"/>
+							</div>
+							<!-- The container (page-banner-slider) is used to define the width of the slideshow -->
+							<apex:outputPanel layout="block" styleClass="page-banner-outer" rendered="{!currentListing.BannerAttachmentUrl != null}">
+							    <img src="{!$Resource.uilib}/img/p1200x1.gif" data-src="{!currentListing.BannerAttachmentUrl}" class="desktop-img page-banner-full-img" />
+							</apex:outputPanel>
+							<div class="prx-content-header-one">
+								<div class="prx-header-actions">
+									<apex:outputPanel id="actionButtonSection" layout="block" rendered="{!NOT(error)}">
+										<apex:outputPanel id="actionButtonDisabled" rendered="{!IsActionButtonDisabled}">
+											<button class="prx-btn prx-btn-install prx-btn-disabled" disabled="disabled">
+									            <span class="prx-text">{!actionButtonText}</span>
+											</button>
+										</apex:outputPanel>
+										<apex:outputPanel id="actionButtonEnabled" rendered="{!NOT(IsActionButtonDisabled)}">
+											<apex:outputPanel id="requestAccess" rendered="{!isRequestAccessAction}">
+												<button class="prx-btn prx-btn-primary prx-btn-install prx-dialog-opener" data-prx-dialog-id="prx_overlay_request">
+										            <span class="prx-text">{!actionButtonText}</span>
+												</button>
+											</apex:outputPanel>
+											<apex:outputPanel id="openAppInstallNow" rendered="{!NOT(isRequestAccessAction)}">
+												<button class="prx-btn prx-btn-primary prx-btn-install" onclick="computeActButtonAction();">
+										            <span class="prx-text">{!actionButtonText}</span>
+												</button>
+											</apex:outputPanel>
+										</apex:outputPanel>
+									</apex:outputPanel>
+							    </div>
+                  
+                                <div class="prx-dialogs" style="display: none;">
+                                  <!-- overlay for request access -->
+                                  <div class="prx-dialog" id="prx_overlay_installwrongos" title="{!$Label.WrongDevice}">
+                                    <div class="prx-dialog-content">
+                                      <p>
+                                        <apex:outputText value="{!$Label.privateappex__PleaseGoTo}">
+                                            <apex:param value="{!currentListing.appDO.appMenuItemDO.appTypeForDisplay}" />
+                                        </apex:outputText>
+                                      </p>
+                                    </div>
+                                    <div class="prx-dialog-footer">
+                                      <button class="prx-btn btn-close-overlay prx-btn-primary">{!$Label.BUTTON_OK}</button>
+                                    </div>
+                                  </div>
+                                </div>
+                  
+							    <div class="prx-logo"><img src="{!currentListing.AppMenuItem.LogoUrl}" /></div>
+							    
+							    <h1 class="prx-h1-store"><apex:outputText value="{!currentListing.AppMenuItem.Name}"/></h1>
+							    
+							    <span class="prx-tagline"><apex:outputText value="{!currentListing.Tagline}"/></span>
+							</div>   
+							<apex:outputPanel layout="block" styleClass="prx-tabs" rendered="{!isChatterEnabled}">
+								<ul class="prx-ul-reset prx-tab-set prx-tab-set2" id="prx_listing_details_tabs">
+									<li class="prx-selected">
+									    <a class="prx-tab" href="javascript:void(0);">
+								            <span class="prx-tab-text">{!$Label.privateappex__Details}</span>
+								        </a>
+									</li>
+									<li>
+									    <apex:outputLink styleClass="prx-tab" value="javascript:void(0);">
+									        <span class="prx-tab-text">{!$Label.privateappex__Chatter}</span>
+										</apex:outputLink>
+									</li>
+								</ul>
+							</apex:outputPanel>                    
+						</div>
+					</div>
+					<apex:outputPanel layout="block" id="chatterContent" styleClass="prx-content-content" style="display: none" rendered="{!isChatterEnabled}"	>
+                        <div class="prx-content-content-inner">
+                            <div class="prx-content-primary1">
+                                <div class="prx-content-primary1-inner">
+                                    <chatter:feedWithFollowers entityId="{!currentListing.AppDO.Id}"/>
+                                </div>
+                            </div>
+                        </div>
+					</apex:outputPanel>
+					<div id="detailsContent" class="prx-content-content">
+						<div class="prx-content-content-inner">
+							<div class="prx-content-primary1">
+								<div class="prx-content-primary1-inner">
+									<apex:outputField value="{!currentListing.Object.privateAppEx__Description__c}"/>
+									<br/><br/>
+
+                                    <apex:outputPanel styleClass="prx-media-link only-phone" rendered="{!AND(mediaAssets != null, mediaAssets.size > 0)}">
+                                      <button class="prx-btn" onclick="PrX.openFancybox()">View Screenshots/Videos</button>
+                                    </apex:outputPanel>
+									
+									<label class="prx-label">{!$ObjectType.App__c.fields.Categories__c.label}:</label>&#160;
+									
+									<apex:variable var="categoriesNum" value="{!1}" />
+									<apex:repeat value="{!currentListing.categoryCrumb}" var="category">
+									    <a href="{!category.url}"><apex:outputText value="{!category.label}"/></a>
+									    
+									    <apex:outputText value="{!IF(categoriesNum == currentListing.AppDO.Categories.size,'',',')}" />
+									    
+									    <apex:variable var="categoriesNum" value="{!categoriesNum + 1}"/>
+									</apex:repeat>
+									<br/><br/>
+									
+									<label class="prx-label">{!$ObjectType.App__c.fields.Languages__c.label}:</label>&#160;
+									
+									<apex:variable var="langNum" value="{!1}" />
+									<apex:repeat value="{!currentListing.languageCrumb}" var="language">
+									    <a href="{!language.url}" id="lang_{!langNum}"><span><apex:outputText value="{!language.label}"/></span></a>
+						                <apex:outputText value="{!IF(langNum == currentListing.AppDO.DisplayLanguageList.size,'',',')}" />
+						                                        
+						                <apex:variable var="langNum" value="{!langNum + 1}"/>
+									</apex:repeat>
+									<br/><br/>
+									
+									<label class="prx-label">{!$ObjectType.Listing__c.fields.ListedDate__c.label}:</label>&#160;
+									<apex:outputText value="{0,date,medium}">
+									    <apex:param value="{!currentListing.ListedDate}" /> 
+									</apex:outputText>
+									<br/><br/>
+									
+									<label class="prx-label">{!$Label.Type}:</label>&#160;<apex:outputText value="{!currentListing.AppMenuItem.TypeLabel}"/>
+									<br/><br/>
+									
+									<label class="prx-label">{!$ObjectType.Listing__c.fields.Requirements__c.label}:</label>&#160;<apex:outputField value="{!currentListing.Object.privateAppEx__Requirements__c}"/>
+									<br/><br/>
+									
+									<apex:outputPanel layout="none" rendered="{!AND(documentAssets != null, documentAssets.size > 0)}">
+										<label class="prx-label">{!$Label.privateappex__Resources}:</label><br/>
+										<ul>
+	                                        <apex:repeat var="asset" value="{!documentAssets}">
+	                                            <li>
+	                                                <apex:outputLink value="{!asset['AssetUrl']}" target="_blank" onclick="PrX.logListingActivity('{!currentListing.Id}', '{!asset.Id}');"> 
+	                                                    <apex:outputText value="{!asset.Name}"/>
+	                                                </apex:outputLink>
+	                                            </li>
+	                                        </apex:repeat>
+										</ul>
+									</apex:outputPanel>
+								</div>
+							</div>
+						    <div class="prx-content-primary2">
+								<div class="prx-content-primary2-inner">
+								    <apex:outputPanel layout="block" styleClass="prx-screenshot-wrapper" id="prx_screenshot_slider" rendered="{!AND(mediaAssets != null, mediaAssets.size > 0)}">
+							            <div id="slider" class="flexslider">
+                                            <ul class="slides">
+                                                <apex:repeat var="asset" value="{!mediaAssets}">
+                                                    <c:listingAsset id="asset" asset="{!asset}" assetPlacement="slider"/>
+                                                </apex:repeat>
+                                            </ul>
+			 		                    </div>
+							            
+										<div id="carousel" class="flexslider">
+											<ul class="slides">
+                                                <apex:repeat var="asset" value="{!mediaAssets}">
+                                                    <c:listingAsset id="asset" asset="{!asset}" assetPlacement="carousel"/>
+                                                </apex:repeat>
+                                                
+                                                <script type="text/javascript">      
+														//<![CDATA[
+                                                   		PrX.fancyboxJSON = [   
+                                                   			<apex:variable value="{!0}" var="count"/>
+                                                   			
+                                                   			<apex:repeat var="asset" value="{!mediaAssets}">   
+										 	       		 		<apex:outputPanel rendered="{!count!=0}" layout="none">
+																	,
+																</apex:outputPanel>
+										 	       		 		<apex:outputPanel layout="none" rendered="{!asset.isVideoType && asset['VideoType'] == 'YouTube'}">
+										             				{	             		
+										                 				href : 'https://www.youtube.com/embed/{!asset['VideoEmbedId']}?rel=0&amp;enablejsapi=1&amp;wmode=transparent',                
+										                 				title : <apex:outputText value="'{!JSINHTMLENCODE(asset['Caption'])}'" />,
+										                 				type: 'iframe'
+										             				}
+										             			</apex:outputPanel>  
+										             			<apex:outputPanel layout="none" rendered="{!asset.isVideoType && asset['VideoType'] == 'Vimeo'}">
+										             				{	             		
+										                 				href : 'https://player.vimeo.com/video/{!asset['VideoEmbedId']}?api=1&amp;player_id=vimeo_{!asset.Id}',                
+										                 				title : <apex:outputText value="'{!JSINHTMLENCODE(asset['Caption'])}'" />,
+										                 				type: 'iframe'
+										             				}
+										             			</apex:outputPanel>     
+										                   		<apex:outputPanel layout="none" rendered="{!asset.isImageType}">
+																	{
+																		href : '{!asset['AssetUrl']}',                
+																		title : <apex:outputText value="'{!JSINHTMLENCODE(asset['Caption'])}'" />,
+																		type : 'image'
+																	}
+																</apex:outputPanel>
+																
+										             			<apex:variable value="{!count +1}" var="count"/>     
+									             			</apex:repeat> 
+									         			];
+													//]]>
+												</script>
+											</ul>
+										</div>
+					                </apex:outputPanel>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+                </div>
+                <apex:outputPanel layout="block" styleClass="prx-content-block prx-content-block-results prx-content-block-similar" rendered="{!AND(similarListings != null, similarListings.size > 0)}">
+                    <div class="prx-content-content">
+                        <div class="prx-content-content-inner">
+									<div class="prx-content-single">
+										<div class="prx-content-single-inner">
+											<div class="prx-results">
+												<div class="prx-results-inner">
+													<div class="prx-tile-header">
+													    <h2>{!$Label.privateappex__Similar_Apps}</h2>
+													</div>
+													<ul class="prx-ul-reset prx-ul-results prx-ul-results-oneline">
+                                                        <apex:repeat var="listing" value="{!similarListings}">
+                                                            <li class="prx-li-tile">
+			                                                    <c:tile id="tile" listing="{!listing}"/>
+                                                            </li>
+			                                            </apex:repeat>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+						</div>
+					</div>
+				</apex:outputPanel>
+				
+				<c:accessRequestOverlay id="accessRequestOverlay" listing="{!currentListing}"/>
+				
+            </apex:outputPanel>
+            <apex:outputPanel rendered="{!NOT(error)}">
+            	<script>
+                // tiny helper function to create flexible widths
+                function getItemWidth() {
+                    return 118;
+                }                
+                
+                $(document).ready(function() {
+                	jQuery('.prx-tile').prxTileActions('init');
+                
+                    // The slider being synced must be initialized first
+                    $('#carousel').flexslider({
+						animation: "slide",
+						controlNav: false,
+						animationLoop: false,
+						slideshow: false,
+						itemWidth: getItemWidth(),
+						itemMargin: 0,
+						maxitems: 3,
+						asNavFor: '#slider'
+                    });
+   
+                    $('#slider').flexslider({
+						animation: "slide",
+						controlNav: false,
+						animationLoop: false,
+						slideshow: false,
+						sync: "#carousel",
+						before: function(slider){
+							if (slider.slides.eq(slider.currentSlide).find('iframe').length !== 0) {
+						       $f( slider.slides.eq(slider.currentSlide).find('iframe').attr('id') ).api('pause');
+						    }
+						       
+						    PrX.pauseVideo();
+						},
+						after: function(slider){
+							var assetId;
+							
+							PrX.fancyboxAssetIndex = slider.currentSlide;
+							
+							if (slider.slides.eq(slider.currentSlide).find('img').length !== 0) {
+								assetId = slider.slides.eq(slider.currentSlide).find('img').attr('id');
+							}
+						    
+						    if (slider.slides.eq(slider.currentSlide).find('iframe').length !== 0) {
+						    	assetId = slider.slides.eq(slider.currentSlide).find('iframe').attr('id');
+						    }
+						       
+						    PrX.logListingActivity('{!currentListing.Id}', assetId);
+						}
+                    });
+  
+                    $('#slider li img').click(function(event){
+						event.preventDefault();
+						
+						PrX.openFancybox();
+						
+						PrX.logListingActivity('{!currentListing.Id}', event.target.id);
+                    });
+                    
+                    $('.prx-tab').click(function(event){
+                        PrX.toggleContentTabs();
+                    });
+                });
+		
+                function computeActButtonAction(){
+                	if({!IsOpenAppAction}){
+                		window.location = '{!actionButtonUrl}';
+                	}else{
+	                	if({!deviceMatchesAppType}){
+	                		createListingInstall();
+	                	}else{
+                            jQuery('#prx_overlay_installwrongos').dialog('open');
+	                	}
+	                }
+            	}
+				
+            	function goToMobileInstallUrl(){
+            		window.location = '{!actionButtonUrl}';
+            	}
+		    </script>
+            </apex:outputPanel>
+        </apex:define>
+    </apex:composition>
+    
+</apex:page>

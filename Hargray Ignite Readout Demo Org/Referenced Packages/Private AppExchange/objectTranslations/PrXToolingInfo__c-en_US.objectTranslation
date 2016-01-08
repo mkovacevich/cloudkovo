@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Private AppExchange Tooling Info</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Private AppExchange Tooling Info</value>
+    </caseValues>
+    <fields>
+        <label><!-- Consumer Key --></label>
+        <name>ConsumerKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consumer Secret --></label>
+        <name>ConsumerSecret__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pwd --></label>
+        <name>Pwd__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tooling Url --></label>
+        <name>ToolingUrl__c</name>
+    </fields>
+    <fields>
+        <label><!-- Username --></label>
+        <name>Username__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

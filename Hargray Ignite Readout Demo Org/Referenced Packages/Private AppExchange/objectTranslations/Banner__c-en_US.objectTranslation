@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Banner</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Banners</value>
+    </caseValues>
+    <fields>
+        <help><!-- The store for which this banner is displayed. --></help>
+        <label><!-- Store --></label>
+        <name>Store__c</name>
+        <relationshipLabel><!-- Banners --></relationshipLabel>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

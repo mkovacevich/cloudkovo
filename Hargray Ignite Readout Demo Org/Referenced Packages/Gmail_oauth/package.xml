@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Gmail_oauth</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <modules>
+        <module>
+            <label>Gmail_oauth</label>
+            <moduleType>connected</moduleType>
+            <name>Gmail_oauth</name>
+            <types>
+                <members>Gmail_oauth_devConfig</members>
+                <name>ConnectivityDevConfigMetadata</name>
+            </types>
+            <types>
+                <members>applauncher__Gmail_oauth</members>
+                <name>Module</name>
+            </types>
+            <version>1.0</version>
+        </module>
+    </modules>
+    <namespacePrefix>applauncher</namespacePrefix>
+    <version>35.0</version>
+</Package>

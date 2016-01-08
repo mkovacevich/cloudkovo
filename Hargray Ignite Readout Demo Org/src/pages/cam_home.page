@@ -1,0 +1,100 @@
+<apex:page docType="html-5.0" sidebar="false" showHeader="false"
+    standardStylesheets="false" cache="false" controller="cam_Proxy">
+    <html lang="en"> 
+    <head>
+    <title>Cam Home</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" ></meta>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="initial-scale=.5, minimum-scale=.5, maximum-scale=.5"/>
+    <apex:stylesheet value="{!URLFOR($Resource[staticResource],cssPath)}" />
+
+    <script>
+        CAM_landingPage =  "{!$Page.cam_home}";
+        CAM_loginURL    = "{!$Page.cam_home_login}";
+        
+        function redirectTo(to){
+            var path='';
+
+            switch(to){
+                case 'SignIn': path =CAM_loginURL+'?startURL='+CAM_landingPage ;
+                                     //window.CAM_loginURL+'?startURL='+CAM_landingPage ;
+                        break;
+                default: path = to;     
+            }
+            window.location = path;
+        }
+    </script>
+    <style>
+    .table_action{
+        width: 100%;
+    }
+    .table_action tr {
+        border-top:1px solid #fff;
+        border-bottom:1px solid #C6C7C9;
+        padding:10px 20px;
+        text-transform:uppercase;
+        cursor:pointer;
+        background: #e9ecee; /* Old browsers */
+        background: -moz-linear-gradient(top, #e9ecee 0%, #dee0e2 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e9ecee), color-stop(100%,#dee0e2)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top, #e9ecee 0%,#dee0e2 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top, #e9ecee 0%,#dee0e2 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top, #e9ecee 0%,#dee0e2 100%); /* IE10+ */
+        background: linear-gradient(top bottom, #e9ecee 0%,#dee0e2 100%); /* W3C */
+    }
+    .table_action td.comIcon{
+         padding: 10px; 
+    }
+    </style>
+    </head>
+    <body>
+
+
+    <div id="container"><header id="app_header">
+    <div class="homeTitle">
+    <div class="titleLabel">Chatter Answers</div>
+    <div class="icon headerIcon"></div>
+    </div>
+    </header> <section>
+    <div class="homePage_landing"></div>
+    </section>
+
+    <div id="" class="home_pageOptions">
+
+    <table class="table_action" cellpadding="20" cellspacing="0">
+        <apex:repeat value="{!Communities}" var="maps">
+            <tr onclick="redirectTo('{!$Page.cam_feed}?mainFeed/{!maps['communityId__c']}/')">
+                <td class="comIcon"> <apex:image url="{!URLFOR($Resource[maps['staticResourceName__c']], maps['iconPath__c'])}"
+                    height="60" /></td>
+                <td>
+                    <b style="word-wrap: break-word;">{!maps['communityDCLabel__c']}</b>
+                </td>
+                <td> <img
+                    alt="Click to access {!maps['communityDCLabel__c']} community"
+                    class="icon homeArrowIcon" src="/s.gif" />
+                 </td>
+            </tr>
+        </apex:repeat>
+    </table>
+
+    </div>
+    <footer style="text-align: center;font-size: 18px;"> <a
+        style="text-decoration: none; color: grey; cursor: pointer;"
+        id="redirectToSignIn" onclick="redirectTo('SignIn')">Sign in</a> - <a
+        style="text-decoration: none; color: grey;" href="javascript:void(0);">Terms
+    of Use</a> - <a style="text-decoration: none; color: grey;"
+        href="javascript:void(0);">Privacy</a> </footer></div>
+
+    </body>
+    </html>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46606102-1', 'salesforce.com');
+  ga('send', 'pageview');
+
+</script>
+</apex:page>

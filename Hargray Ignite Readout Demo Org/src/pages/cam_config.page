@@ -1,0 +1,48 @@
+<apex:page sidebar="false" standardStylesheets="false" cache="false" controller="cam_ConfigController">
+<html>
+<head>
+<apex:stylesheet value="{!URLFOR($Resource.cam_config,'camstyle.css')}" />
+<script> window.baseUrlFragment = "{!URLFOR($Resource.cam_config)}"; </script>
+<script data-main="{!URLFOR($Resource.cam_config, 'js/app')}" src="{!URLFOR($Resource.cam_config, 'js/require.js')}"></script>
+<title>Cam Config</title>
+</head>
+<body>
+<apex:pageBlock title="Chatter Answers Mobile">
+<apex:facet name="header"> 
+	<p style="margin: 3px 0px 5px 5px;font-size: 110%;">Chatter Answers Mobile </p>
+	<p style="margin: 0px 2px 0px 10px;">Chatter Answers Mobile requires that Chatter Answers is enabled and properly configured in your org before it
+	can work.</p>
+	<p style="margin: 0px 2px 8px 10px;">Much of the information below is redundant with Chatter Answers but required for the Mobile App to work correctly.</p>
+</apex:facet>
+<div id="app_splash"><apex:image id="cammainloader" value="{!URLFOR($Resource.cam_config, 'camimgs/mainloader.gif')}" alt="Loading..."/></div>
+<div id="app_Container" class="camnodisplay">
+    <p class="camsectiontitle">Global Setup</p><br/>
+    <div id="camsetupviewcontainer"></div>
+    <p class="camsectiontitle"> Chatter Answers Mobile Options</p><br/>
+    <div id="cammoderatorstab">
+        <div id="camtabtitle" style="font-size:110%;">Manage Moderators</div>
+        <div id="cammoderatorsviewcontainer"></div>
+    </div>
+    <div id="camknowledgearticlestab">
+        <div id="camtabtitle" style="font-size:110%;">Manage Knowledge Articles</div>
+        <div id="camkaviewcontainer"></div>
+    </div>
+    <div id="camsitestab">
+        <div id="camtabtitle" style="font-size:110%;">Manage Sites</div>
+        <div id="camsitesviewcontainer"></div>
+    </div>
+</div>
+</apex:pageBlock>
+</body>
+</html>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46606102-1', 'salesforce.com');
+  ga('send', 'pageview');
+
+</script>
+</apex:page>
