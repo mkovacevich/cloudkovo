@@ -1,6 +1,6 @@
 public class HESCustomerController {
     public List<public_HES_Customers__x> HESCustomer { get; set; }
-	// A query that returns one record
+	// A query that returns one record (Id)
     public HESCustomerController() {
        HESCustomer = [
             SELECT billingcity__c, billingfirstname__c, billinglastname__c, billingstate__c, 
